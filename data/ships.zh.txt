@@ -1,0 +1,1103 @@
+# ships.zh.txt - 类名|中文名，供 sc-offline-chs 的飞船菜单汉化补丁读取
+AEGS_Avenger_Stalker|圣盾 复仇者 追猎
+AEGS_Avenger_Stalker_PU_AI_Advocacy|圣盾 复仇者 追猎（督导局AI）
+AEGS_Avenger_Stalker_PU_AI_BH|圣盾 复仇者 追猎（赏金猎人AI）
+AEGS_Avenger_Stalker_PU_AI_CIV|圣盾 复仇者 追猎（民用AI）
+AEGS_Avenger_Stalker_PU_AI_CIV_LowFuel|圣盾 复仇者 追猎（民用AI·低燃料）
+AEGS_Avenger_Stalker_PU_AI_CRIM|圣盾 复仇者 追猎（罪犯AI）
+AEGS_Avenger_Stalker_PU_AI_PIR|圣盾 复仇者 追猎（海盗AI）
+AEGS_Avenger_Stalker_PU_AI_SEC_Crusader|圣盾 复仇者 追猎（安保AI·十字军）
+AEGS_Avenger_Stalker_PU_AI_SEC_Microtech|圣盾 复仇者 追猎（安保AI·微科）
+AEGS_Avenger_Titan|圣盾 复仇者 泰坦
+AEGS_Avenger_Titan_AI_Template|圣盾 复仇者 泰坦（AI模板）
+AEGS_Avenger_Titan_PU_AI_CIV|圣盾 复仇者 泰坦（民用AI）
+AEGS_Avenger_Titan_PU_AI_CRIM|圣盾 复仇者 泰坦（罪犯AI）
+AEGS_Avenger_Titan_PU_AI_FF|圣盾 复仇者 泰坦（友军AI）
+AEGS_Avenger_Titan_Renegade|圣盾 复仇者 泰坦变节者
+AEGS_Avenger_Titan_Renegade_PU_AI_CIV|圣盾 复仇者 泰坦变节者（民用AI）
+AEGS_Avenger_Titan_Renegade_PU_AI_CRIM|圣盾 复仇者 泰坦变节者（罪犯AI）
+AEGS_Avenger_Titan_Renegade_Unmanned_FF|圣盾 复仇者 泰坦变节者（无人·FF）
+AEGS_Avenger_Titan_Renegade_Unmanned_Salvage|圣盾 复仇者 泰坦变节者（无人·打捞）
+AEGS_Avenger_Warlock|圣盾 复仇者 术士
+AEGS_Avenger_Warlock_PU_AI_CIV|圣盾 复仇者 术士（民用AI）
+AEGS_Avenger_Warlock_PU_AI_CRIM|圣盾 复仇者 术士（罪犯AI）
+AEGS_Eclipse|圣盾 日蚀
+AEGS_Eclipse_AI_Override|圣盾 日蚀（AI 覆盖）
+AEGS_Eclipse_BIS2950|圣盾 日蚀（2950展会版）
+AEGS_Eclipse_BMBRCK_S03_TEST|圣盾 日蚀（BMBRCK_S03_TEST）
+AEGS_Eclipse_BMBRCK_S05_TEST|圣盾 日蚀（BMBRCK_S05_TEST）
+AEGS_Eclipse_BMBRCK_S10_TEST|圣盾 日蚀（BMBRCK_S10_TEST）
+AEGS_Eclipse_PU_AI_CIV|圣盾 日蚀（民用AI）
+AEGS_Eclipse_PU_AI_CRIM|圣盾 日蚀（罪犯AI）
+AEGS_Eclipse_PU_AI_UEE|圣盾 日蚀（海军AI）
+AEGS_Eclipse_Unmanned_Salvage|圣盾 日蚀（无人·打捞）
+AEGS_Gladius|圣盾 短剑
+AEGS_Gladius_AI_Super|圣盾 短剑（精英AI）
+AEGS_Gladius_AI_Super_CIV|圣盾 短剑（精英AI·民用）
+AEGS_Gladius_AI_Super_CRIM|圣盾 短剑（精英AI·罪犯）
+AEGS_Gladius_Dunlevy|圣盾 短剑 邓莱维
+AEGS_Gladius_EA_AI_PIR|圣盾 短剑（EA_AI_PIR）
+AEGS_Gladius_EA_AI_PIR_Elite|圣盾 短剑（EA_AI_PIR_Elite）
+AEGS_Gladius_PIR|圣盾 短剑 海盗
+AEGS_Gladius_PU_AI_CFP|圣盾 短剑（AI·CFP）
+AEGS_Gladius_PU_AI_CIV|圣盾 短剑（民用AI）
+AEGS_Gladius_PU_AI_CRIM|圣盾 短剑（罪犯AI）
+AEGS_Gladius_PU_AI_CRIM_IK|圣盾 短剑（罪犯AI·九尾）
+AEGS_Gladius_PU_AI_HH|圣盾 短剑（AI·HH）
+AEGS_Gladius_PU_AI_SEC|圣盾 短剑（安保AI）
+AEGS_Gladius_PU_AI_SEC_HurstonDynamics|圣盾 短剑（安保AI·赫斯顿动力）
+AEGS_Gladius_PU_AI_UEE|圣盾 短剑（海军AI）
+AEGS_Gladius_PU_AI_Xenothreat|圣盾 短剑（AI·Xenothreat）
+AEGS_Gladius_Template|圣盾 短剑（模板）
+AEGS_Gladius_Unmanned_Fleetweek2024|圣盾 短剑（无人·2024舰队周）
+AEGS_Gladius_Unmanned_Restoration|圣盾 短剑（无人·修复）
+AEGS_Gladius_Unmanned_Salvage|圣盾 短剑（无人·打捞）
+AEGS_Gladius_Valiant|圣盾 短剑 勇士
+AEGS_Gladius_Valiant_PU_AI_CIV|圣盾 短剑 勇士（民用AI）
+AEGS_Gladius_Valiant_PU_AI_CRIM|圣盾 短剑 勇士（罪犯AI）
+AEGS_Hammerhead|圣盾 锤头鲨
+AEGS_Hammerhead_AI_Super|圣盾 锤头鲨（精英AI）
+AEGS_Hammerhead_AI_Super_CIV|圣盾 锤头鲨（精英AI·民用）
+AEGS_Hammerhead_AI_Super_CRIM|圣盾 锤头鲨（精英AI·罪犯）
+AEGS_Hammerhead_AI_Template_ShipBoarded|圣盾 锤头鲨（AI模板·登舰）
+AEGS_Hammerhead_EA_AI_PIR|圣盾 锤头鲨（EA_AI_PIR）
+AEGS_Hammerhead_GS|圣盾 锤头鲨（GS）
+AEGS_Hammerhead_GS_AI_Template|圣盾 锤头鲨（GS_AI_Template）
+AEGS_Hammerhead_GS_AI_Template_ShipBoarded|圣盾 锤头鲨（GS_AI_Template_ShipBoarded）
+AEGS_Hammerhead_GS_EA_AI_PIR|圣盾 锤头鲨（GS_EA_AI_PIR）
+AEGS_Hammerhead_GS_PU_AI_CIV|圣盾 锤头鲨（GS_PU_AI_CIV）
+AEGS_Hammerhead_GS_PU_AI_CRIM|圣盾 锤头鲨（GS_PU_AI_CRIM）
+AEGS_Hammerhead_GS_PU_AI_NT|圣盾 锤头鲨（GS_PU_AI_NT）
+AEGS_Hammerhead_GS_PU_AI_NT_QIG|圣盾 锤头鲨（GS_PU_AI_NT_QIG）
+AEGS_Hammerhead_GS_PU_AI_UEE|圣盾 锤头鲨（GS_PU_AI_UEE）
+AEGS_Hammerhead_GS_PU_AI_Xenothreat|圣盾 锤头鲨（GS_PU_AI_Xenothreat）
+AEGS_Hammerhead_GS_Unmanned_NineTails|圣盾 锤头鲨（GS_Unmanned_NineTails）
+AEGS_Hammerhead_GS_Unmanned_Salvage|圣盾 锤头鲨（GS_Unmanned_Salvage）
+AEGS_Hammerhead_GS_Unmanned_Template|圣盾 锤头鲨（GS_Unmanned_Template）
+AEGS_Hammerhead_PU_AI_CIV|圣盾 锤头鲨（民用AI）
+AEGS_Hammerhead_PU_AI_CRIM|圣盾 锤头鲨（罪犯AI）
+AEGS_Hammerhead_PU_AI_NT|圣盾 锤头鲨（九尾AI）
+AEGS_Hammerhead_PU_AI_NT_QIG|圣盾 锤头鲨（九尾AI·QIG）
+AEGS_Hammerhead_PU_AI_UEE|圣盾 锤头鲨（海军AI）
+AEGS_Hammerhead_PU_AI_Xenothreat|圣盾 锤头鲨（AI·Xenothreat）
+AEGS_Hammerhead_Showdown|圣盾 锤头鲨 2949展会最佳版
+AEGS_Hammerhead_Unmanned_NineTails|圣盾 锤头鲨（无人·九尾）
+AEGS_Hammerhead_Unmanned_Salvage|圣盾 锤头鲨（无人·打捞）
+AEGS_Idris_M|圣盾 伊德里斯-M
+AEGS_Idris_M_AI_Super|圣盾 伊德里斯-M（精英AI）
+AEGS_Idris_M_AI_Super_CIV|圣盾 伊德里斯-M（精英AI·民用）
+AEGS_Idris_M_AI_Super_Crim|圣盾 伊德里斯-M（精英AI·罪犯）
+AEGS_Idris_M_PU|圣盾 伊德里斯-M（PU）
+AEGS_Idris_M_PU_AI_AOS|圣盾 伊德里斯-M（AOS AI）
+AEGS_Idris_M_PU_AI_FF_BoardedCombat|圣盾 伊德里斯-M（友军AI·BoardedCombat）
+AEGS_Idris_M_PU_AI_GenCrim_BoardedCombat|圣盾 伊德里斯-M（AI·GenCrim_BoardedCombat）
+AEGS_Idris_M_PU_AI_NT|圣盾 伊德里斯-M（九尾AI）
+AEGS_Idris_M_PU_AI_NT_NoInterior|圣盾 伊德里斯-M（九尾AI·NoInterior）
+AEGS_Idris_M_PU_AI_UEE|圣盾 伊德里斯-M（海军AI）
+AEGS_Idris_M_PU_AI_UEE_NoInterior|圣盾 伊德里斯-M（海军AI·NoInterior）
+AEGS_Idris_M_PU_AI_Xenothreat|圣盾 伊德里斯-M（AI·Xenothreat）
+AEGS_Idris_M_PU_AI_Xenothreat_BoardedCombat|圣盾 伊德里斯-M（AI·Xenothreat_BoardedCombat）
+AEGS_Idris_M_PU_AI_Xenothreat_NoneBoarded|圣盾 伊德里斯-M（AI·Xenothreat_NoneBoarded）
+AEGS_Idris_M_PU_GameMaster|圣盾 伊德里斯-M（PU_GameMaster）
+AEGS_Idris_M_PU_Invictus|圣盾 伊德里斯-M（PU_Invictus）
+AEGS_Idris_P|圣盾 伊德里斯-P
+AEGS_Idris_P_AI_Super|圣盾 伊德里斯-P（精英AI）
+AEGS_Idris_P_AI_Super_CIV|圣盾 伊德里斯-P（精英AI·民用）
+AEGS_Idris_P_AI_Super_CRIM|圣盾 伊德里斯-P（精英AI·罪犯）
+AEGS_Idris_P_Collector_Military|圣盾 伊德里斯-P 维克洛战争特别版
+AEGS_Idris_P_FW_25|圣盾 伊德里斯-P（FW_25）
+AEGS_Idris_P_PU_AI_CRIM|圣盾 伊德里斯-P（罪犯AI）
+AEGS_Idris_P_PU_AI_UEE|圣盾 伊德里斯-P（海军AI）
+AEGS_Idris_P_TSG|圣盾 伊德里斯-P（TSG）
+AEGS_Javelin|圣盾 标枪
+AEGS_Javelin_PU_AI_UEE|圣盾 标枪（海军AI）
+AEGS_Javelin_PU_AI_UEE_FleetWeek|圣盾 标枪（海军AI·FleetWeek）
+AEGS_Javelin_PU_AI_UEE_FleetWeek_2021|圣盾 标枪（海军AI·FleetWeek_2021）
+AEGS_Reclaimer|圣盾 回收者
+AEGS_Reclaimer_AI_CIV_ShipBoarded|圣盾 回收者（民用AI·ShipBoarded）
+AEGS_Reclaimer_AI_CIV_ShipBoarded_NoCargo|圣盾 回收者（民用AI·ShipBoarded_NoCargo）
+AEGS_Reclaimer_AI_Template_ShipBoarded|圣盾 回收者（AI模板·登舰）
+AEGS_Reclaimer_BIS2024_Temp|圣盾 回收者（2024展会版）
+AEGS_Reclaimer_PU_AI_CIV|圣盾 回收者（民用AI）
+AEGS_Reclaimer_PU_AI_CIV_DEF|圣盾 回收者（民用AI·防御）
+AEGS_Reclaimer_PU_AI_CRIM|圣盾 回收者（罪犯AI）
+AEGS_Reclaimer_PU_AI_NineTails|圣盾 回收者（AI·NineTails）
+AEGS_Reclaimer_PU_Hijacked|圣盾 回收者（PU_Hijacked）
+AEGS_Reclaimer_PU_Hijacked_A|圣盾 回收者（PU_Hijacked_A）
+AEGS_Reclaimer_PU_Hijacked_b|圣盾 回收者（PU_Hijacked_b）
+AEGS_Reclaimer_PU_Hijacked_c|圣盾 回收者（PU_Hijacked_c）
+AEGS_Reclaimer_Showdown|圣盾 回收者 2949展会最佳版
+AEGS_Reclaimer_Teach|圣盾 回收者 蒂奇特别版
+AEGS_Reclaimer_Unmanned_Salvage|圣盾 回收者（无人·打捞）
+AEGS_Redeemer|圣盾 救赎者
+AEGS_Redeemer_PU_AI_CIV|圣盾 救赎者（民用AI）
+AEGS_Redeemer_PU_AI_CRIM|圣盾 救赎者（罪犯AI）
+AEGS_Redeemer_Unmanned_Salvage|圣盾 救赎者（无人·打捞）
+AEGS_Retaliator|圣盾 报复者
+AEGS_Retaliator_PU_AI_CRIM|圣盾 报复者（罪犯AI）
+AEGS_Retaliator_PU_AI_MTS|圣盾 报复者（AI·MTS）
+AEGS_Retaliator_PU_AI_UEE|圣盾 报复者（海军AI）
+AEGS_Retaliator_Unmanned_Salvage|圣盾 报复者（无人·打捞）
+AEGS_Sabre|圣盾 军刀
+AEGS_Sabre_Comet|圣盾 军刀 彗星
+AEGS_Sabre_Comet_PU_AI_CIV|圣盾 军刀 彗星（民用AI）
+AEGS_Sabre_Comet_PU_AI_CRIM|圣盾 军刀 彗星（罪犯AI）
+AEGS_Sabre_Comet_PU_AI_UEE|圣盾 军刀 彗星（海军AI）
+AEGS_Sabre_Firebird|圣盾 军刀 火鸟
+AEGS_Sabre_Firebird_AI_Template|圣盾 军刀 火鸟（AI模板）
+AEGS_Sabre_Firebird_Collector_Milt|圣盾 军刀 火鸟（Collector_Milt）
+AEGS_Sabre_Firebird_PU_AI_CIV|圣盾 军刀 火鸟（民用AI）
+AEGS_Sabre_Firebird_PU_AI_CRIM|圣盾 军刀 火鸟（罪犯AI）
+AEGS_Sabre_Firebird_PU_AI_FF|圣盾 军刀 火鸟（友军AI）
+AEGS_Sabre_Peregrine|圣盾 军刀 游隼
+AEGS_Sabre_Peregrine_Collector_Competition|圣盾 军刀 游隼（竞赛收藏版）
+AEGS_Sabre_Peregrine_PU_AI_CIV|圣盾 军刀 游隼（民用AI）
+AEGS_Sabre_Peregrine_PU_AI_CRIM|圣盾 军刀 游隼（罪犯AI）
+AEGS_Sabre_PU_AI_CIV|圣盾 军刀（民用AI）
+AEGS_Sabre_PU_AI_CRIM|圣盾 军刀（罪犯AI）
+AEGS_Sabre_PU_AI_SEC_BlacJac|圣盾 军刀（安保AI·BlacJac）
+AEGS_Sabre_PU_AI_SEC_Hurston|圣盾 军刀（安保AI·赫斯顿）
+AEGS_Sabre_PU_AI_UEE|圣盾 军刀（海军AI）
+AEGS_Sabre_PU_AI_Xenothreat|圣盾 军刀（AI·Xenothreat）
+AEGS_Sabre_Raven|圣盾 军刀 渡鸦
+AEGS_Sabre_Raven_EX|圣盾 军刀 渡鸦 EX
+AEGS_Sabre_Raven_PU_AI_CIV|圣盾 军刀 渡鸦（民用AI）
+AEGS_Sabre_Raven_PU_AI_CRIM|圣盾 军刀 渡鸦（罪犯AI）
+AEGS_Sabre_Unmanned_Salvage|圣盾 军刀（无人·打捞）
+AEGS_Tiburon|圣盾 狂鲨
+AEGS_Tiburon_PU_AI_CIV|圣盾 狂鲨（民用AI）
+AEGS_Tiburon_PU_AI_CRIM|圣盾 狂鲨（罪犯AI）
+AEGS_Vanguard|圣盾 先锋 典狱长
+AEGS_Vanguard_EA_AI_PIR|圣盾 先锋 典狱长（EA_AI_PIR）
+AEGS_Vanguard_Harbinger|圣盾 先锋 先驱
+AEGS_Vanguard_Harbinger_PU_AI_CIV|圣盾 先锋 先驱（民用AI）
+AEGS_Vanguard_Harbinger_PU_AI_CRIM|圣盾 先锋 先驱（罪犯AI）
+AEGS_Vanguard_Harbinger_Unmanned_Salvage|圣盾 先锋 先驱（无人·打捞）
+AEGS_Vanguard_Hoplite|圣盾 先锋 重装兵
+AEGS_Vanguard_Hoplite_PU_AI_CIV|圣盾 先锋 重装兵（民用AI）
+AEGS_Vanguard_Hoplite_PU_AI_CRIM|圣盾 先锋 重装兵（罪犯AI）
+AEGS_Vanguard_Hoplite_Unmanned_Salvage|圣盾 先锋 重装兵（无人·打捞）
+AEGS_Vanguard_PU_AI_CIV|圣盾 先锋 典狱长（民用AI）
+AEGS_Vanguard_PU_AI_CRIM|圣盾 先锋 典狱长（罪犯AI）
+AEGS_Vanguard_PU_AI_SEC_BlacJac|圣盾 先锋 典狱长（安保AI·BlacJac）
+AEGS_Vanguard_PU_AI_SEC_Crusader|圣盾 先锋 典狱长（安保AI·十字军）
+AEGS_Vanguard_PU_AI_SEC_Hurston|圣盾 先锋 典狱长（安保AI·赫斯顿）
+AEGS_Vanguard_PU_AI_UEE|圣盾 先锋 典狱长（海军AI）
+AEGS_Vanguard_PU_AI_Xenothreat|圣盾 先锋 典狱长（AI·Xenothreat）
+AEGS_Vanguard_Sentinel|圣盾 先锋 哨兵
+AEGS_Vanguard_Sentinel_PU_AI_CIV|圣盾 先锋 哨兵（民用AI）
+AEGS_Vanguard_Sentinel_PU_AI_CRIM|圣盾 先锋 哨兵（罪犯AI）
+AEGS_Vanguard_Sentinel_Unmanned_Salvage|圣盾 先锋 哨兵（无人·打捞）
+AEGS_Vanguard_Unmanned_Salvage|圣盾 先锋 典狱长（无人·打捞）
+ANVL_Arrow|铁砧 箭矢
+ANVL_Arrow_PU_AI_CIV|铁砧 箭矢（民用AI）
+ANVL_Arrow_PU_AI_CRIM|铁砧 箭矢（罪犯AI）
+ANVL_Arrow_PU_AI_CRIM_Distortion|铁砧 箭矢（罪犯AI·Distortion）
+ANVL_Arrow_PU_AI_FF|铁砧 箭矢（友军AI）
+ANVL_Arrow_PU_AI_SEC_BlacJac|铁砧 箭矢（安保AI·BlacJac）
+ANVL_Arrow_PU_AI_Xenothreat|铁砧 箭矢（AI·Xenothreat）
+ANVL_Arrow_Unmanned_Salvage|铁砧 箭矢（无人·打捞）
+ANVL_Asgard|铁砧 阿斯加德
+ANVL_Asgard_Collector_Military|铁砧 阿斯加德 维克洛战争特别版
+ANVL_Asgard_PU_AI_CIV|铁砧 阿斯加德（民用AI）
+ANVL_Asgard_PU_AI_CRIM|铁砧 阿斯加德（罪犯AI）
+ANVL_Ballista|铁砧 弩炮
+ANVL_Ballista_Dunestalker|铁砧 弩炮 沙丘追猎者
+ANVL_Ballista_EA_Outlaw|铁砧 弩炮（EA_Outlaw）
+ANVL_Ballista_EA_UEE|铁砧 弩炮（EA_UEE）
+ANVL_Ballista_PU_AI_NT|铁砧 弩炮（九尾AI）
+ANVL_Ballista_Snowblind|铁砧 弩炮 雪盲
+ANVL_C8_Pisces|铁砧 C8 双鱼座
+ANVL_C8_Pisces_PU_AI_CIV|铁砧 C8 双鱼座（民用AI）
+ANVL_C8_Pisces_PU_AI_CRIM|铁砧 C8 双鱼座（罪犯AI）
+ANVL_C8_Pisces_Tutorial|铁砧 C8 双鱼座（Tutorial）
+ANVL_C8R_Pisces|铁砧 双鱼座 C8R
+ANVL_C8R_Pisces_FW22NFZ|铁砧 双鱼座 C8R（FW22NFZ）
+ANVL_C8R_Pisces_PU_AI_CIV|铁砧 双鱼座 C8R（民用AI）
+ANVL_C8R_Pisces_PU_AI_CRIM|铁砧 双鱼座 C8R（罪犯AI）
+ANVL_C8X_Pisces_Expedition|铁砧 C8X 双鱼座 远征
+ANVL_C8X_Pisces_Expedition_PU_AI_CIV|铁砧 C8X 双鱼座 远征（民用AI）
+ANVL_C8X_Pisces_Expedition_PU_AI_CRIM|铁砧 C8X 双鱼座 远征（罪犯AI）
+ANVL_Carrack|铁砧 克拉克
+ANVL_Carrack_AI_Template_ShipBoarded|铁砧 克拉克（AI模板·登舰）
+ANVL_Carrack_BIS2950|铁砧 克拉克（2950展会版）
+ANVL_Carrack_Expedition|铁砧 克拉克 远征版
+ANVL_Carrack_PU_AI_CIV|铁砧 克拉克（民用AI）
+ANVL_Carrack_PU_AI_CIV_DEF|铁砧 克拉克（民用AI·防御）
+ANVL_Carrack_PU_AI_CRIM|铁砧 克拉克（罪犯AI）
+ANVL_Carrack_Unmanned_Salvage|铁砧 克拉克（无人·打捞）
+ANVL_Centurion|铁砧 百夫长
+ANVL_Centurion_AI_NineTails|铁砧 百夫长（AI_NineTails）
+ANVL_Gladiator|铁砧 角斗士
+ANVL_Gladiator_BMBRCK_S03_TEST|铁砧 角斗士（BMBRCK_S03_TEST）
+ANVL_Gladiator_BMBRCK_S05_TEST|铁砧 角斗士（BMBRCK_S05_TEST）
+ANVL_Gladiator_PU_AI_CIV|铁砧 角斗士（民用AI）
+ANVL_Gladiator_PU_AI_CRIM|铁砧 角斗士（罪犯AI）
+ANVL_Gladiator_PU_AI_UEE|铁砧 角斗士（海军AI）
+ANVL_Hawk|铁砧 猎鹰
+ANVL_Hawk_AI_Override|铁砧 猎鹰（AI 覆盖）
+ANVL_Hawk_PU_AI_BH|铁砧 猎鹰（赏金猎人AI）
+ANVL_Hawk_PU_AI_CIV|铁砧 猎鹰（民用AI）
+ANVL_Hawk_PU_AI_CRIM|铁砧 猎鹰（罪犯AI）
+ANVL_Hawk_PU_AI_FF|铁砧 猎鹰（友军AI）
+ANVL_Hornet_F7_Mk2_Collector_Mod|铁砧 大黄蜂 F7C-M Mk II（收藏改装版）
+ANVL_Hornet_F7A_AI_Super_CIV|铁砧 F7A 大黄蜂 Mk I（精英AI·民用）
+ANVL_Hornet_F7A_AI_Super_Crim|铁砧 F7A 大黄蜂 Mk I（精英AI·罪犯）
+ANVL_Hornet_F7A_MK1|铁砧 F7A 大黄蜂 Mk I（MK1）
+ANVL_Hornet_F7A_Mk1_PU_AI_FF|铁砧 F7A 大黄蜂 Mk I（Mk1_PU_AI_FF）
+ANVL_Hornet_F7A_Mk1_PU_AI_UEE|铁砧 F7A 大黄蜂 Mk I（Mk1_PU_AI_UEE）
+ANVL_Hornet_F7A_Mk2|铁砧 F7A 大黄蜂 Mk II
+ANVL_Hornet_F7A_Mk2_Exec_Military|铁砧 F7A 大黄蜂 Mk II（行政版·军用）
+ANVL_Hornet_F7A_Mk2_Exec_Stealth|铁砧 F7A 大黄蜂 Mk II（行政版·隐形）
+ANVL_Hornet_F7A_PU_AI_UEE|铁砧 F7A 大黄蜂 Mk I（海军AI）
+ANVL_Hornet_F7C|铁砧 F7C 大黄蜂 Mk I
+ANVL_Hornet_F7C_Mk2|铁砧 F7C 大黄蜂 Mk II
+ANVL_Hornet_F7C_Mk2_AI_Super|铁砧 F7C 大黄蜂 Mk II（精英AI）
+ANVL_Hornet_F7C_Mk2_AI_Super_CIV|铁砧 F7C 大黄蜂 Mk II（精英AI·民用）
+ANVL_Hornet_F7C_Mk2_AI_Super_CRIM|铁砧 F7C 大黄蜂 Mk II（精英AI·罪犯）
+ANVL_Hornet_F7C_Mk2_PU_AI_CRIM|铁砧 F7C 大黄蜂 Mk II（罪犯AI）
+ANVL_Hornet_F7C_PU_AI_Advocacy|铁砧 F7C 大黄蜂 Mk I（督导局AI）
+ANVL_Hornet_F7C_PU_AI_CIV|铁砧 F7C 大黄蜂 Mk I（民用AI）
+ANVL_Hornet_F7C_PU_AI_CRIM|铁砧 F7C 大黄蜂 Mk I（罪犯AI）
+ANVL_Hornet_F7C_PU_AI_UEE|铁砧 F7C 大黄蜂 Mk I（海军AI）
+ANVL_Hornet_F7C_Wildfire|铁砧 F7C 大黄蜂 野火 Mk I
+ANVL_Hornet_F7CM|铁砧 F7C-M 超级大黄蜂 Mk I
+ANVL_Hornet_F7CM_AI_EA_Advocacy|铁砧 F7C-M 超级大黄蜂 Mk I（AI_EA_Advocacy）
+ANVL_Hornet_F7CM_AI_EA_Advocacy_Stunt|铁砧 F7C-M 超级大黄蜂 Mk I（AI_EA_Advocacy_Stunt）
+ANVL_Hornet_F7CM_AI_EA_Advocacy_Stunt_Leader|铁砧 F7C-M 超级大黄蜂 Mk I（AI_EA_Advocacy_Stunt_Leader）
+ANVL_Hornet_F7CM_Heartseeker|铁砧 F7C-M 大黄蜂 寻心者 Mk I
+ANVL_Hornet_F7CM_Mk2|铁砧 F7C-M 超级大黄蜂 MK II
+ANVL_Hornet_F7CM_Mk2_Heartseeker|铁砧 F7C-M 超级大黄蜂 MK II（Heartseeker）
+ANVL_Hornet_F7CM_PU_AI_CIV|铁砧 F7C-M 超级大黄蜂 Mk I（民用AI）
+ANVL_Hornet_F7CM_PU_AI_CRIM|铁砧 F7C-M 超级大黄蜂 Mk I（罪犯AI）
+ANVL_Hornet_F7CM_PU_AI_UEE|铁砧 F7C-M 超级大黄蜂 Mk I（海军AI）
+ANVL_Hornet_F7CR|铁砧 F7C-R 大黄蜂 追踪者 Mk I
+ANVL_Hornet_F7CR_AI_Super|铁砧 F7C-R 大黄蜂 追踪者 Mk I（精英AI）
+ANVL_Hornet_F7CR_AI_Super_CIV|铁砧 F7C-R 大黄蜂 追踪者 Mk I（精英AI·民用）
+ANVL_Hornet_F7CR_AI_Super_CRIM|铁砧 F7C-R 大黄蜂 追踪者 Mk I（精英AI·罪犯）
+ANVL_Hornet_F7CR_Mk2|铁砧 F7C-R 大黄蜂 追踪者 Mk II
+ANVL_Hornet_F7CR_PU_AI_CIV|铁砧 F7C-R 大黄蜂 追踪者 Mk I（民用AI）
+ANVL_Hornet_F7CR_PU_AI_CRIM|铁砧 F7C-R 大黄蜂 追踪者 Mk I（罪犯AI）
+ANVL_Hornet_F7CR_PU_AI_UEE|铁砧 F7C-R 大黄蜂 追踪者 Mk I（海军AI）
+ANVL_Hornet_F7CR_PU_AI_UEE_Warlord|铁砧 F7C-R 大黄蜂 追踪者 Mk I（海军AI·Warlord）
+ANVL_Hornet_F7CS|铁砧 F7C-S 大黄蜂 幽灵 Mk I
+ANVL_Hornet_F7CS_Mk2|铁砧 F7C-S 大黄蜂 幽灵 Mk II
+ANVL_Hornet_F7CS_PU_AI_CIV|铁砧 F7C-S 大黄蜂 幽灵 Mk I（民用AI）
+ANVL_Hornet_F7CS_PU_AI_CRIM|铁砧 F7C-S 大黄蜂 幽灵 Mk I（罪犯AI）
+ANVL_Hornet_F7CS_PU_AI_UEE|铁砧 F7C-S 大黄蜂 幽灵 Mk I（海军AI）
+ANVL_Hornet_F7CS_PU_AI_UEE_Vixen|铁砧 F7C-S 大黄蜂 幽灵 Mk I（海军AI·Vixen）
+ANVL_Hurricane|铁砧 飓风
+ANVL_Hurricane_PU_AI_CIV|铁砧 飓风（民用AI）
+ANVL_Hurricane_PU_AI_CRIM|铁砧 飓风（罪犯AI）
+ANVL_Hurricane_PU_AI_FF|铁砧 飓风（友军AI）
+ANVL_Hurricane_PU_AI_MTS|铁砧 飓风（AI·MTS）
+ANVL_Hurricane_PU_AI_UEE|铁砧 飓风（海军AI）
+ANVL_Lightning_F8|铁砧 F8A 闪电
+ANVL_Lightning_F8_AI_CRIM|铁砧 F8A 闪电（罪犯AI）
+ANVL_Lightning_F8_AI_Super_CIV|铁砧 F8A 闪电（精英AI·民用）
+ANVL_Lightning_F8_AI_Super_CRIM|铁砧 F8A 闪电（精英AI·罪犯）
+ANVL_Lightning_F8_FleetWeek|铁砧 F8A 闪电（FleetWeek）
+ANVL_Lightning_F8_Fleetweek_DarkBlue|铁砧 F8A 闪电（Fleetweek_DarkBlue）
+ANVL_Lightning_F8_Fleetweek_Grey|铁砧 F8A 闪电（Fleetweek_Grey）
+ANVL_Lightning_F8_Fleetweek_LightBlue|铁砧 F8A 闪电（Fleetweek_LightBlue）
+ANVL_Lightning_F8_Fleetweek_White|铁砧 F8A 闪电（Fleetweek_White）
+ANVL_Lightning_F8_PU_AI_UEE|铁砧 F8A 闪电（海军AI）
+ANVL_Lightning_F8C|铁砧 F8C 闪电
+ANVL_Lightning_F8C_BIS2024_Temp|铁砧 F8C 闪电（2024展会版）
+ANVL_Lightning_F8C_Collector_Military|铁砧 F8C 闪电 维克洛战争特别版
+ANVL_Lightning_F8C_Collector_Stealth|铁砧 F8C 闪电 维克洛鬼祟特别版
+ANVL_Lightning_F8C_Exec|铁砧 F8C 闪电 行政版
+ANVL_Lightning_F8C_Exec_Military|铁砧 F8C 闪电 行政版（Military）
+ANVL_Lightning_F8C_Exec_Stealth|铁砧 F8C 闪电 行政版（Stealth）
+ANVL_Lightning_F8C_Plat|铁砧 F8C 闪电（Plat）
+ANVL_Paladin|铁砧 圣骑士
+ANVL_Paladin_AI_Super_CIV|铁砧 圣骑士（精英AI·民用）
+ANVL_Paladin_AI_Super_CRIM|铁砧 圣骑士（精英AI·罪犯）
+ANVL_Paladin_PU_AI_CRIM|铁砧 圣骑士（罪犯AI）
+ANVL_Spartan|铁砧 斯巴达
+ANVL_Terrapin|铁砧 水龟
+ANVL_Terrapin_BIS2024_Temp|铁砧 水龟（2024展会版）
+ANVL_Terrapin_Medic|铁砧 水龟 医疗
+ANVL_Terrapin_Medic_AI_Template|铁砧 水龟 医疗（AI模板）
+ANVL_Terrapin_Medic_Collector_Medic|铁砧 水龟 医疗 维克洛拯救者特别版
+ANVL_Terrapin_Medic_PU_AI_CIV|铁砧 水龟 医疗（民用AI）
+ANVL_Terrapin_Medic_PU_AI_CRIM|铁砧 水龟 医疗（罪犯AI）
+ANVL_Terrapin_PU_AI_CIV|铁砧 水龟（民用AI）
+ANVL_Terrapin_PU_AI_CRIM|铁砧 水龟（罪犯AI）
+ANVL_Terrapin_Unmanned_Salvage|铁砧 水龟（无人·打捞）
+ANVL_Valkyrie|铁砧 女武神
+ANVL_Valkyrie_Advocacy|铁砧 女武神（Advocacy）
+ANVL_Valkyrie_AI_DefendShip|铁砧 女武神（AI·护卫）
+ANVL_Valkyrie_AI_Dropship|铁砧 女武神（AI_Dropship）
+ANVL_Valkyrie_AI_EA_Advocacy|铁砧 女武神（AI_EA_Advocacy）
+ANVL_Valkyrie_AI_EA_Advocacy_Spawn|铁砧 女武神（AI_EA_Advocacy_Spawn）
+ANVL_Valkyrie_AI_PU_AI_CFP|铁砧 女武神（AI_PU_AI_CFP）
+ANVL_Valkyrie_AI_PU_AI_HeadHunters|铁砧 女武神（AI_PU_AI_HeadHunters）
+ANVL_Valkyrie_AI_PU_AI_Ninetails|铁砧 女武神（AI_PU_AI_Ninetails）
+ANVL_Valkyrie_AI_PU_AI_Xenothreat|铁砧 女武神（AI_PU_AI_Xenothreat）
+ANVL_Valkyrie_BIS2950|铁砧 女武神（2950展会版）
+ANVL_Valkyrie_CitizenCon|铁砧 女武神 解放者
+ANVL_Valkyrie_Indestructible|铁砧 女武神（Indestructible）
+ANVL_Valkyrie_PU_AI_Advocacy|铁砧 女武神（督导局AI）
+ANVL_Valkyrie_PU_AI_BH_QIG|铁砧 女武神（赏金猎人AI·QIG）
+ANVL_Valkyrie_PU_AI_CIV|铁砧 女武神（民用AI）
+ANVL_Valkyrie_PU_AI_CRIM|铁砧 女武神（罪犯AI）
+ANVL_Valkyrie_PU_AI_FF|铁砧 女武神（友军AI）
+ANVL_Valkyrie_PU_AI_NT|铁砧 女武神（九尾AI）
+ANVL_Valkyrie_PU_AI_NT_QIG|铁砧 女武神（九尾AI·QIG）
+ANVL_Valkyrie_PU_AI_SEC_Hurston|铁砧 女武神（安保AI·赫斯顿）
+ANVL_Valkyrie_PU_AI_SEC_MicroTech|铁砧 女武神（安保AI·MicroTech）
+ANVL_Valkyrie_PU_AI_Xenothreat|铁砧 女武神（AI·Xenothreat）
+ANVL_Valkyrie_Unmanned_NineTails|铁砧 女武神（无人·九尾）
+ANVL_Valkyrie_Unmanned_Salvage|铁砧 女武神（无人·打捞）
+ARGO_CSV_Cargo|南船座 CSV-SM\n
+ARGO_Mole|南船座 鼹鼠
+ARGO_MOLE_BTALA|南船座 鼹鼠（BTALA）
+ARGO_MOLE_PU_AI_CIV|南船座 鼹鼠（民用AI）
+ARGO_MOLE_PU_AI_CRIM|南船座 鼹鼠（罪犯AI）
+ARGO_MOLE_Teach|南船座 鼹鼠 蒂奇特别版
+ARGO_MOLE_Unmanned_Salvage|南船座 鼹鼠（无人·打捞）
+ARGO_MOTH|南船座 飞蛾
+ARGO_MOTH_PU_AI_CIV|南船座 飞蛾（民用AI）
+ARGO_MOTH_PU_AI_CRIM|南船座 飞蛾（罪犯AI）
+Argo_MPUV|南船座 MPUV 货运
+ARGO_MPUV_1T|南船座 MPUV 货运（1T）
+ARGO_MPUV_PU_AI_CIV_LORVILLE|南船座 MPUV 货运（民用AI·LORVILLE）
+ARGO_MPUV_Transport|南船座 MPUV 载人
+ARGO_RAFT|南船座 木筏
+ARGO_RAFT_Collector_Indust|南船座 木筏 维克洛工作特别版
+ARGO_RAFT_PU_AI_CIV|南船座 木筏（民用AI）
+ARGO_RAFT_PU_AI_CIV_DEF|南船座 木筏（民用AI·防御）
+ARGO_RAFT_PU_AI_CRIM|南船座 木筏（罪犯AI）
+ARGO_RAFT_Unmanned_Salvage|南船座 木筏（无人·打捞）
+ARGO_SRV|南船座 SRV
+ARGO_SRV_PU_AI_CIV|南船座 SRV（民用AI）
+ARGO_SRV_PU_AI_CRIM|南船座 SRV（罪犯AI）
+BANU_Defender|巴努 防卫者
+BANU_Defender_Bomb_Test|巴努 防卫者（炸弹测试）
+BANU_Defender_PU_AI_CIV|巴努 防卫者（民用AI）
+BANU_Defender_PU_AI_CRIM|巴努 防卫者（罪犯AI）
+BANU_Defender_PU_AI_DefendShip|巴努 防卫者（AI·DefendShip）
+CNOU_HoverQuad|联合外域 悬浮驷
+CNOU_Mustang_Alpha|联合外域 野马 阿尔法
+CNOU_Mustang_Alpha_CitizenCon2018|联合外域 野马 阿尔法 2948 公民控纪念版
+CNOU_Mustang_Alpha_PU_AI_CIV|联合外域 野马 阿尔法（民用AI）
+CNOU_Mustang_Alpha_PU_AI_CRIM|联合外域 野马 阿尔法（罪犯AI）
+CNOU_Mustang_Beta|联合外域 野马 贝塔
+CNOU_Mustang_Beta_PU_AI_CIV|联合外域 野马 贝塔（民用AI）
+CNOU_Mustang_Beta_PU_AI_CRIM|联合外域 野马 贝塔（罪犯AI）
+CNOU_Mustang_Delta|联合外域 野马 德尔塔
+CNOU_Mustang_Delta_PU_AI_CIV|联合外域 野马 德尔塔（民用AI）
+CNOU_Mustang_Delta_PU_AI_CRIM|联合外域 野马 德尔塔（罪犯AI）
+CNOU_Mustang_Delta_PU_AI_NineTails|联合外域 野马 德尔塔（AI·NineTails）
+CNOU_Mustang_Delta_PU_AI_NT|联合外域 野马 德尔塔（九尾AI）
+CNOU_Mustang_Gamma|联合外域 野马 伽马
+CNOU_Mustang_Gamma_PU_AI_CIV|联合外域 野马 伽马（民用AI）
+CNOU_Mustang_Gamma_PU_AI_CRIM|联合外域 野马 伽马（罪犯AI）
+CNOU_Mustang_Omega|联合外域 野马 欧米伽
+CNOU_Nomad|联合外域 游牧者
+CNOU_Nomad_PU_AI_CIV|联合外域 游牧者（民用AI）
+CNOU_Nomad_PU_AI_CIV_DEF|联合外域 游牧者（民用AI·防御）
+CNOU_Nomad_PU_AI_CRIM|联合外域 游牧者（罪犯AI）
+CNOU_Nomad_Teach|联合外域 游牧者 蒂奇特别版
+CNOU_Nomad_Unmanned|联合外域 游牧者（无人）
+CNOU_Nomad_Unmanned_Salvage|联合外域 游牧者（无人·打捞）
+CRUS_Intrepid|十字军 无畏
+CRUS_Intrepid_Collector_Indust|十字军 无畏（工业收藏版）
+CRUS_Intrepid_PU_AI_CIV|十字军 无畏（民用AI）
+CRUS_Intrepid_PU_AI_CRIM|十字军 无畏（罪犯AI）
+CRUS_Intrepid_Unmanned_Salvage|十字军 无畏（无人·打捞）
+CRUS_Spirit_A1|十字军 精灵 A1
+CRUS_Spirit_A1_AI_CRIM|十字军 精灵 A1（罪犯AI）
+CRUS_Spirit_A1_PU_AI_CIV|十字军 精灵 A1（民用AI）
+CRUS_Spirit_A1_Unmanned_Salvage|十字军 精灵 A1（无人·打捞）
+CRUS_Spirit_C1|十字军 精灵 C1
+CRUS_Spirit_C1_BIS2024_Temp|十字军 精灵 C1（2024展会版）
+CRUS_Spirit_C1_Civilian|十字军 精灵 C1（民用·ilian）
+CRUS_Spirit_C1_PU_AI_CIV|十字军 精灵 C1（民用AI）
+CRUS_Spirit_C1_PU_AI_CRIM|十字军 精灵 C1（罪犯AI）
+CRUS_Spirit_C1_Unmanned|十字军 精灵 C1（无人）
+CRUS_Spirit_C1_Unmanned_Salvage|十字军 精灵 C1（无人·打捞）
+CRUS_Star_Runner|十字军 墨丘利 星际快运船
+CRUS_Star_Runner_AI_Template_ShipBoarded|十字军 墨丘利 星际快运船（AI模板·登舰）
+CRUS_Star_Runner_Mission_PIR_Package|十字军 墨丘利 星际快运船（任务·海盗）
+CRUS_Star_Runner_PU_AI_CIV|十字军 墨丘利 星际快运船（民用AI）
+CRUS_Star_Runner_PU_AI_CIV_DEF|十字军 墨丘利 星际快运船（民用AI·防御）
+CRUS_Star_Runner_PU_AI_CRIM|十字军 墨丘利 星际快运船（罪犯AI）
+CRUS_Star_Runner_Unmanned_Salvage|十字军 墨丘利 星际快运船（无人·打捞）
+CRUS_Starfighter_Inferno|十字军 战神 星际战斗机 地狱火
+CRUS_Starfighter_Inferno_Collector_Military|十字军 战神 星际战斗机 地狱火 维克洛战争特别版
+CRUS_Starfighter_Inferno_PU_AI_CIV|十字军 战神 星际战斗机 地狱火（民用AI）
+CRUS_Starfighter_Inferno_PU_AI_CRIM|十字军 战神 星际战斗机 地狱火（罪犯AI）
+CRUS_Starfighter_Inferno_PU_AI_FF|十字军 战神 星际战斗机 地狱火（友军AI）
+CRUS_Starfighter_Inferno_Unmanned_Salvage|十字军 战神 星际战斗机 地狱火（无人·打捞）
+CRUS_Starfighter_Ion|十字军 战神 星际战斗机 离子光
+CRUS_Starfighter_Ion_Collector_Stealth|十字军 战神 星际战斗机 离子光 维克洛鬼祟特别版
+CRUS_Starfighter_Ion_PU_AI_CIV|十字军 战神 星际战斗机 离子光（民用AI）
+CRUS_Starfighter_Ion_PU_AI_CRIM|十字军 战神 星际战斗机 离子光（罪犯AI）
+CRUS_Starfighter_Ion_Unmanned_Salvage|十字军 战神 星际战斗机 离子光（无人·打捞）
+CRUS_Starfighter_Ion_Unmanned_Template|十字军 战神 星际战斗机 离子光（无人模板）
+CRUS_Starlifter_A2|十字军 大力神 A2 星际运输船
+CRUS_Starlifter_A2_AI_Template_ShipBoarded|十字军 大力神 A2 星际运输船（AI模板·登舰）
+CRUS_Starlifter_A2_Bombless|十字军 大力神 A2 星际运输船（无炸弹）
+CRUS_Starlifter_A2_Collector_Military|十字军 大力神 A2 星际运输船 维克洛战争特别版
+CRUS_Starlifter_A2_EA_PIR|十字军 大力神 A2 星际运输船（EA_PIR）
+CRUS_Starlifter_A2_PU_AI_CIV|十字军 大力神 A2 星际运输船（民用AI）
+CRUS_Starlifter_A2_PU_AI_CRIM|十字军 大力神 A2 星际运输船（罪犯AI）
+CRUS_Starlifter_A2_S3Bombs|十字军 大力神 A2 星际运输船（S3Bombs）
+CRUS_Starlifter_A2_Unmanned_Salvage|十字军 大力神 A2 星际运输船（无人·打捞）
+CRUS_Starlifter_C2|十字军 大力神 C2 星际运输船
+CRUS_Starlifter_C2_AI_Template_ShipBoarded|十字军 大力神 C2 星际运输船（AI模板·登舰）
+CRUS_Starlifter_C2_PU_AI_CIV|十字军 大力神 C2 星际运输船（民用AI）
+CRUS_Starlifter_C2_PU_AI_CIV_DEF|十字军 大力神 C2 星际运输船（民用AI·防御）
+CRUS_Starlifter_C2_PU_AI_CRIM|十字军 大力神 C2 星际运输船（罪犯AI）
+CRUS_Starlifter_C2_Unmanned_Salvage|十字军 大力神 C2 星际运输船（无人·打捞）
+CRUS_Starlifter_M2|十字军 大力神 M2 星际运输船
+CRUS_Starlifter_M2_AI_Template_ShipBoarded|十字军 大力神 M2 星际运输船（AI模板·登舰）
+CRUS_Starlifter_M2_PU_AI_CIV|十字军 大力神 M2 星际运输船（民用AI）
+CRUS_Starlifter_M2_PU_AI_CIV_DEF|十字军 大力神 M2 星际运输船（民用AI·防御）
+CRUS_Starlifter_M2_PU_AI_CRIM|十字军 大力神 M2 星际运输船（罪犯AI）
+CRUS_Starlifter_M2_Unmanned_Salvage|十字军 大力神 M2 星际运输船（无人·打捞）
+DRAK_Buccaneer|德雷克 掠夺者
+DRAK_Buccaneer_AI_Super|德雷克 掠夺者（精英AI）
+DRAK_Buccaneer_AI_Super_CIV|德雷克 掠夺者（精英AI·民用）
+DRAK_Buccaneer_AI_Super_CRIM|德雷克 掠夺者（精英AI·罪犯）
+DRAK_Buccaneer_EA_AI_PIR|德雷克 掠夺者（EA_AI_PIR）
+DRAK_Buccaneer_EA_Outlaws|德雷克 掠夺者（EA_Outlaws）
+DRAK_Buccaneer_PU_AI_CIV|德雷克 掠夺者（民用AI）
+DRAK_Buccaneer_PU_AI_CRIM|德雷克 掠夺者（罪犯AI）
+DRAK_Buccaneer_PU_AI_CRIM_ScatterGun|德雷克 掠夺者（罪犯AI·ScatterGun）
+DRAK_Buccaneer_PU_AI_NT|德雷克 掠夺者（九尾AI）
+DRAK_Buccaneer_PU_AI_RaceAnnouncer_Scramble|德雷克 掠夺者（AI·RaceAnnouncer_Scramble）
+DRAK_Caterpillar|德雷克 毛虫
+DRAK_Caterpillar_AI_CIV_ShipBoarded|德雷克 毛虫（民用AI·ShipBoarded）
+DRAK_Caterpillar_AI_CIV_ShipBoarded_HalfCargoMarkup|德雷克 毛虫（民用AI·ShipBoarded_HalfCargoMarkup）
+DRAK_Caterpillar_AI_CIV_ShipBoarded_NoCargoMarkup|德雷克 毛虫（民用AI·ShipBoarded_NoCargoMarkup）
+DRAK_Caterpillar_AI_NT_ShipBoarded|德雷克 毛虫（AI_NT_ShipBoarded）
+DRAK_Caterpillar_AI_NT_ShipBoarded_HalfCargoMarkup|德雷克 毛虫（AI_NT_ShipBoarded_HalfCargoMarkup）
+DRAK_Caterpillar_AI_NT_ShipBoarded_NoCargoMarkup|德雷克 毛虫（AI_NT_ShipBoarded_NoCargoMarkup）
+DRAK_Caterpillar_AI_Template_ShipBoarded|德雷克 毛虫（AI模板·登舰）
+DRAK_Caterpillar_Boarded|德雷克 毛虫（Boarded）
+DRAK_Caterpillar_Pirate|德雷克 毛虫 海盗
+DRAK_Caterpillar_PU_AI_CIV|德雷克 毛虫（民用AI）
+DRAK_Caterpillar_PU_AI_CIV_DEF|德雷克 毛虫（民用AI·防御）
+DRAK_Caterpillar_PU_AI_CRIM|德雷克 毛虫（罪犯AI）
+DRAK_Caterpillar_PU_AI_NT|德雷克 毛虫（九尾AI）
+DRAK_Caterpillar_PU_Hijacked|克莱舍尔 囚犯运输船
+DRAK_Caterpillar_ShipShowdown|德雷克 毛虫 2949展会最佳版
+DRAK_Caterpillar_Unmanned_NineTails|德雷克 毛虫（无人·九尾）
+DRAK_Caterpillar_Unmanned_Salvage|德雷克 毛虫（无人·打捞）
+DRAK_Clipper|德雷克 快帆
+DRAK_Clipper_Collector_Military|德雷克 快帆 维克洛战争特别版
+DRAK_Clipper_PU_AI_CIV|德雷克 快帆（民用AI）
+DRAK_Clipper_PU_AI_CRIM|德雷克 快帆（罪犯AI）
+DRAK_Command_Module|德雷克 指挥舱模块
+DRAK_Command_Module_Boarded|德雷克 指挥舱模块（Boarded）
+DRAK_Corsair|德雷克 海盗船
+DRAK_Corsair_AI_Super|德雷克 海盗船（精英AI）
+DRAK_Corsair_AI_Super_CIV|德雷克 海盗船（精英AI·民用）
+DRAK_Corsair_AI_Super_CRIM|德雷克 海盗船（精英AI·罪犯）
+DRAK_Corsair_AI_Template_ShipBoarded|德雷克 海盗船（AI模板·登舰）
+DRAK_Corsair_Exec_Military|德雷克 海盗船（行政版·军用）
+DRAK_Corsair_Exec_StealthIndustrial|德雷克 海盗船（行政版·隐形·Industrial）
+DRAK_Corsair_PU_AI_CIV|德雷克 海盗船（民用AI）
+DRAK_Corsair_PU_AI_CIV_DEF|德雷克 海盗船（民用AI·防御）
+DRAK_Corsair_PU_AI_CRIM|德雷克 海盗船（罪犯AI）
+DRAK_Corsair_PU_AI_FF|德雷克 海盗船（友军AI）
+DRAK_Corsair_Unmanned_Salvage|德雷克 海盗船（无人·打捞）
+DRAK_Cutlass_Black|德雷克 黑弯刀
+DRAK_Cutlass_Black_AI_Derelict_Nose_A|德雷克 黑弯刀（AI_Derelict_Nose_A）
+DRAK_Cutlass_Black_AI_Derelict_Nose_Template|德雷克 黑弯刀（AI_Derelict_Nose_Template）
+DRAK_Cutlass_Black_AI_Derelict_Tail_A|德雷克 黑弯刀（AI_Derelict_Tail_A）
+DRAK_Cutlass_Black_AI_Derelict_Tail_Template|德雷克 黑弯刀（AI_Derelict_Tail_Template）
+DRAK_Cutlass_Black_AI_Derelict_Template|德雷克 黑弯刀（AI_Derelict_Template）
+DRAK_Cutlass_Black_AI_Super|德雷克 黑弯刀（精英AI）
+DRAK_Cutlass_Black_AI_Super_CIV|德雷克 黑弯刀（精英AI·民用）
+DRAK_Cutlass_Black_AI_Super_CRIM|德雷克 黑弯刀（精英AI·罪犯）
+DRAK_Cutlass_Black_BIS2950|德雷克 黑弯刀（2950展会版）
+DRAK_Cutlass_Black_EA_AI_PIR|德雷克 黑弯刀（EA_AI_PIR）
+DRAK_Cutlass_Black_Exec_Military|德雷克 黑弯刀（行政版·军用）
+DRAK_Cutlass_Black_Exec_Stealth|德雷克 黑弯刀（行政版·隐形）
+DRAK_Cutlass_Black_Mission_PIR_Package|德雷克 黑弯刀（任务·海盗）
+DRAK_Cutlass_Black_PU_AI_Advocacy|德雷克 黑弯刀（督导局AI）
+DRAK_Cutlass_Black_PU_AI_Advocacy_QIG|德雷克 黑弯刀（督导局AI·QIG）
+DRAK_Cutlass_Black_PU_AI_CFP|德雷克 黑弯刀（AI·CFP）
+DRAK_Cutlass_Black_PU_AI_CIV|德雷克 黑弯刀（民用AI）
+DRAK_Cutlass_Black_PU_AI_CIV_DEF|德雷克 黑弯刀（民用AI·防御）
+DRAK_Cutlass_Black_PU_AI_CRIM|德雷克 黑弯刀（罪犯AI）
+DRAK_Cutlass_Black_PU_AI_CRIM_QIG|德雷克 黑弯刀（罪犯AI·QIG）
+DRAK_Cutlass_Black_PU_AI_Dropship|德雷克 黑弯刀（AI·Dropship）
+DRAK_Cutlass_Black_PU_AI_FF|德雷克 黑弯刀（友军AI）
+DRAK_Cutlass_Black_PU_AI_HeadHunters|德雷克 黑弯刀（AI·HeadHunters）
+DRAK_Cutlass_Black_PU_AI_Ninetails|德雷克 黑弯刀（AI·Ninetails）
+DRAK_Cutlass_Black_PU_AI_NT|德雷克 黑弯刀（九尾AI）
+DRAK_Cutlass_Black_PU_AI_NT_QIG|德雷克 黑弯刀（九尾AI·QIG）
+DRAK_Cutlass_Black_PU_AI_NT_Reinforcements|德雷克 黑弯刀（九尾AI·Reinforcements）
+DRAK_Cutlass_Black_PU_AI_PIR_Elite|德雷克 黑弯刀（海盗AI·精英）
+DRAK_Cutlass_Black_PU_AI_PIR_QIG|德雷克 黑弯刀（海盗AI·QIG）
+DRAK_Cutlass_Black_PU_AI_SEC_Crusader|德雷克 黑弯刀（安保AI·十字军）
+DRAK_Cutlass_Black_PU_AI_SEC_Crusader_QIG|德雷克 黑弯刀（安保AI·十字军·QIG）
+DRAK_Cutlass_Black_PU_AI_Xenothreat|德雷克 黑弯刀（AI·Xenothreat）
+DRAK_Cutlass_Black_PU_Boarding|德雷克 黑弯刀（PU_Boarding）
+DRAK_Cutlass_Black_PU_Pirate_Crewless|德雷克 黑弯刀（PU_Pirate_Crewless）
+DRAK_Cutlass_Black_ShipShowdown|德雷克 黑弯刀 2949展会最佳版
+DRAK_Cutlass_Black_Unmanned_NineTails|德雷克 黑弯刀（无人·九尾）
+DRAK_Cutlass_Black_Unmanned_Salvage|德雷克 黑弯刀（无人·打捞）
+DRAK_Cutlass_Blue|德雷克 蓝弯刀
+DRAK_Cutlass_Blue_AI_Template|德雷克 蓝弯刀（AI模板）
+DRAK_Cutlass_Blue_BIS2950|德雷克 蓝弯刀（2950展会版）
+DRAK_Cutlass_Blue_PU_AI_CIV|德雷克 蓝弯刀（民用AI）
+DRAK_Cutlass_Red|德雷克 红弯刀
+DRAK_Cutlass_Red_AI_MedicalRescue|德雷克 红弯刀（AI_MedicalRescue）
+DRAK_Cutlass_Red_AI_Template|德雷克 红弯刀（AI模板）
+DRAK_Cutlass_Red_BIS2950|德雷克 红弯刀（2950展会版）
+DRAK_Cutlass_Red_PU_AI_CIV|德雷克 红弯刀（民用AI）
+DRAK_Cutlass_Red_PU_AI_CIV_DEF|德雷克 红弯刀（民用AI·防御）
+DRAK_Cutlass_Steel|德雷克 钢弯刀
+DRAK_Cutlass_Steel_PU_AI_CIV|德雷克 钢弯刀（民用AI）
+DRAK_Cutlass_Steel_PU_AI_CRIM|德雷克 钢弯刀（罪犯AI）
+DRAK_Cutter|德雷克 小刀
+DRAK_Cutter_PU_AI_CIV|德雷克 小刀（民用AI）
+DRAK_Cutter_PU_AI_CRIM|德雷克 小刀（罪犯AI）
+DRAK_Cutter_Rambler|德雷克 小刀 漫步者
+DRAK_Cutter_Rambler_PU_AI_CIV|德雷克 小刀 漫步者（民用AI）
+DRAK_Cutter_Rambler_PU_AI_CRIM|德雷克 小刀 漫步者（罪犯AI）
+DRAK_Cutter_Rambler_Unmanned_Salvage|德雷克 小刀 漫步者（无人·打捞）
+DRAK_Cutter_Scout|德雷克 小刀 侦察兵
+DRAK_Cutter_Scout_PU_AI_CIV|德雷克 小刀 侦察兵（民用AI）
+DRAK_Cutter_Scout_PU_AI_CRIM|德雷克 小刀 侦察兵（罪犯AI）
+DRAK_Cutter_Scout_Unmanned_Salvage|德雷克 小刀 侦察兵（无人·打捞）
+DRAK_Cutter_Unmanned_Salvage|德雷克 小刀（无人·打捞）
+DRAK_Dragonfly|德雷克 蜻蜓
+DRAK_Dragonfly_Pink|德雷克 蜻蜓 星空猫
+DRAK_Dragonfly_Unmanned_FF|德雷克 蜻蜓（无人·FF）
+DRAK_Dragonfly_Unmanned_Template|德雷克 蜻蜓（无人模板）
+DRAK_Dragonfly_Yellow|德雷克 蜻蜓 黄胡蜂
+DRAK_Golem|德雷克 魔像
+DRAK_Golem_BTALA|德雷克 魔像（BTALA）
+DRAK_Golem_Collector_Indust|德雷克 魔像 维克洛工作特别版
+DRAK_Golem_OX|德雷克 魔像 OX
+DRAK_Golem_OX_PU_AI_CIV|德雷克 魔像 OX（民用AI）
+DRAK_Golem_OX_PU_AI_CRIM|德雷克 魔像 OX（罪犯AI）
+DRAK_Golem_PU_AI_CIV|德雷克 魔像（民用AI）
+DRAK_Golem_PU_AI_CRIM|德雷克 魔像（罪犯AI）
+DRAK_Golem_Teach|德雷克 魔像 蒂奇特别版
+DRAK_Golem_Template|德雷克 魔像（模板）
+DRAK_Herald|德雷克 信使
+DRAK_Herald_PU_AI_CIV|德雷克 信使（民用AI）
+DRAK_Herald_PU_AI_CIV_FTL|德雷克 信使（民用AI·FTL）
+DRAK_Herald_PU_AI_CRIM|德雷克 信使（罪犯AI）
+DRAK_Ironclad|德雷克 铁甲
+DRAK_Ironclad_Assault|德雷克 铁甲 突袭
+DRAK_Mule|德雷克 骡
+DRAK_Pitbull|德雷克 斗牛犬
+DRAK_Pitbull_PU_AI_CIV|德雷克 斗牛犬（民用AI）
+DRAK_Pitbull_PU_AI_CRIM|德雷克 斗牛犬（罪犯AI）
+DRAK_Vulture|德雷克 秃鹫
+DRAK_Vulture_PU_AI_CIV|德雷克 秃鹫（民用AI）
+DRAK_Vulture_PU_AI_CIV_DEF|德雷克 秃鹫（民用AI·防御）
+DRAK_Vulture_PU_AI_CRIM|德雷克 秃鹫（罪犯AI）
+DRAK_Vulture_Teach|德雷克 秃鹫 蒂奇特别版
+DRAK_Vulture_Unmanned_Salvage|德雷克 秃鹫（无人·打捞）
+EAObjectiveDestructable_MiningLaser|任务目标·采矿激光
+EAObjectiveDestructable_Satellite|任务目标·卫星
+ESPR_Prowler|埃斯佩里亚 徘徊者
+ESPR_Prowler_AI_EA_Supreme|埃斯佩里亚 徘徊者（AI_EA_Supreme）
+ESPR_Prowler_AI_EA_Supreme_Spawn|埃斯佩里亚 徘徊者（AI_EA_Supreme_Spawn）
+ESPR_Prowler_PU_AI_CIV|埃斯佩里亚 徘徊者（民用AI）
+ESPR_Prowler_PU_AI_CRIM|埃斯佩里亚 徘徊者（罪犯AI）
+ESPR_Prowler_Unmanned_Salvage|埃斯佩里亚 徘徊者（无人·打捞）
+ESPR_Prowler_Utility|埃斯佩里亚 徘徊者 多功能
+ESPR_Prowler_Utility_Collector_Indust|埃斯佩里亚 徘徊者 多功能 维克洛工作特别版
+ESPR_Prowler_Utility_PU_AI_CIV|埃斯佩里亚 徘徊者 多功能（民用AI）
+ESPR_Prowler_Utility_PU_AI_CRIM|埃斯佩里亚 徘徊者 多功能（罪犯AI）
+ESPR_Talon|埃斯佩里亚 利爪
+ESPR_Talon_PU_AI_CIV|埃斯佩里亚 利爪（民用AI）
+ESPR_Talon_PU_AI_CRIM|埃斯佩里亚 利爪（罪犯AI）
+ESPR_Talon_Shrike|埃斯佩里亚 利爪 伯劳
+ESPR_Talon_Shrike_PU_AI_CIV|埃斯佩里亚 利爪 伯劳（民用AI）
+ESPR_Talon_Shrike_PU_AI_CRIM|埃斯佩里亚 利爪 伯劳（罪犯AI）
+ESPR_Talon_Shrike_Unmanned_Salvage|埃斯佩里亚 利爪 伯劳（无人·打捞）
+ESPR_Talon_Unmanned_Salvage|埃斯佩里亚 利爪（无人·打捞）
+GAMA_Railen|盖塔克 拉力恩
+GAMA_Railen_PU_AI_CIV|盖塔克 拉力恩（民用AI）
+GAMA_Railen_PU_AI_CRIM|盖塔克 拉力恩（罪犯AI）
+GAMA_Syulen|盖塔克 速伦
+GAMA_Syulen_Exec_Military|盖塔克 速伦（行政版·军用）
+GAMA_Syulen_Exec_Stealth|盖塔克 速伦（行政版·隐形）
+GAMA_Syulen_PU_AI_CIV|盖塔克 速伦（民用AI）
+GAMA_Syulen_PU_AI_CRIM|盖塔克 速伦（罪犯AI）
+GAMA_Syulen_Unmanned_Salvage|盖塔克 速伦（无人·打捞）
+GAMA_Tyilui|盖塔克 缇律
+GAMA_Tyilui_PU_AI_CIV|盖塔克 缇律（民用AI）
+GAMA_Tyilui_PU_AI_CRIM|盖塔克 缇律（罪犯AI）
+GAMA_Tyilui_Template|盖塔克 缇律（模板）
+GLSN_Basher|格雷黑市 重锤
+GLSN_Basher_PU_AI_CIV|格雷黑市 重锤（民用AI）
+GLSN_Basher_PU_AI_CRIM|格雷黑市 重锤（罪犯AI）
+GLSN_Shiv|格雷 锈刃
+GLSN_Shiv_AI_CIV|格雷 锈刃（民用AI）
+GLSN_Shiv_AI_CRIM|格雷 锈刃（罪犯AI）
+GLSN_Shiv_AI_Template|格雷 锈刃（AI模板）
+GLSN_Shiv_TEMP_CosA|格雷 锈刃（TEMP_CosA）
+GLSN_Shiv_TEMP_CosB|格雷 锈刃（TEMP_CosB）
+GLSN_Shiv_TEMP_CosC|格雷 锈刃（TEMP_CosC）
+Grin_MDC|灰猫 MDC
+GRIN_MTC|灰猫 MTC
+GRIN_PTV|灰猫 PTV
+GRIN_PTV_NoCrimesAgainst|灰猫 PTV（NoCrimesAgainst）
+GRIN_ROC|灰猫 ROC
+GRIN_ROC_DS|灰猫 ROC-双人版
+GRIN_STV|灰猫 STV
+GRIN_UTV|灰猫 UTV
+KRIG_L21_Wolf|克鲁格 L-21 狼式
+KRIG_L21_Wolf_Collector_Military|克鲁格 L-21 狼式 维克洛战争特别版
+KRIG_L21_Wolf_Collector_Stealth|克鲁格 L-21 狼式 维克洛鬼祟特别版
+KRIG_L21_Wolf_PU_AI_CIV|克鲁格 L-21 狼式（民用AI）
+KRIG_L21_Wolf_PU_AI_CRIM|克鲁格 L-21 狼式（罪犯AI）
+KRIG_L22_AlphaWolf|克鲁格 L-22 头狼
+KRIG_L22_AlphaWolf_Collector_Military|克鲁格 L-22 头狼（军用收藏版）
+KRIG_L22_AlphaWolf_PU_AI_CIV|克鲁格 L-22 头狼（民用AI）
+KRIG_L22_AlphaWolf_PU_AI_CRIM|克鲁格 L-22 头狼（罪犯AI）
+KRIG_P52_Merlin|克鲁格 P-52 梅林
+KRIG_P52_Merlin_EA_AI_PIR|克鲁格 P-52 梅林（EA_AI_PIR）
+KRIG_P52_Merlin_EA_AI_UEE|克鲁格 P-52 梅林（EA_AI_UEE）
+KRIG_P52_Merlin_PU_AI_CIV|克鲁格 P-52 梅林（民用AI）
+KRIG_P52_Merlin_PU_AI_CRIM|克鲁格 P-52 梅林（罪犯AI）
+KRIG_P72_Archimedes|克鲁格 P-72 阿基米德
+KRIG_P72_Archimedes_Emerald|克鲁格 P-72 阿基米德 翡翠绿
+KRIG_P72_Archimedes_PU_AI_CIV|克鲁格 P-72 阿基米德（民用AI）
+KRIG_P72_Archimedes_PU_AI_CRIM|克鲁格 P-72 阿基米德（罪犯AI）
+KRIG_S65_Stingray|克鲁格 S-65 刺鳐
+KRIG_S65_Stingray_BALLISTIC|克鲁格 S-65 刺鳐（BALLISTIC）
+MISC_Fortune|武藏 财运
+MISC_Fortune_Collector_Industrial|武藏 财运（工业收藏版·rial）
+MISC_Fortune_PU_AI_CIV|武藏 财运（民用AI）
+MISC_Fortune_PU_AI_CRIM|武藏 财运（罪犯AI）
+MISC_Fortune_Teach|武藏 财运 蒂奇特别版
+MISC_Freelancer|武藏 自由枪骑兵
+MISC_Freelancer_DUR|武藏 自由枪骑兵 DUR
+MISC_Freelancer_DUR_PU_AI_CIV|武藏 自由枪骑兵 DUR（民用AI）
+MISC_Freelancer_DUR_PU_AI_CIV_DEF|武藏 自由枪骑兵 DUR（民用AI·防御）
+MISC_Freelancer_DUR_PU_AI_CRIM|武藏 自由枪骑兵 DUR（罪犯AI）
+MISC_Freelancer_DUR_Unmanned_Salvage|武藏 自由枪骑兵 DUR（无人·打捞）
+MISC_Freelancer_MAX|武藏 自由枪骑兵 MAX
+MISC_Freelancer_MAX_PU_AI_CIV|武藏 自由枪骑兵 MAX（民用AI）
+MISC_Freelancer_MAX_PU_AI_CIV_DEF|武藏 自由枪骑兵 MAX（民用AI·防御）
+MISC_Freelancer_MAX_PU_AI_CRIM|武藏 自由枪骑兵 MAX（罪犯AI）
+MISC_Freelancer_MAX_Unmanned_Salvage|武藏 自由枪骑兵 MAX（无人·打捞）
+MISC_Freelancer_MIS|武藏 自由枪骑兵 MIS
+MISC_Freelancer_MIS_AI_Super|武藏 自由枪骑兵 MIS（精英AI）
+MISC_Freelancer_MIS_AI_Super_CIV|武藏 自由枪骑兵 MIS（精英AI·民用）
+MISC_Freelancer_MIS_AI_Super_Crim|武藏 自由枪骑兵 MIS（精英AI·罪犯）
+MISC_Freelancer_MIS_PU_AI_CIV|武藏 自由枪骑兵 MIS（民用AI）
+MISC_Freelancer_MIS_PU_AI_CRIM|武藏 自由枪骑兵 MIS（罪犯AI）
+MISC_Freelancer_MIS_PU_AI_NineTails|武藏 自由枪骑兵 MIS（AI·NineTails）
+MISC_Freelancer_MIS_Unmanned_Salvage|武藏 自由枪骑兵 MIS（无人·打捞）
+MISC_Freelancer_PU_AI_CIV|武藏 自由枪骑兵（民用AI）
+MISC_Freelancer_PU_AI_CIV_DEF|武藏 自由枪骑兵（民用AI·防御）
+MISC_Freelancer_PU_AI_CRIM|武藏 自由枪骑兵（罪犯AI）
+MISC_Freelancer_Unmanned_Salvage|武藏 自由枪骑兵（无人·打捞）
+MISC_Fury|未来 狂怒
+MISC_Fury_AI_Super|未来 狂怒（精英AI）
+MISC_Fury_AI_Super_CIV|未来 狂怒（精英AI·民用）
+MISC_Fury_AI_Super_Crim|未来 狂怒（精英AI·罪犯）
+MISC_Fury_LX|未来 狂怒 LX
+MISC_Fury_LX_AI_CIV|未来 狂怒 LX（民用AI）
+MISC_Fury_Miru|未来 狂怒 MX
+MISC_Fury_Miru_PU_AI_CIV|未来 狂怒 MX（民用AI）
+MISC_Fury_PU_AI_CIV|未来 狂怒（民用AI）
+MISC_Hull_A|武藏 货轮 A
+MISC_Hull_A_PU_AI_CIV|武藏 货轮 A（民用AI）
+MISC_Hull_A_PU_AI_CIV_DEF|武藏 货轮 A（民用AI·防御）
+MISC_Hull_A_PU_AI_CRIM|武藏 货轮 A（罪犯AI）
+MISC_Hull_A_Unmanned_Salvage|武藏 货轮 A（无人·打捞）
+MISC_Hull_B|武藏 货轮 B
+MISC_Hull_B_PU_AI_CIV|武藏 货轮 B（民用AI）
+MISC_Hull_B_PU_AI_CRIM|武藏 货轮 B（罪犯AI）
+MISC_Hull_C|武藏 货轮 C
+MISC_Hull_C_AI_Civ|武藏 货轮 C（AI_Civ）
+MISC_Hull_C_AI_CRIM|武藏 货轮 C（罪犯AI）
+MISC_Hull_C_Unmanned|武藏 货轮 C（无人）
+MISC_Hull_C_Unmanned_Salvage|武藏 货轮 C（无人·打捞）
+MISC_Prospector|武藏 勘探者
+MISC_Prospector_BTALA|武藏 勘探者（BTALA）
+MISC_Prospector_Collector_Indust|武藏 勘探者 维克洛工作特别版
+MISC_Prospector_PU_AI_CIV|武藏 勘探者（民用AI）
+MISC_Prospector_PU_AI_CIV_DEF|武藏 勘探者（民用AI·防御）
+MISC_Prospector_PU_AI_CRIM|武藏 勘探者（罪犯AI）
+MISC_Prospector_PU_AI_NineTails|武藏 勘探者（AI·NineTails）
+MISC_Prospector_PU_AI_NT|武藏 勘探者（九尾AI）
+MISC_Prospector_PU_AI_NT_NonLethal|武藏 勘探者（九尾AI·NonLethal）
+MISC_Prospector_Unmanned_NineTails|武藏 勘探者（无人·九尾）
+MISC_Prospector_Unmanned_Salvage|武藏 勘探者（无人·打捞）
+MISC_Razor|未来 剃刀
+MISC_Razor_EX|未来 剃刀 EX
+MISC_Razor_EX_PU_AI_CIV|未来 剃刀 EX（民用AI）
+MISC_Razor_EX_PU_AI_CRIM|未来 剃刀 EX（罪犯AI）
+MISC_Razor_LX|未来 剃刀 LX
+MISC_Razor_LX_PU_AI_CIV|未来 剃刀 LX（民用AI）
+MISC_Razor_LX_PU_AI_CRIM|未来 剃刀 LX（罪犯AI）
+MISC_Razor_PU_AI_CIV|未来 剃刀（民用AI）
+MISC_Razor_PU_AI_CRIM|未来 剃刀（罪犯AI）
+MISC_Reliant|武藏 信赖 基础
+MISC_Reliant_Mako|武藏 信赖 新闻
+MISC_Reliant_Mako_AI_Template|武藏 信赖 新闻（AI模板）
+MISC_Reliant_Mako_PU_AI_CIV|武藏 信赖 新闻（民用AI）
+MISC_Reliant_Mako_PU_AI_CRIM|武藏 信赖 新闻（罪犯AI）
+MISC_Reliant_PU_AI_CIV|武藏 信赖 基础（民用AI）
+MISC_Reliant_PU_AI_CRIM|武藏 信赖 基础（罪犯AI）
+MISC_Reliant_Sen|武藏 信赖 科考
+MISC_Reliant_Sen_AI_Template|武藏 信赖 科考（AI模板）
+MISC_Reliant_Sen_PU_AI_CIV|武藏 信赖 科考（民用AI）
+MISC_Reliant_Sen_PU_AI_CRIM|武藏 信赖 科考（罪犯AI）
+MISC_Reliant_Tana|武藏 信赖 武装
+MISC_Reliant_Tana_AI_Template|武藏 信赖 武装（AI模板）
+MISC_Reliant_Tana_PU_AI_CIV|武藏 信赖 武装（民用AI）
+MISC_Reliant_Tana_PU_AI_CRIM|武藏 信赖 武装（罪犯AI）
+MISC_Reliant_Unmanned_Salvage|武藏 信赖 基础（无人·打捞）
+MISC_Starfarer|武藏 星际远航者
+MISC_Starfarer_AI_CIV_ShipBoarded|武藏 星际远航者（民用AI·ShipBoarded）
+MISC_Starfarer_AI_CIV_ShipBoarded_NoCargoGridMarkup|武藏 星际远航者（民用AI·ShipBoarded_NoCargoGridMarkup）
+MISC_Starfarer_AI_Template_ShipBoarded|武藏 星际远航者（AI模板·登舰）
+MISC_Starfarer_Gemini|武藏 星际远航者 双子座
+MISC_Starfarer_Gemini_Derelict_Body_A|武藏 星际远航者 双子座（残骸·Body_A）
+MISC_Starfarer_Gemini_Derelict_Body_B|武藏 星际远航者 双子座（残骸·Body_B）
+MISC_Starfarer_Gemini_Derelict_Body_C|武藏 星际远航者 双子座（残骸·Body_C）
+MISC_Starfarer_Gemini_Derelict_Body_C_Lootable|武藏 星际远航者 双子座（残骸·Body_C_Lootable）
+MISC_Starfarer_Gemini_Derelict_Body_D|武藏 星际远航者 双子座（残骸·Body_D）
+MISC_Starfarer_Gemini_Derelict_Body_E|武藏 星际远航者 双子座（残骸·Body_E）
+MISC_Starfarer_Gemini_Derelict_Nose|武藏 星际远航者 双子座（残骸·Nose）
+MISC_Starfarer_Gemini_Derelict_Tail_Left|武藏 星际远航者 双子座（残骸·Tail_Left）
+MISC_Starfarer_Gemini_Derelict_Tail_Right|武藏 星际远航者 双子座（残骸·Tail_Right）
+MISC_Starfarer_Gemini_PU_AI_CRIM|武藏 星际远航者 双子座（罪犯AI）
+MISC_Starfarer_Gemini_PU_AI_UEE|武藏 星际远航者 双子座（海军AI）
+MISC_Starfarer_NoInterior|武藏 星际远航者（NoInterior）
+MISC_Starfarer_PU_AI_CIV|武藏 星际远航者（民用AI）
+MISC_Starfarer_PU_AI_CIV_DEF|武藏 星际远航者（民用AI·防御）
+MISC_Starfarer_PU_AI_CIV_FullFuel|武藏 星际远航者（民用AI·FullFuel）
+MISC_Starfarer_PU_AI_CIV_FullFuel_Fast|武藏 星际远航者（民用AI·FullFuel_Fast）
+MISC_Starfarer_PU_AI_CRIM|武藏 星际远航者（罪犯AI）
+MISC_Starfarer_PU_AI_NT|武藏 星际远航者（九尾AI）
+MISC_Starfarer_Teach|武藏 星际远航者 蒂奇特别版
+MISC_Starfarer_Unmanned_NineTails|武藏 星际远航者（无人·九尾）
+MISC_Starfarer_Unmanned_Salvage|武藏 星际远航者（无人·打捞）
+MISC_Starfarer_Wreck|武藏 星际远航者（Wreck）
+MISC_Starfarer_Wreck_NoDebris_A|武藏 星际远航者（Wreck_NoDebris_A）
+MISC_Starfarer_Wreck_NoDebris_B|武藏 星际远航者（Wreck_NoDebris_B）
+MISC_Starlancer_MAX|武藏 星际枪骑兵 MAX
+MISC_Starlancer_Max_Collector_Indust|武藏 星际枪骑兵 MAX（工业收藏版）
+MISC_Starlancer_Max_PU_AI_CIV|武藏 星际枪骑兵 MAX（民用AI）
+MISC_Starlancer_Max_PU_AI_CRIM|武藏 星际枪骑兵 MAX（罪犯AI）
+MISC_Starlancer_TAC|武藏 星际枪骑兵 TAC
+MISC_Starlancer_TAC_Collector_Military|武藏 星际枪骑兵 TAC 维克洛战争特别版
+MISC_Starlancer_TAC_PU_AI_CIV|武藏 星际枪骑兵 TAC（民用AI）
+MISC_Starlancer_TAC_PU_AI_CRIM|武藏 星际枪骑兵 TAC（罪犯AI）
+MISC_Starlite|武藏 星光
+MISC_Starlite_PU_AI_CIV|武藏 星光（民用AI）
+MISC_Starlite_PU_AI_CRIM|武藏 星光（罪犯AI）
+MISC_Starlite_Template|武藏 星光（模板）
+MRAI_Guardian|未来 守护者
+MRAI_Guardian_AI_Template|未来 守护者（AI模板）
+MRAI_Guardian_Military|未来 守护者（Military）
+MRAI_Guardian_MX|未来 守护者 MX
+MRAI_Guardian_MX_AI_CIV|未来 守护者 MX（民用AI）
+MRAI_Guardian_MX_AI_CRIM|未来 守护者 MX（罪犯AI）
+MRAI_Guardian_MX_Collector_Military|未来 守护者 MX 维克洛战争特别版
+MRAI_Guardian_PU_AI_CIV|未来 守护者（民用AI）
+MRAI_Guardian_PU_AI_CRIM|未来 守护者（罪犯AI）
+MRAI_Guardian_QI|未来 守护者 QI
+MRAI_Guardian_QI_AI_Template|未来 守护者 QI（AI模板）
+MRAI_Guardian_QI_Collector_Indust|未来 守护者 QI（工业收藏版）
+MRAI_Guardian_QI_PU_AI_CIV|未来 守护者 QI（民用AI）
+MRAI_Guardian_QI_PU_AI_CRIM|未来 守护者 QI（罪犯AI）
+MRAI_Pulse|未来 脉冲
+MRAI_Pulse_Collector_Civ|未来 脉冲（Collector_Civ）
+MRAI_Pulse_LX|未来 脉冲 LX
+Orbital_Sentry_Prototype_a_PU_HOS|轨道哨站（原型）
+Orbital_Sentry_PU_Criminal|轨道哨站（罪犯）
+Orbital_Sentry_PU_Criminal_Size2|轨道哨站（罪犯·大型）
+Orbital_Sentry_PU_NineTails|轨道哨站（九尾）
+Orbital_Sentry_PU_NineTails_Size2|轨道哨站（九尾·大型）
+Orbital_Sentry_PU_UEE|轨道哨站（海军）
+Orbital_Sentry_SecurityNetwork|轨道哨站（安保网络）
+ORIG_100i|起源 100i
+ORIG_100i_PU_AI_CIV|起源 100i（民用AI）
+ORIG_100i_PU_AI_CRIM|起源 100i（罪犯AI）
+ORIG_100i_Unmanned_Salvage|起源 100i（无人·打捞）
+ORIG_125a|起源 125a
+ORIG_125a_PU_AI_CIV|起源 125a（民用AI）
+ORIG_125a_PU_AI_CRIM|起源 125a（罪犯AI）
+ORIG_135c|起源 135c
+ORIG_135c_PU_AI_CIV|起源 135c（民用AI）
+ORIG_135c_PU_AI_CRIM|起源 135c（罪犯AI）
+ORIG_300i|起源 300i
+ORIG_300i_AI_Override|起源 300i（AI 覆盖）
+ORIG_300i_PU_AI_CIV|起源 300i（民用AI）
+ORIG_300i_PU_AI_CRIM|起源 300i（罪犯AI）
+ORIG_300i_Unmanned_Restoration|起源 300i（无人·修复）
+ORIG_300i_Unmanned_Salvage|起源 300i（无人·打捞）
+ORIG_315p|起源 315p
+ORIG_315p_PU_AI_CIV|起源 315p（民用AI）
+ORIG_315p_PU_AI_CRIM|起源 315p（罪犯AI）
+ORIG_315p_Unmanned_Salvage|起源 315p（无人·打捞）
+ORIG_325a|起源 325a
+ORIG_325a_PU_AI_CIV|起源 325a（民用AI）
+ORIG_325a_PU_AI_CRIM|起源 325a（罪犯AI）
+ORIG_325a_PU_AI_MTS|起源 325a（AI·MTS）
+ORIG_325a_Unmanned_Salvage|起源 325a（无人·打捞）
+ORIG_350r|起源 350r
+ORIG_350r_PU_AI_CIV|起源 350r（民用AI）
+ORIG_350r_PU_AI_CRIM|起源 350r（罪犯AI）
+ORIG_350r_Unmanned_Salvage|起源 350r（无人·打捞）
+ORIG_400i|起源 400i
+ORIG_400i_AI_Template_ShipBoarded|起源 400i（AI模板·登舰）
+ORIG_400i_PU_AI_CIV|起源 400i（民用AI）
+ORIG_400i_PU_AI_CIV_DEF|起源 400i（民用AI·防御）
+ORIG_400i_PU_AI_CRIM|起源 400i（罪犯AI）
+ORIG_400i_Unmanned_Salvage|起源 400i（无人·打捞）
+ORIG_600i|起源 600i
+ORIG_600i_AI_Template_ShipBoarded|起源 600i（AI模板·登舰）
+ORIG_600i_BIS2951|起源 600i（2951展会版）
+ORIG_600i_Executive_Edition|起源 600i 行政版（Edition）
+ORIG_600i_PU_AI_CIV|起源 600i（民用AI）
+ORIG_600i_PU_AI_CIV_DEF|起源 600i（民用AI·防御）
+ORIG_600i_PU_AI_CRIM|起源 600i（罪犯AI）
+ORIG_600i_Touring|起源 600i 旅行版
+ORIG_600i_Unmanned|起源 600i（无人）
+ORIG_600i_Unmanned_Salvage|起源 600i（无人·打捞）
+ORIG_85x|起源 85X 限量版
+ORIG_85X_PU_AI_CIV|起源 85X 限量版（民用AI）
+ORIG_85X_PU_AI_CRIM|起源 85X 限量版（罪犯AI）
+ORIG_890Jump|起源 890 跃动
+ORIG_890Jump_AI_CIV_ShipBoarded|起源 890 跃动（民用AI·ShipBoarded）
+ORIG_890Jump_AI_Template_ShipBoarded|起源 890 跃动（AI模板·登舰）
+ORIG_890Jump_Drug_01|起源 890 跃动（Drug_01）
+ORIG_890Jump_Hijacked|起源 890 跃动
+ORIG_890Jump_Hijacked_Pisces|起源 890 跃动（Pisces）
+ORIG_890Jump_PU_AI_CIV|起源 890 跃动（民用AI）
+ORIG_890Jump_PU_AI_CIV_DEF|起源 890 跃动（民用AI·防御）
+ORIG_890Jump_PU_AI_CRIM|起源 890 跃动（罪犯AI）
+ORIG_890Jump_Unmanned|起源 890 跃动（无人）
+ORIG_890Jump_Unmanned_Salvage|起源 890 跃动（无人·打捞）
+ORIG_m50|起源 M50 截击机
+ORIG_m50_PU_AI_Advocacy|起源 M50 截击机（督导局AI）
+ORIG_m50_PU_AI_CIV|起源 M50 截击机（民用AI）
+ORIG_m50_PU_AI_CRIM|起源 M50 截击机（罪犯AI）
+ORIG_m50_PU_AI_NineTails|起源 M50 截击机（AI·NineTails）
+ORIG_m50_PU_AI_NT|起源 M50 截击机（九尾AI）
+ORIG_m80|起源 M80
+ORIG_m80_PU_AI_CIV|起源 M80（民用AI）
+ORIG_m80_PU_AI_CRIM|起源 M80（罪犯AI）
+ORIG_X1|起源 X1
+ORIG_X1_Force|起源 X1 武装
+ORIG_X1_Velocity|起源 X1 竞速
+probe_comms_1_a|CHCO 奥瑞斯 被动数据收集监测设备
+probe_comms_1_a_PSec|CHCO 奥瑞斯 被动数据收集监测设备（PSec）
+probe_comms_1_b_Civ|通讯探测器（民用）
+probe_comms_1_Ninetails|通讯探测器（九尾）
+RSI_Apollo_Medivac|RSI 阿波罗 医疗
+RSI_Apollo_Medivac_AI_CIV|RSI 阿波罗 医疗（民用AI）
+RSI_Apollo_Medivac_AI_CRIM|RSI 阿波罗 医疗（罪犯AI）
+RSI_Apollo_Medivac_Tier_1|RSI 阿波罗 医疗（Tier_1）
+RSI_Apollo_Medivac_Tier_2|RSI 阿波罗 医疗（Tier_2）
+RSI_Apollo_Medivac_Tier_3|RSI 阿波罗 医疗（Tier_3）
+RSI_Apollo_Triage|RSI 阿波罗 分诊
+RSI_Apollo_Triage_AI_CIV|RSI 阿波罗 分诊（民用AI）
+RSI_Apollo_Triage_AI_CRIM|RSI 阿波罗 分诊（罪犯AI）
+RSI_Apollo_Triage_Collector_Stealth|RSI 阿波罗 分诊鬼祟特别版
+RSI_Apollo_Triage_Tier_1|RSI 阿波罗 分诊（Tier_1）
+RSI_Apollo_Triage_Tier_2|RSI 阿波罗 分诊（Tier_2）
+RSI_Apollo_Triage_Tier_3|RSI 阿波罗 分诊（Tier_3）
+RSI_Aurora_CL_PU_AI_CIV|RSI 极光 Mk I CL（民用AI）
+RSI_Aurora_CL_PU_AI_CRIM|RSI 极光 Mk I CL（罪犯AI）
+RSI_Aurora_ES_PU_AI_CIV|RSI 极光 Mk I ES（民用AI）
+RSI_Aurora_ES_PU_AI_CRIM|RSI 极光 Mk I ES（罪犯AI）
+RSI_Aurora_GS_CL|RSI 极光 GS CL
+RSI_Aurora_GS_CL_AI_CIV|RSI 极光 GS CL（民用AI）
+RSI_Aurora_GS_CL_AI_CRIM|RSI 极光 GS CL（罪犯AI）
+RSI_Aurora_GS_ES|RSI 极光 GS ES
+RSI_Aurora_GS_ES_AI_CIV|RSI 极光 GS ES（民用AI）
+RSI_Aurora_GS_ES_AI_CRIM|RSI 极光 GS ES（罪犯AI）
+RSI_Aurora_GS_LN|RSI 极光 GS LN
+RSI_Aurora_GS_LN_AI_CIV|RSI 极光 GS LN（民用AI）
+RSI_Aurora_GS_LN_AI_CRIM|RSI 极光 GS LN（罪犯AI）
+RSI_Aurora_GS_LX|RSI 极光 GS LX
+RSI_Aurora_GS_LX_AI_CIV|RSI 极光 GS LX（民用AI）
+RSI_Aurora_GS_LX_AI_CRIM|RSI 极光 GS LX（罪犯AI）
+RSI_Aurora_GS_MR|RSI 极光 GS MR
+RSI_Aurora_GS_MR_AI_CIV|RSI 极光 GS MR（民用AI）
+RSI_Aurora_GS_MR_AI_CRIM|RSI 极光 GS MR（罪犯AI）
+RSI_Aurora_GS_SE|RSI 极光 GS SE
+RSI_Aurora_LN_EA_AI_PIR|RSI 极光 Mk I LN（EA_AI_PIR）
+RSI_Aurora_LN_PU_AI_CIV|RSI 极光 Mk I LN（民用AI）
+RSI_Aurora_LN_PU_AI_CRIM|RSI 极光 Mk I LN（罪犯AI）
+RSI_Aurora_LN_PU_AI_NT|RSI 极光 Mk I LN（九尾AI）
+RSI_Aurora_LX_PU_AI_CIV|RSI 极光 Mk I LX（民用AI）
+RSI_Aurora_LX_PU_AI_CRIM|RSI 极光 Mk I LX（罪犯AI）
+RSI_Aurora_Mk2|RSI 极光 Mk II
+RSI_Aurora_Mk2_MissileModule_TEMP|RSI 极光 Mk II（MissileModule_TEMP）
+RSI_Aurora_Mk2_PU_AI_CIV|RSI 极光 Mk II（民用AI）
+RSI_Aurora_Mk2_PU_AI_CRIM|RSI 极光 Mk II（罪犯AI）
+RSI_Aurora_MR_PU_AI_CIV|RSI 极光 Mk I MR（民用AI）
+RSI_Aurora_MR_PU_AI_CRIM|RSI 极光 Mk I MR（罪犯AI）
+RSI_Bengal_PU_AI_UEE|RSI 孟加拉航母（海军AI）
+RSI_Bengal_PU_AI_UEE_FleetWeek_2021|RSI 孟加拉航母（海军AI·FleetWeek_2021）
+RSI_Bengal_PU_AI_UEE_NoInterior|RSI 孟加拉航母（海军AI·NoInterior）
+RSI_Constellation_Andromeda|RSI 星座 Mk IV 仙女座
+RSI_Constellation_Andromeda_EA_AI_PIR|RSI 星座 Mk IV 仙女座（EA_AI_PIR）
+RSI_Constellation_Andromeda_EA_AI_PIR_Elite|RSI 星座 Mk IV 仙女座（EA_AI_PIR_Elite）
+RSI_Constellation_Andromeda_PU_AI_CIV|RSI 星座 Mk IV 仙女座（民用AI）
+RSI_Constellation_Andromeda_PU_AI_CRIM|RSI 星座 Mk IV 仙女座（罪犯AI）
+RSI_Constellation_Andromeda_PU_AI_NT|RSI 星座 Mk IV 仙女座（九尾AI）
+RSI_Constellation_Andromeda_PU_AI_NT_QIG|RSI 星座 Mk IV 仙女座（九尾AI·QIG）
+RSI_Constellation_Andromeda_PU_AI_SEC_BlacJac|RSI 星座 Mk IV 仙女座（安保AI·BlacJac）
+RSI_Constellation_Andromeda_PU_AI_SEC_BlacJac_QIG|RSI 星座 Mk IV 仙女座（安保AI·BlacJac_QIG）
+RSI_Constellation_Andromeda_PU_AI_SEC_Crusader|RSI 星座 Mk IV 仙女座（安保AI·十字军）
+RSI_Constellation_Andromeda_PU_AI_SEC_Crusader_QIG|RSI 星座 Mk IV 仙女座（安保AI·十字军·QIG）
+RSI_Constellation_Andromeda_Unmanned_NineTails|RSI 星座 Mk IV 仙女座（无人·九尾）
+RSI_Constellation_Andromeda_Unmanned_Salvage|RSI 星座 Mk IV 仙女座（无人·打捞）
+RSI_Constellation_Aquila|RSI 星座 Mk IV 天鹰座
+RSI_Constellation_Aquila_PU_AI_CIV|RSI 星座 Mk IV 天鹰座（民用AI）
+RSI_Constellation_Aquila_PU_AI_CRIM|RSI 星座 Mk IV 天鹰座（罪犯AI）
+RSI_Constellation_Aquila_Unmanned_Salvage|RSI 星座 Mk IV 天鹰座（无人·打捞）
+RSI_Constellation_Phoenix|RSI 星座 Mk IV 凤凰座
+RSI_Constellation_Phoenix_Emerald|RSI 星座 Mk IV 凤凰座 翡翠绿
+RSI_Constellation_Phoenix_Piano|RSI 星座 Mk IV 凤凰座（Piano）
+RSI_Constellation_Phoenix_PU_AI_CIV|RSI 星座 Mk IV 凤凰座（民用AI）
+RSI_Constellation_Phoenix_PU_AI_CIV_DEF|RSI 星座 Mk IV 凤凰座（民用AI·防御）
+RSI_Constellation_Phoenix_PU_AI_CRIM|RSI 星座 Mk IV 凤凰座（罪犯AI）
+RSI_Constellation_Taurus|RSI 星座 Mk IV 金牛座
+RSI_Constellation_Taurus_Military|RSI 星座 Mk IV 金牛座（Military）
+RSI_Constellation_Taurus_PU_AI_CIV|RSI 星座 Mk IV 金牛座（民用AI）
+RSI_Constellation_Taurus_PU_AI_CIV_DEF|RSI 星座 Mk IV 金牛座（民用AI·防御）
+RSI_Constellation_Taurus_PU_AI_CRIM|RSI 星座 Mk IV 金牛座（罪犯AI）
+RSI_Constellation_Taurus_Unmanned_Salvage|RSI 星座 Mk IV 金牛座（无人·打捞）
+RSI_Constellation_Taurus_Unmanned_Template|RSI 星座 Mk IV 金牛座（无人模板）
+RSI_Hermes|RSI 赫尔墨斯
+RSI_Hermes_AI_CIV|RSI 赫尔墨斯（民用AI）
+RSI_Hermes_AI_CRIM|RSI 赫尔墨斯（罪犯AI）
+RSI_Lynx|RSI 天猫座
+RSI_Lynx_AI_CIV|RSI 天猫座（民用AI）
+RSI_Mantis|RSI 螳螂
+RSI_Mantis_Bomb_Test|RSI 螳螂（炸弹测试）
+RSI_Mantis_PU_AI_Advocacy|RSI 螳螂（督导局AI）
+RSI_Mantis_PU_AI_BH|RSI 螳螂（赏金猎人AI）
+RSI_Mantis_PU_AI_BJS|RSI 螳螂（AI·BJS）
+RSI_Mantis_PU_AI_CIV|RSI 螳螂（民用AI）
+RSI_Mantis_PU_AI_CRIM|RSI 螳螂（罪犯AI）
+RSI_Mantis_PU_AI_MTS|RSI 螳螂（AI·MTS）
+RSI_Mantis_PU_AI_NineTails|RSI 螳螂（AI·NineTails）
+RSI_Mantis_PU_AI_SEC_Crusader|RSI 螳螂（安保AI·十字军）
+RSI_Mantis_PU_AI_SEC_Hurston|RSI 螳螂（安保AI·赫斯顿）
+RSI_Mantis_PU_AI_UEE|RSI 螳螂（海军AI）
+RSI_Mantis_PU_AI_Xenothreat|RSI 螳螂（AI·Xenothreat）
+RSI_Mantis_Unmanned|RSI 螳螂（无人）
+RSI_Mantis_Unmanned_Salvage|RSI 螳螂（无人·打捞）
+RSI_Meteor|RSI 流星
+RSI_Meteor_Collector_Military|RSI 流星 焰火联合 行政版
+RSI_Meteor_Collector_Stealth|RSI 流星 维克洛鬼祟特别版
+RSI_Meteor_PU_AI_CIV|RSI 流星（民用AI）
+RSI_Meteor_PU_AI_CRIM|RSI 流星（罪犯AI）
+RSI_Meteor_TEMP_LaserRepeater|RSI 流星（TEMP_LaserRepeater）
+RSI_Perseus|RSI 英仙座
+RSI_Perseus_AI_Super|RSI 英仙座（精英AI）
+RSI_Perseus_AI_Super_Civ|RSI 英仙座（精英AI·民用）
+RSI_Perseus_AI_Super_Crim|RSI 英仙座（精英AI·罪犯）
+RSI_Perseus_PU_AI_CRIM|RSI 英仙座（罪犯AI）
+RSI_Polaris|RSI 北极星
+RSI_Polaris_AI_Super|RSI 北极星（精英AI）
+RSI_Polaris_AI_Super_CIV|RSI 北极星（精英AI·民用）
+RSI_Polaris_AI_Super_Crim|RSI 北极星（精英AI·罪犯）
+RSI_Polaris_AI_Template|RSI 北极星（AI模板）
+RSI_Polaris_Collector_Military|RSI 北极星 维克洛特别版
+RSI_Polaris_PU_AI_CIV|RSI 北极星（民用AI）
+RSI_Polaris_PU_AI_CIV_DEF|RSI 北极星（民用AI·防御）
+RSI_Polaris_PU_AI_CRIM|RSI 北极星（罪犯AI）
+RSI_Polaris_PU_AI_FF|RSI 北极星（友军AI）
+RSI_Polaris_PU_AI_FF_Boyd|RSI 北极星（友军AI·Boyd）
+RSI_Salvation|RSI 拯救
+RSI_Salvation_PU_AI_CIV|RSI 拯救（民用AI）
+RSI_Salvation_PU_AI_CRIM|RSI 拯救（罪犯AI）
+RSI_Salvation_Template|RSI 拯救（模板）
+RSI_Scorpius|RSI 天蝎座
+RSI_Scorpius_Antares|RSI 天蝎座 蝎心
+RSI_Scorpius_Antares_PU_AI_CIV|RSI 天蝎座 蝎心（民用AI）
+RSI_Scorpius_Antares_PU_AI_CRIM|RSI 天蝎座 蝎心（罪犯AI）
+RSI_Scorpius_Antares_Unmanned_Salvage|RSI 天蝎座 蝎心（无人·打捞）
+RSI_Scorpius_PU_AI_CIV|RSI 天蝎座（民用AI）
+RSI_Scorpius_PU_AI_CRIM|RSI 天蝎座（罪犯AI）
+RSI_Scorpius_PU_AI_CRIM_Distortion|RSI 天蝎座（罪犯AI·Distortion）
+RSI_Scorpius_PU_AI_UEE|RSI 天蝎座（海军AI）
+RSI_Scorpius_Stealth|RSI 天蝎座（Stealth）
+RSI_Scorpius_Unmanned_Salvage|RSI 天蝎座（无人·打捞）
+RSI_Ursa_Medivac|RSI 大熊座 医疗
+RSI_Ursa_Medivac_Stealth|RSI 大熊座 医疗（Stealth）
+RSI_Ursa_Rover|RSI 大熊座
+RSI_Ursa_Rover_AI_CIV|RSI 大熊座（民用AI）
+RSI_Ursa_Rover_AI_CIV_RaceAnnouncer|RSI 大熊座（民用AI·RaceAnnouncer）
+RSI_Ursa_Rover_Emerald|RSI 大熊座 福尔图娜
+RSI_Ursa_Rover_Prison|RSI 大熊座（Prison）
+RSI_Ursa_Rover_Unmanned_FF|RSI 大熊座（无人·FF）
+RSI_Ursa_Rover_Unmanned_Template|RSI 大熊座（无人模板）
+RSI_Zeus_CL|RSI 宙斯 MK II CL
+RSI_Zeus_CL_AI_Template|RSI 宙斯 MK II CL（AI模板）
+RSI_Zeus_CL_Collector_Indust|RSI 宙斯 MK II CL（工业收藏版）
+RSI_Zeus_CL_PU_AI_CIV|RSI 宙斯 MK II CL（民用AI）
+RSI_Zeus_CL_PU_AI_CIV_DEF|RSI 宙斯 MK II CL（民用AI·防御）
+RSI_Zeus_CL_PU_AI_CRIM|RSI 宙斯 MK II CL（罪犯AI）
+RSI_Zeus_ES|RSI 宙斯 MK II ES
+RSI_Zeus_ES_AI_Template|RSI 宙斯 MK II ES（AI模板）
+RSI_Zeus_ES_Collector_Indust|RSI 宙斯 MK II ES（工业收藏版）
+RSI_Zeus_ES_PU_AI_CIV|RSI 宙斯 MK II ES（民用AI）
+RSI_Zeus_ES_PU_AI_CRIM|RSI 宙斯 MK II ES（罪犯AI）
+RSI_Zeus_ES_Unmanned|RSI 宙斯 MK II ES（无人）
+RSI_Zeus_ES_Unmanned_Salvage|RSI 宙斯 MK II ES（无人·打捞）
+Spaceship_Template|飞船模板
+TMBL_Cyclone|盾博尔 旋风
+TMBL_Cyclone_AA|盾博尔 旋风 AA
+TMBL_Cyclone_Indestructible|盾博尔 旋风（Indestructible）
+TMBL_Cyclone_MT|盾博尔 旋风 MT
+TMBL_Cyclone_RC|盾博尔 旋风 RC
+TMBL_Cyclone_RN|盾博尔 旋风 RN
+TMBL_Cyclone_TR|盾博尔 旋风 TR
+TMBL_Nova|盾博尔 新星
+TMBL_Storm|盾博尔 风暴
+TMBL_Storm_AA|盾博尔 风暴 AA
+VNCL_Blade|范杜尔 刃
+VNCL_Blade_AI_DefendShip|范杜尔 刃（AI·护卫）
+VNCL_Blade_PU_AI_VAN|范杜尔 刃（范杜尔AI）
+VNCL_Blade_Swarm|范杜尔 刃（Swarm）
+VNCL_Glaive|剜度 长刀
+VNCL_Glaive_AI_DefendShip|剜度 长刀（AI·护卫）
+VNCL_Glaive_EA_AI_VAN_Prime|剜度 长刀（EA_AI_VAN_Prime）
+VNCL_Glaive_PU_AI_VAN|剜度 长刀（范杜尔AI）
+VNCL_Mauler|剜度 重拳 驱逐舰
+VNCL_Mauler_AI|剜度 重拳 驱逐舰（AI）
+VNCL_Mauler_PU_AI_VAN|剜度 重拳 驱逐舰（范杜尔AI）
+VNCL_Scythe|剜度 死镰
+VNCL_Scythe_EA_AI_VAN_Alpha|剜度 死镰（EA_AI_VAN_Alpha）
+VNCL_Scythe_EA_AI_VAN_Hunter|剜度 死镰（EA_AI_VAN_Hunter）
+VNCL_Scythe_PU_AI_DefendShip|剜度 死镰（AI·DefendShip）
+VNCL_Scythe_PU_AI_VAN|剜度 死镰（范杜尔AI）
+VNCL_Stinger|剜度 毒刺
+VNCL_Stinger_AI_Super|剜度 毒刺（精英AI）
+VNCL_Stinger_AI_Super_CIV|剜度 毒刺（精英AI·民用）
+VNCL_Stinger_AI_Super_Crim|剜度 毒刺（精英AI·罪犯）
+VNCL_Stinger_AI_Super_Vandull|剜度 毒刺（精英AI·Vandull）
+VNCL_Stinger_PU_AI_DefendShip|剜度 毒刺（AI·DefendShip）
+VNCL_Stinger_PU_AI_VAN|剜度 毒刺（范杜尔AI）
+XIAN_Nox|奥波亚 Nox
+XIAN_Nox_Collector_Mod|奥波亚 Nox（收藏改装版）
+XIAN_Nox_Kue|奥波亚 Nox Kue
+XIAN_Scout|奥波亚 卡图
+XIAN_Scout_AI_Super|奥波亚 卡图（精英AI）
+XIAN_Scout_AI_Super_CIV|奥波亚 卡图（精英AI·民用）
+XIAN_Scout_AI_Super_Crim|奥波亚 卡图（精英AI·罪犯）
+XIAN_Scout_PU_AI_CIV|奥波亚 卡图（民用AI）
+XIAN_Scout_PU_AI_CRIM|奥波亚 卡图（罪犯AI）
+XNAA_SanTokYai|奥波亚 桑托起亚
+XNAA_SanTokYai_AI_DefendShip|奥波亚 桑托起亚（AI·护卫）
+XNAA_SanTokYai_PU_AI_CIV|奥波亚 桑托起亚（民用AI）
+XNAA_SanTokYai_PU_AI_CRIM|奥波亚 桑托起亚（罪犯AI）
+XNAA_SanTokYai_Unmanned_Salvage|奥波亚 桑托起亚（无人·打捞）
