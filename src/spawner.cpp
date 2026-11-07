@@ -11,7 +11,11 @@
 #include <algorithm>
 #include <cctype>
 #include <cstdarg>
+#include <cstdio>
+#include <cstring>
 #include <share.h>
+#include <string>
+#include <unordered_map>
 
 using SpawnParamsCtorFn = void(__fastcall*)(void* params);
 using SpawnSetClassFn   = void(__fastcall*)(void* params, uintptr_t entityClass);
@@ -167,6 +171,8 @@ uint64_t EntityIdOfComponent(uintptr_t component) {
 
 constexpr int        kMaxMenuShips = 2048;
 static MenuShip      g_menuShips[kMaxMenuShips];
+// 中文名显示时，生成飞船仍要用英文类名（build 时填入，与 g_menuShips 同序）
+static char           g_menuShipClass[kMaxMenuShips][64];
 static volatile LONG g_menuShipCount = -1;
 static volatile LONG g_menuWantShips = 0;
 static SRWLOCK       g_menuLock = SRWLOCK_INIT;
@@ -330,6 +336,53 @@ static float HullLength(const char* name) {
     return meters;
 }
 
+// 按 UTF-8 字符边界截断复制，避免把汉字切一半。
+static void CopyUtf8(char* dst, size_t cap, const char* src) {
+    const size_t n = strlen(src);
+    if (n < cap) { memcpy(dst, src, n + 1); return; }
+    size_t cut = cap ? cap - 1 : 0;
+    while (cut > 0 && (static_cast<unsigned char>(src[cut]) & 0xC0) == 0x80) --cut;
+    memcpy(dst, src, cut);
+    dst[cut] = 0;
+}
+
+// 读取 data\ships.zh.txt（每行 “英文类名|中文名”），返回中文名；没有对应项时返回 nullptr。
+// 文件缺失或某行格式不对时静默跳过，菜单就保持英文类名，不影响生成飞船。
+static const char* ShipLabelZh(const char* cls) {
+    static std::unordered_map<std::string, std::string> table;
+    static bool loaded = false;
+    if (!loaded) {
+        loaded = true;
+        char path[MAX_PATH];
+        if (ShipsFilePath(path, sizeof(path))) {
+            char dir[MAX_PATH];
+            strncpy_s(dir, path, _TRUNCATE);
+            char* slash = strrchr(dir, '\\');
+            if (!slash) slash = strrchr(dir, '/');
+            if (slash) {
+                slash[1] = 0;
+                char zhPath[MAX_PATH];
+                snprintf(zhPath, sizeof(zhPath), "%sships.zh.txt", dir);
+                if (FILE* f = _fsopen(zhPath, "r", _SH_DENYNO)) {
+                    char line[256];
+                    while (fgets(line, sizeof(line), f)) {
+                        if (line[0] == '#' || line[0] == '\n' || line[0] == '\r') continue;
+                        char* bar = strchr(line, '|');
+                        if (!bar) continue;
+                        *bar = 0;
+                        char* zh = bar + 1;
+                        zh[strcspn(zh, "\r\n")] = 0;
+                        if (line[0] && zh[0]) table[line] = zh;
+                    }
+                    fclose(f);
+                }
+            }
+        }
+    }
+    const auto it = table.find(cls);
+    return it == table.end() ? nullptr : it->second.c_str();
+}
+
 static int BuildMenuShips() {
     char path[MAX_PATH];
     if (!ShipsFilePath(path, sizeof(path))) return 0;
@@ -375,6 +428,13 @@ static int BuildMenuShips() {
         if (a.length != b.length) return a.length > b.length;
         return _stricmp(a.name, b.name) < 0;
     });
+
+    // 排序仍按英文类名；排好后再换成中文显示名，并把类名留给生成飞船用。
+    for (int i = 0; i < n; ++i) {
+        strncpy_s(g_menuShipClass[i], g_menuShips[i].name, _TRUNCATE);
+        if (const char* zh = ShipLabelZh(g_menuShips[i].name))
+            CopyUtf8(g_menuShips[i].name, sizeof(g_menuShips[i].name), zh);
+    }
     return n;
 }
 
@@ -1460,25 +1520,26 @@ void ProcessShipMenu(DWORD now) {
             SetMenuStatus("正在生成 %s，完成后将自动进入驾驶座（大型飞船可能需要一分钟）。", classReq.cls);
         }
     } else if (req.pending && req.index >= 0 && req.index < g_menuShipCount) {
-        const char* name = g_menuShips[req.index].name;
+        const char* label = g_menuShips[req.index].name;      // 中文显示名
+        const char* name = g_menuShipClass[req.index];        // 英文类名，生成飞船用
         const MenuSpawnOptions& o = req.opt;
         uint64_t id = 0;
         if (const char* err = SpawnShipAbovePlayer(name, o.height, id)) {
-            SetMenuStatus("生成 %s 失败：%s", name, err);
+            SetMenuStatus("生成 %s 失败：%s", label, err);
         } else {
-            SetTarget(id, name);
+            SetTarget(id, name);   // 船员/座位/电源页面按类名工作，保持英文
             switch (o.seatMode) {
             case SeatMode_None:
-                SetMenuStatus("正在生成 %s，位于上方 %.0f 米（大型飞船可能需要一分钟）。", name, o.height);
+                SetMenuStatus("正在生成 %s，位于上方 %.0f 米（大型飞船可能需要一分钟）。", label, o.height);
                 break;
             case SeatMode_PickLater:
-                SetMenuStatus("正在生成 %s，加载完成后可在“船员”页面选择座位。", name);
+                SetMenuStatus("正在生成 %s，加载完成后可在“船员”页面选择座位。", label);
                 break;
             default: {
                 const bool named = o.seatMode == SeatMode_Named && o.seatName[0];
                 StartSeatJob(id, name, named ? SeatMode_Named : SeatMode_Pilot, o.seatName, o.replaceNpc, o.flightReady, 0, now);
-                if (named) SetMenuStatus("正在生成 %s，完成后将自动进入“%s”座位。", name, o.seatName);
-                else SetMenuStatus("正在生成 %s，完成后将自动进入驾驶座（大型飞船可能需要一分钟）。", name);
+                if (named) SetMenuStatus("正在生成 %s，完成后将自动进入“%s”座位。", label, o.seatName);
+                else SetMenuStatus("正在生成 %s，完成后将自动进入驾驶座（大型飞船可能需要一分钟）。", label);
                 break;
             }
             }
