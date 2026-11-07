@@ -514,12 +514,12 @@ static const char* PlayerZonePos(const double offset[3], uint64_t& zoneId, doubl
     return nullptr;
 }
 
-const char* SpawnEntityNearPlayer(const char* entityClass, const double offset[3], uint64_t& id, float scale = 1.0f) {
+const char* SpawnEntityNearPlayer(const char* entityClass, const double offset[3], uint64_t& id) {
     if (!g_sp.ok) return "生成功能不可用";
     uint64_t zoneId = 0;
     double pos[3] = {};
     if (const char* err = PlayerZonePos(offset, zoneId, pos)) return err;
-    return SpawnShipInZone(entityClass, zoneId, pos, id, nullptr, nullptr, scale);
+    return SpawnShipInZone(entityClass, zoneId, pos, id);
 }
 
 const char* SpawnEntityInPlayerZone(const char* entityClass, const double pos[3], const double rot[4], uint64_t& id) {
@@ -561,7 +561,11 @@ const char* SpawnPrefabInPlayerZone(const char* ocPath, const double pos[3], con
 
 static const char* SpawnShipAbovePlayer(const char* shipClass, double height, uint64_t& shipId) {
     const double up[3] = { 0, 0, height };
-    return SpawnEntityNearPlayer(shipClass, up, shipId, g_spawnScale);
+    if (!g_sp.ok) return "生成功能不可用";
+    uint64_t zoneId = 0;
+    double pos[3] = {};
+    if (const char* err = PlayerZonePos(up, zoneId, pos)) return err;
+    return SpawnShipInZone(shipClass, zoneId, pos, shipId, nullptr, nullptr, g_spawnScale);
 }
 
 bool FindEntityByNameEx(const char* name, uintptr_t& entity, uint64_t& id) {
