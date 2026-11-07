@@ -173,6 +173,14 @@ constexpr int        kMaxMenuShips = 2048;
 static MenuShip      g_menuShips[kMaxMenuShips];
 // 中文名显示时，生成飞船仍要用英文类名（build 时填入，与 g_menuShips 同序）
 static char           g_menuShipClass[kMaxMenuShips][64];
+// 生成飞船时用的缩放（菜单里的“飞船大小”滑条），1.0 = 原尺寸
+static volatile float g_spawnScale = 1.0f;
+
+void Menu_SetSpawnScale(float s) {
+    if (s < 0.10f) s = 0.10f;
+    if (s > 5.00f) s = 5.00f;
+    g_spawnScale = s;
+}
 static volatile LONG g_menuShipCount = -1;
 static volatile LONG g_menuWantShips = 0;
 static SRWLOCK       g_menuLock = SRWLOCK_INIT;
@@ -449,7 +457,8 @@ uintptr_t EntityComponent(uintptr_t entity, const char* type) {
 }
 
 static const char* SpawnShipInZone(const char* shipClass, uint64_t zoneId, const double pos[3], uint64_t& shipId,
-                                   const double* rot = nullptr, const char* ocPath = nullptr) {
+                                   const double* rot = nullptr, const char* ocPath = nullptr,
+                                   float scale = 1.0f) {
     __try {
         const uintptr_t es = *g_tp.entitySystem;
         const uintptr_t cls = VCall<uintptr_t>(ClassRegistry(), actors::kRegistryFindClass, shipClass);
@@ -459,7 +468,8 @@ static const char* SpawnShipInZone(const char* shipClass, uint64_t zoneId, const
         g_sp.ctor(params);
         g_sp.setClass(params, cls);
         const struct { double rot[4]; double pos[3]; double scale; } where = {
-            { rot ? rot[0] : 0, rot ? rot[1] : 0, rot ? rot[2] : 0, rot ? rot[3] : 1 }, { pos[0], pos[1], pos[2] }, 1.0 };
+            { rot ? rot[0] : 0, rot ? rot[1] : 0, rot ? rot[2] : 0, rot ? rot[3] : 1 }, { pos[0], pos[1], pos[2] },
+            static_cast<double>(scale) };
         g_sp.setLocation(params, &where, zoneId);
         g_sp.setFlags(params, actors::kSpawnFlags);
 
@@ -504,12 +514,12 @@ static const char* PlayerZonePos(const double offset[3], uint64_t& zoneId, doubl
     return nullptr;
 }
 
-const char* SpawnEntityNearPlayer(const char* entityClass, const double offset[3], uint64_t& id) {
+const char* SpawnEntityNearPlayer(const char* entityClass, const double offset[3], uint64_t& id, float scale = 1.0f) {
     if (!g_sp.ok) return "生成功能不可用";
     uint64_t zoneId = 0;
     double pos[3] = {};
     if (const char* err = PlayerZonePos(offset, zoneId, pos)) return err;
-    return SpawnShipInZone(entityClass, zoneId, pos, id);
+    return SpawnShipInZone(entityClass, zoneId, pos, id, nullptr, nullptr, scale);
 }
 
 const char* SpawnEntityInPlayerZone(const char* entityClass, const double pos[3], const double rot[4], uint64_t& id) {
@@ -551,7 +561,7 @@ const char* SpawnPrefabInPlayerZone(const char* ocPath, const double pos[3], con
 
 static const char* SpawnShipAbovePlayer(const char* shipClass, double height, uint64_t& shipId) {
     const double up[3] = { 0, 0, height };
-    return SpawnEntityNearPlayer(shipClass, up, shipId);
+    return SpawnEntityNearPlayer(shipClass, up, shipId, g_spawnScale);
 }
 
 bool FindEntityByNameEx(const char* name, uintptr_t& entity, uint64_t& id) {
