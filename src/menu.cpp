@@ -160,38 +160,38 @@ static ImVec4 Hex(uint32_t rgb, float a = 1.0f) {
     return ImVec4(((rgb >> 16) & 0xFF) / 255.0f, ((rgb >> 8) & 0xFF) / 255.0f, (rgb & 0xFF) / 255.0f, a);
 }
 
-static const ImVec4 kSoil      = Hex(0x0E1811);   // deepest green, under the image
-static const ImVec4 kPanel     = Hex(0x172A1B);   // inputs, lists, status strip
-static const ImVec4 kPanelUp   = Hex(0x1F3523);   // hover
-static const ImVec4 kLine      = Hex(0x2F4B32);   // dividers, scrollbars
-static const ImVec4 kText      = Hex(0xE6EFDD);
-const ImVec4 kMuted     = Hex(0x9FB59A);
-const ImVec4 kLeaf      = Hex(0x86C64B);   // accent
-const ImVec4 kLeafDeep  = Hex(0x3E6B27);
+static const ImVec4 kSoil      = Hex(0x120C1B);   // deepest green, under the image
+static const ImVec4 kPanel     = Hex(0x1D1530);   // inputs, lists, status strip
+static const ImVec4 kPanelUp   = Hex(0x2A1F42);   // hover
+static const ImVec4 kLine      = Hex(0x4A3668);   // dividers, scrollbars
+static const ImVec4 kText      = Hex(0xF2ECFA);
+const ImVec4 kMuted     = Hex(0xB3A6C9);
+const ImVec4 kLeaf      = Hex(0xB57CFF);   // accent
+const ImVec4 kLeafDeep  = Hex(0x6A3FB0);
 
 constexpr float kBodySize    = 17.0f;
 constexpr float kHeadingSize = 20.0f;
 
 static void ApplyTheme() {
     ImGuiStyle& st = ImGui::GetStyle();
-    st.WindowPadding = ImVec2(16, 12);
-    st.FramePadding = ImVec2(9, 5);
-    st.ItemSpacing = ImVec2(8, 7);
+    st.WindowPadding = ImVec2(18, 14);
+    st.FramePadding = ImVec2(10, 6);
+    st.ItemSpacing = ImVec2(9, 8);
     st.ItemInnerSpacing = ImVec2(6, 4);
     st.CellPadding = ImVec2(8, 4);
     st.ScrollbarSize = 11;
     st.WindowRounding = 0;
-    st.ChildRounding = 4;
-    st.FrameRounding = 4;
-    st.PopupRounding = 4;
-    st.GrabRounding = 4;
-    st.TabRounding = 4;
-    st.ScrollbarRounding = 4;
-    st.WindowBorderSize = 0;
+    st.ChildRounding = 8;
+    st.FrameRounding = 6;
+    st.PopupRounding = 10;
+    st.GrabRounding = 8;
+    st.TabRounding = 6;
+    st.ScrollbarRounding = 10;
+    st.WindowBorderSize = 1;
     st.ChildBorderSize = 1;
-    st.FrameBorderSize = 0;
+    st.FrameBorderSize = 1;
     st.TabBorderSize = 0;
-    st.SeparatorTextBorderSize = 1;
+    st.SeparatorTextBorderSize = 2;
     st.SeparatorTextPadding = ImVec2(0, 6);
     st.SeparatorTextAlign = ImVec2(0, 0.5f);
 
@@ -200,44 +200,44 @@ static void ApplyTheme() {
     c[ImGuiCol_TextDisabled]         = kMuted;
     c[ImGuiCol_WindowBg]             = ImVec4(0, 0, 0, 0);          // the background is drawn underneath
     c[ImGuiCol_ChildBg]              = ImVec4(0, 0, 0, 0);
-    c[ImGuiCol_PopupBg]              = Hex(0x132216, 0.98f);
+    c[ImGuiCol_PopupBg]              = Hex(0x1A1130, 0.98f);
     c[ImGuiCol_Border]               = kLine;
     c[ImGuiCol_BorderShadow]         = ImVec4(0, 0, 0, 0);
-    c[ImGuiCol_FrameBg]              = Hex(0x172A1B, 0.88f);
-    c[ImGuiCol_FrameBgHovered]       = Hex(0x1F3523, 0.95f);
-    c[ImGuiCol_FrameBgActive]        = Hex(0x26412A, 1.0f);
-    c[ImGuiCol_TitleBg]              = Hex(0x0B140D, 0.95f);
-    c[ImGuiCol_TitleBgActive]        = Hex(0x0B140D, 0.95f);
-    c[ImGuiCol_TitleBgCollapsed]     = Hex(0x0B140D, 0.95f);
+    c[ImGuiCol_FrameBg]              = Hex(0x1D1530, 0.88f);
+    c[ImGuiCol_FrameBgHovered]       = Hex(0x2A1F42, 0.95f);
+    c[ImGuiCol_FrameBgActive]        = Hex(0x3A2A5E, 1.0f);
+    c[ImGuiCol_TitleBg]              = Hex(0x0D0814, 0.95f);
+    c[ImGuiCol_TitleBgActive]        = Hex(0x0D0814, 0.95f);
+    c[ImGuiCol_TitleBgCollapsed]     = Hex(0x0D0814, 0.95f);
     c[ImGuiCol_ScrollbarBg]          = ImVec4(0, 0, 0, 0);
     c[ImGuiCol_ScrollbarGrab]        = kLine;
-    c[ImGuiCol_ScrollbarGrabHovered] = Hex(0x3C5E3F);
+    c[ImGuiCol_ScrollbarGrabHovered] = Hex(0x503C78);
     c[ImGuiCol_ScrollbarGrabActive]  = kLeafDeep;
     c[ImGuiCol_CheckMark]            = kLeaf;
     c[ImGuiCol_SliderGrab]           = kLeafDeep;
     c[ImGuiCol_SliderGrabActive]     = kLeaf;
-    c[ImGuiCol_Button]               = Hex(0x1F3523, 0.92f);
-    c[ImGuiCol_ButtonHovered]        = Hex(0x2A4730);
+    c[ImGuiCol_Button]               = Hex(0x2A1F42, 0.92f);
+    c[ImGuiCol_ButtonHovered]        = Hex(0x3E2E63);
     c[ImGuiCol_ButtonActive]         = kLeafDeep;
-    c[ImGuiCol_Header]               = Hex(0x3E6B27, 0.55f);
-    c[ImGuiCol_HeaderHovered]        = Hex(0x1F3523, 0.95f);
+    c[ImGuiCol_Header]               = Hex(0x6A3FB0, 0.55f);
+    c[ImGuiCol_HeaderHovered]        = Hex(0x2A1F42, 0.95f);
     c[ImGuiCol_HeaderActive]         = kLeafDeep;
     c[ImGuiCol_Separator]            = kLine;
     c[ImGuiCol_SeparatorHovered]     = kLeafDeep;
     c[ImGuiCol_SeparatorActive]      = kLeaf;
     c[ImGuiCol_ResizeGrip]           = ImVec4(0, 0, 0, 0);
-    c[ImGuiCol_Tab]                  = Hex(0x0B140D, 0.70f);
+    c[ImGuiCol_Tab]                  = Hex(0x0D0814, 0.70f);
     c[ImGuiCol_TabHovered]           = kPanelUp;
-    c[ImGuiCol_TabSelected]          = Hex(0x172A1B, 0.95f);
+    c[ImGuiCol_TabSelected]          = Hex(0x241A3A, 0.95f);
     c[ImGuiCol_TabSelectedOverline]  = kLeaf;
-    c[ImGuiCol_TabDimmed]            = Hex(0x0B140D, 0.70f);
-    c[ImGuiCol_TabDimmedSelected]    = Hex(0x172A1B, 0.95f);
-    c[ImGuiCol_TableHeaderBg]        = Hex(0x172A1B, 0.95f);
+    c[ImGuiCol_TabDimmed]            = Hex(0x0D0814, 0.70f);
+    c[ImGuiCol_TabDimmedSelected]    = Hex(0x241A3A, 0.95f);
+    c[ImGuiCol_TableHeaderBg]        = Hex(0x241A3A, 0.95f);
     c[ImGuiCol_TableBorderStrong]    = kLine;
-    c[ImGuiCol_TableBorderLight]     = Hex(0x2F4B32, 0.6f);
+    c[ImGuiCol_TableBorderLight]     = Hex(0x4A3668, 0.6f);
     c[ImGuiCol_TableRowBg]           = ImVec4(0, 0, 0, 0);
-    c[ImGuiCol_TableRowBgAlt]        = Hex(0x172A1B, 0.35f);
-    c[ImGuiCol_TextSelectedBg]       = Hex(0x3E6B27, 0.7f);
+    c[ImGuiCol_TableRowBgAlt]        = Hex(0x2A1F42, 0.35f);
+    c[ImGuiCol_TextSelectedBg]       = Hex(0x6A3FB0, 0.7f);
     c[ImGuiCol_NavCursor]            = kLeaf;
 }
 
@@ -372,7 +372,7 @@ void Hint(const char* text) {
 
 bool PrimaryButton(const char* label, float height) {
     ImGui::PushStyleColor(ImGuiCol_Button, kLeafDeep);
-    ImGui::PushStyleColor(ImGuiCol_ButtonHovered, Hex(0x4F8732));
+    ImGui::PushStyleColor(ImGuiCol_ButtonHovered, Hex(0x8F5FE0));
     ImGui::PushStyleColor(ImGuiCol_ButtonActive, kLeaf);
     const bool pressed = ImGui::Button(label, ImVec2(-1, height));
     ImGui::PopStyleColor(3);
@@ -440,7 +440,7 @@ static void DrawMenuTab() {
 static void DrawStatusStrip(float height) {
     char status[256];
     Menu_GetStatus(status, sizeof(status));
-    ImGui::PushStyleColor(ImGuiCol_ChildBg, Hex(0x0B140D, 0.92f));
+    ImGui::PushStyleColor(ImGuiCol_ChildBg, Hex(0x0D0814, 0.92f));
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(16, 8));
     ImGui::BeginChild("##status", ImVec2(0, height), ImGuiChildFlags_AlwaysUseWindowPadding, ImGuiWindowFlags_NoScrollbar);
     const ImVec2 p = ImGui::GetWindowPos();
