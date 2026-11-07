@@ -8,6 +8,9 @@
 #include <cstdio>
 #include <cstring>
 
+// 来自 spawner.cpp：下次生成飞船用的缩放
+void Menu_SetSpawnScale(float scale);
+
 void DrawVehiclesTab(void*, void*) {
     static int  selected = 0;
     static char filter[64] = "";
@@ -50,6 +53,10 @@ void DrawVehiclesTab(void*, void*) {
 
         ImGui::SetNextItemWidth(-1);
         ImGui::SliderFloat("##height", &opt.height, 0.0f, 500.0f, "在上方 %.0f 米处生成");
+        static float spawnScale = 1.0f;
+        ImGui::SetNextItemWidth(-1);
+        if (ImGui::SliderFloat("##spawnScale", &spawnScale, 0.2f, 5.0f, "飞船大小 %.2f 倍")) Menu_SetSpawnScale(spawnScale);
+        ImGui::SetItemTooltip("1.0 为原尺寸；放大后碰撞体不一定同步，可能出现穿模或站不稳。");
         static const char* const kBoard[] = { "不登船", "进入驾驶座", "按座位名称入座", "生成后选择座位" };
         ImGui::SetNextItemWidth(-1);
         ImGui::Combo("##board", &opt.seatMode, kBoard, 4);
@@ -66,8 +73,11 @@ void DrawVehiclesTab(void*, void*) {
         ImGui::SetItemTooltip("进入驾驶座后启动飞船电源。");
         ImGui::EndDisabled();
 
-        char spawn[96];
-        snprintf(spawn, sizeof(spawn), "生成 %s", ships[selected].name);
+        char spawn[128];
+        if (spawnScale != 1.0f)
+            snprintf(spawn, sizeof(spawn), "生成 %s（×%.2f）", ships[selected].name, spawnScale);
+        else
+            snprintf(spawn, sizeof(spawn), "生成 %s", ships[selected].name);
         if (PrimaryButton(spawn)) {
             MenuSpawnOptions send = opt;
             if (!boarding) send.flightReady = false;
