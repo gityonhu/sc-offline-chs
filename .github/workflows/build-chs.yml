@@ -37,19 +37,6 @@ jobs:
           cmake --build build --config Release --parallel --target dinput8 sc-offline sc-offline-creative sc-offline-discord
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-      - name: 下载官方发布的插件 SDK
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh release download sdk-v2.0.0 -R scubamount/sco-core -p 'sco-sdk-2.0.0.zip' -p SHA256SUMS -D "$env:RUNNER_TEMP/sdk-assets"
-
-      - name: 编译并验证外部 NPC 和检查器插件
-        shell: pwsh
-        run: |
-          python tools/check_npc_sdk.py --archive "$env:RUNNER_TEMP/sdk-assets/sco-sdk-2.0.0.zip" --sums "$env:RUNNER_TEMP/sdk-assets/SHA256SUMS" --work "$env:RUNNER_TEMP/npc-proof"
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python tools/check_inspector_sdk.py --archive "$env:RUNNER_TEMP/sdk-assets/sco-sdk-2.0.0.zip" --sums "$env:RUNNER_TEMP/sdk-assets/SHA256SUMS" --work "$env:RUNNER_TEMP/inspector-proof"
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-
       - name: 打包完整便携目录（包含中文字体）
         shell: python
         run: |
@@ -67,9 +54,6 @@ jobs:
               shutil.copy2(root / name, package / name)
           for name in ('creative', 'discord'):
               shutil.copy2(root / 'build/data/plugins' / name / (name + '.dll'), package / 'data/plugins' / name / (name + '.dll'))
-          for name in ('npc', 'inspector'):
-              source = pathlib.Path(os.environ['RUNNER_TEMP']) / (name + '-proof') / 'stage/data/plugins' / name
-              shutil.copytree(source, package / 'data/plugins' / name)
           assert (package / 'data/fonts/NotoSansSC-Regular.ttf').stat().st_size > 1000000
           version = re.search(r'^#define\s+SCO_VERSION\s+"([^"]+)"', (root / 'src/version.h').read_text(encoding='utf-8'), re.M).group(1)
           subprocess.run(['python', 'tools/release-manifest.py', 'write', str(package), '--tag', 'v' + version, '--commit', os.environ['GITHUB_SHA'], '--version-h', 'src/version.h'], check=True)
@@ -82,3 +66,4 @@ jobs:
           path: stage/sc-offline-chs/
           if-no-files-found: error
           retention-days: 30
+
