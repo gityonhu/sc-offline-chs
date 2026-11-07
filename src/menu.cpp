@@ -37,7 +37,9 @@ static IDXGISwapChain*         g_swap;
 static ID3D11RenderTargetView* g_rtv;
 static UINT                    g_resizeW, g_resizeH;
 
-constexpr int kMenuW = 600, kMenuH = 900;
+static constexpr int kBaseMenuW = 600, kBaseMenuH = 900;
+static float g_uiScale = 1.0f;              // 由游戏窗口算出，最大 3 倍
+static int   kMenuW = kBaseMenuW, kMenuH = kBaseMenuH;
 
 static void CreateRenderTarget() {
     ID3D11Texture2D* back = nullptr;
@@ -115,13 +117,33 @@ static void KeepCursorInMenu() {
     g_clipped = true;
 }
 
+static void ComputeMenuLayout() {
+    RECT r = {};
+    float sw = 1920.0f, sh = 1080.0f;
+    if (g_game && GetWindowRect(g_game, &r)) {
+        sw = static_cast<float>(r.right - r.left);
+        sh = static_cast<float>(r.bottom - r.top);
+    }
+    float s = 3.0f;
+    if (kBaseMenuW * s > sw * 0.92f) s = sw * 0.92f / kBaseMenuW;
+    if (kBaseMenuH * s > sh * 0.92f) s = sh * 0.92f / kBaseMenuH;
+    if (s < 1.0f) s = 1.0f;
+    g_uiScale = s;
+    kMenuW = static_cast<int>(kBaseMenuW * s);
+    kMenuH = static_cast<int>(kBaseMenuH * s);
+    Log("[menu] UI scale %.2f -> %dx%d (game window %.0fx%.0f)", g_uiScale, kMenuW, kMenuH, sw, sh);
+}
+
 static void ShowMenu(bool show) {
     if (show) {
+        ComputeMenuLayout();
         RECT r = {};
         GetWindowRect(g_game, &r);
-        SetWindowPos(g_wnd, HWND_TOPMOST, r.left + 60, r.top + 60, kMenuW, kMenuH, SWP_SHOWWINDOW);
+        const int x = r.left + ((r.right - r.left) - kMenuW) / 2;
+        const int y = r.top + ((r.bottom - r.top) - kMenuH) / 2;
+        SetWindowPos(g_wnd, HWND_TOPMOST, x, y, kMenuW, kMenuH, SWP_SHOWWINDOW);
         SetForegroundWindow(g_wnd);
-        SetCursorPos(r.left + 60 + kMenuW / 2, r.top + 60 + kMenuH / 2);
+        SetCursorPos(x + kMenuW / 2, y + kMenuH / 2);
         KeepCursorInMenu();
     } else {
         ClipCursor(nullptr);
@@ -174,25 +196,26 @@ constexpr float kHeadingSize = 20.0f;
 
 static void ApplyTheme() {
     ImGuiStyle& st = ImGui::GetStyle();
-    st.WindowPadding = ImVec2(18, 14);
-    st.FramePadding = ImVec2(10, 6);
-    st.ItemSpacing = ImVec2(9, 8);
-    st.ItemInnerSpacing = ImVec2(6, 4);
-    st.CellPadding = ImVec2(8, 4);
-    st.ScrollbarSize = 11;
+    const float sc = g_uiScale;
+    st.WindowPadding = ImVec2(18 * sc, 14 * sc);
+    st.FramePadding = ImVec2(10 * sc, 6 * sc);
+    st.ItemSpacing = ImVec2(9 * sc, 8 * sc);
+    st.ItemInnerSpacing = ImVec2(6 * sc, 4 * sc);
+    st.CellPadding = ImVec2(9 * sc, 5 * sc);
+    st.ScrollbarSize = 12 * sc;
     st.WindowRounding = 0;
-    st.ChildRounding = 8;
-    st.FrameRounding = 6;
-    st.PopupRounding = 10;
-    st.GrabRounding = 8;
-    st.TabRounding = 6;
-    st.ScrollbarRounding = 10;
+    st.ChildRounding = 8 * sc;
+    st.FrameRounding = 6 * sc;
+    st.PopupRounding = 10 * sc;
+    st.GrabRounding = 8 * sc;
+    st.TabRounding = 6 * sc;
+    st.ScrollbarRounding = 10 * sc;
     st.WindowBorderSize = 1;
     st.ChildBorderSize = 1;
     st.FrameBorderSize = 1;
     st.TabBorderSize = 0;
     st.SeparatorTextBorderSize = 2;
-    st.SeparatorTextPadding = ImVec2(0, 6);
+    st.SeparatorTextPadding = ImVec2(0, 6 * sc);
     st.SeparatorTextAlign = ImVec2(0, 0.5f);
 
     ImVec4* c = st.Colors;
@@ -257,10 +280,10 @@ static void LoadFonts() {
     } else {
         path[0] = 0;
     }
-    ImFont* font = sc_offline_chs::LoadChineseFont(path, kBodySize);
+    ImFont* font = sc_offline_chs::LoadChineseFont(path, kBodySize * g_uiScale);
     if (font) io.FontDefault = font;
     ImGuiStyle& st = ImGui::GetStyle();
-    st.FontSizeBase = font ? kBodySize : 13.0f;
+    st.FontSizeBase = font ? kBodySize * g_uiScale : 13.0f * g_uiScale;
     st.FontScaleMain = font ? 1.0f : 1.3f;
 }
 
@@ -269,7 +292,7 @@ static void LoadFonts() {
 static ID3D11ShaderResourceView* g_bgSrv = nullptr;
 static UINT  g_bgW = 0, g_bgH = 0;
 static bool  g_bgShow = true;
-static int   g_bgDarkness = 74;       // percent of the green wash over the image
+static int   g_bgDarkness = 38;       // percent of the green wash over the image
 static float g_bgPosition = 0.5f;     // which part of a wide image shows in the tall menu
 static char  g_bgPath[MAX_PATH] = "";
 
@@ -359,7 +382,7 @@ static void DrawBackdrop() {
 
 void SectionHeading(const char* title) {
     ImGui::Dummy(ImVec2(0, 2));
-    ImGui::PushFont(nullptr, kHeadingSize);
+    ImGui::PushFont(nullptr, kHeadingSize * g_uiScale);
     ImGui::SeparatorText(title);
     ImGui::PopFont();
 }
@@ -594,6 +617,7 @@ static void WaitWhileBuilding() {
 }
 
 static DWORD WINAPI MenuThread(LPVOID) {
+    ComputeMenuLayout();
     WNDCLASSEXW wc = { sizeof(wc) };
     wc.lpfnWndProc = MenuWndProc;
     wc.hInstance = GetModuleHandleW(nullptr);
