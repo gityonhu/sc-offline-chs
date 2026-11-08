@@ -57,7 +57,7 @@ void DrawVehiclesTab(void*, void*) {
         ImGui::SliderFloat("##height", &opt.height, 0.0f, 500.0f, "在上方 %.0f 米处生成");
         static float spawnScale = 1.0f;
         ImGui::SetNextItemWidth(-1);
-        if (ImGui::SliderFloat("##spawnScale", &spawnScale, 0.1f, 500000000.0f, "飞船大小 %.0f 倍", ImGuiSliderFlags_Logarithmic)) Menu_SetSpawnScale(spawnScale);
+        if (ImGui::SliderFloat("##spawnScale", &spawnScale, 0.1f, 500000000000.0f, "飞船大小 %.0f 倍", ImGuiSliderFlags_Logarithmic)) Menu_SetSpawnScale(spawnScale);
         ImGui::SetItemTooltip("1.0 为原尺寸；放大后碰撞体不一定同步，可能出现穿模或站不稳。");
         ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetStyleColorVec4(ImGuiCol_TextDisabled));
         ImGui::TextWrapped("提示：只缩放外壳，内部空间、挂载武器和炮弹不会跟着放大，驾驶舱也会一起变大。");
