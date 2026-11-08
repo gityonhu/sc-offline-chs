@@ -177,6 +177,20 @@ static void KeepSettingsOn() {
     }
 }
 
+// --- 菜单的 FOV 滑条：UI 线程只写意图，游戏线程真正改 cvar ---
+static volatile float g_fovWanted = 54.5f;
+static volatile float g_fovCached = 54.5f;
+static volatile LONG  g_fovPending = 0;
+
+void Menu_RequestFov(float fov) {
+    if (fov < 20.0f) fov = 20.0f;
+    if (fov > 120.0f) fov = 120.0f;
+    g_fovWanted = fov;
+    InterlockedExchange(&g_fovPending, 1);
+}
+
+float Menu_FovCached() { return g_fovCached; }
+
 void ProcessCVars() {
     KeepSettingsOn();
     {
@@ -193,5 +207,19 @@ void ProcessCVars() {
         ReleaseSRWLockExclusive(&g_lock);
         if (Execute(cmd)) Log("[cvars] console: %s", cmd);
         else              Log("[cvars] console unavailable: %s", cmd);
+    }
+
+    if (InterlockedExchange(&g_fovPending, 0)) {
+        if (SetCVarNow("cl_fov", g_fovWanted)) Log("[cvars] cl_fov -> %.1f", g_fovWanted);
+        else                                    Log("[cvars] cl_fov: console unavailable");
+    }
+    {
+        static DWORD lastFovRead = 0;
+        const DWORD nowMs = GetTickCount();
+        if (nowMs - lastFovRead > 1000) {
+            lastFovRead = nowMs;
+            float v = 0.0f;
+            if (GetCVarNow("cl_fov", v)) g_fovCached = v;
+        }
     }
 }
