@@ -36,6 +36,7 @@
 #include <tlhelp32.h>
 #include <winhttp.h>
 #include <winsafer.h>
+#include <wincodec.h>
 #include <commctrl.h>
 #include <cctype>
 #include <cstdarg>
@@ -72,6 +73,7 @@ extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg
 #pragma comment(lib, "comctl32.lib")
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "dwmapi.lib")
+#pragma comment(lib, "windowscodecs.lib")
 // Visual styles for the window (issue #20); MSVC embeds this, MinGW builds get classic controls.
 #pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 
@@ -2488,7 +2490,7 @@ static const int kGuiCommandCount = int(ARRAYSIZE(kGuiCommands));
 
 static const ImU32 kUiBg          = IM_COL32(21, 21, 23, 255);
 static const ImU32 kUiSide        = IM_COL32(17, 17, 19, 255);
-static const ImU32 kUiCard        = IM_COL32(27, 27, 30, 255);
+static const ImU32 kUiCard        = IM_COL32(27, 27, 30, 232);
 static const ImU32 kUiRow         = IM_COL32(36, 36, 40, 255);
 static const ImU32 kUiRowHover    = IM_COL32(46, 46, 51, 255);
 static const ImU32 kUiLine        = IM_COL32(40, 40, 44, 255);
@@ -3741,6 +3743,63 @@ static void DrawOutputPage(float x0, float y0, float x1, float y1) {
     ImGui::PopStyleVar();
 }
 
+// --- starfield backdrop: data\menu_background.jpg, drawn behind the cards ---------------
+static ID3D11ShaderResourceView* g_bgSrv = nullptr;
+static int g_bgW = 0, g_bgH = 0;
+
+static bool DecodeImageW(const wchar_t* file, std::vector<uint8_t>& pixels, UINT& w, UINT& h) {
+    IWICImagingFactory*    factory = nullptr;
+    IWICBitmapDecoder*     decoder = nullptr;
+    IWICBitmapFrameDecode* frame = nullptr;
+    IWICFormatConverter*   rgba = nullptr;
+    bool ok = SUCCEEDED(CoCreateInstance(CLSID_WICImagingFactory, nullptr, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&factory)))
+           && SUCCEEDED(factory->CreateDecoderFromFilename(file, nullptr, GENERIC_READ, WICDecodeMetadataCacheOnDemand, &decoder))
+           && SUCCEEDED(decoder->GetFrame(0, &frame))
+           && SUCCEEDED(factory->CreateFormatConverter(&rgba))
+           && SUCCEEDED(rgba->Initialize(frame, GUID_WICPixelFormat32bppRGBA, WICBitmapDitherTypeNone, nullptr, 0.0, WICBitmapPaletteTypeCustom))
+           && SUCCEEDED(rgba->GetSize(&w, &h))
+           && w > 0 && h > 0 && w <= 8192 && h <= 8192;
+    if (ok) {
+        pixels.resize(static_cast<size_t>(w) * h * 4);
+        ok = SUCCEEDED(rgba->CopyPixels(nullptr, w * 4, static_cast<UINT>(pixels.size()), pixels.data()));
+    }
+    if (rgba) rgba->Release();
+    if (frame) frame->Release();
+    if (decoder) decoder->Release();
+    if (factory) factory->Release();
+    return ok;
+}
+
+static void LoadLauncherBackground() {
+    if (!g_gui.dev) return;
+    CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED);
+    wstring path = g_gui.here + L"\\data\\menu_background.jpg";
+    if (GetFileAttributesW(path.c_str()) == INVALID_FILE_ATTRIBUTES)
+        path = g_gui.here + L"\\data\\menu_background.png";
+    if (GetFileAttributesW(path.c_str()) == INVALID_FILE_ATTRIBUTES) return;
+
+    std::vector<uint8_t> pixels;
+    UINT w = 0, h = 0;
+    if (!DecodeImageW(path.c_str(), pixels, w, h)) return;
+
+    D3D11_TEXTURE2D_DESC desc = {};
+    desc.Width = w;
+    desc.Height = h;
+    desc.MipLevels = 1;
+    desc.ArraySize = 1;
+    desc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+    desc.SampleDesc.Count = 1;
+    desc.Usage = D3D11_USAGE_DEFAULT;
+    desc.BindFlags = D3D11_BIND_SHADER_RESOURCE;
+    const D3D11_SUBRESOURCE_DATA init = { pixels.data(), w * 4, 0 };
+    ID3D11Texture2D* tex = nullptr;
+    if (SUCCEEDED(g_gui.dev->CreateTexture2D(&desc, &init, &tex)) && tex) {
+        g_gui.dev->CreateShaderResourceView(tex, nullptr, &g_bgSrv);
+        tex->Release();
+    }
+    if (g_bgSrv) { g_bgW = int(w); g_bgH = int(h); }
+}
+
 static void DrawUi() {
     Gui& g = g_gui;
     const ImGuiIO& io = ImGui::GetIO();
@@ -3749,6 +3808,25 @@ static void DrawUi() {
     ImGui::SetNextWindowSize(io.DisplaySize);
     ImGui::Begin("##sc-offline", nullptr, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoSavedSettings |
                  ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoScrollWithMouse);
+
+    // 星空背景：等比铺满、居中裁切，再压一层暗色保证文字可读
+    if (g_bgSrv && g_bgW > 0 && g_bgH > 0 && W > 1.0f && H > 1.0f) {
+        const float imageAspect = float(g_bgW) / float(g_bgH);
+        const float viewAspect = W / H;
+        ImVec2 uv0(0, 0), uv1(1, 1);
+        if (imageAspect > viewAspect) {
+            const float visible = viewAspect / imageAspect;
+            uv0.x = 0.5f * (1.0f - visible);
+            uv1.x = uv0.x + visible;
+        } else {
+            const float visible = imageAspect / viewAspect;
+            uv0.y = 0.5f * (1.0f - visible);
+            uv1.y = uv0.y + visible;
+        }
+        ImDrawList* bgdl = ImGui::GetWindowDrawList();
+        bgdl->AddImage(static_cast<ImTextureID>(reinterpret_cast<uintptr_t>(g_bgSrv)), ImVec2(0, 0), ImVec2(W, H), uv0, uv1);
+        bgdl->AddRectFilled(ImVec2(0, 0), ImVec2(W, H), IM_COL32(12, 10, 18, 165));
+    }
 
     if (!g.introDone) g.animating = true;
     const float t = float(Seconds() - g.introStart);
@@ -4041,6 +4119,16 @@ static int RunGui() {
     GetMonitorInfoW(mon, &mi);
     g.dpi = ImGui_ImplWin32_GetDpiScaleForMonitor(mon);
     const RECT& wa = mi.rcWork;
+    // 整体放大到 3 倍，但不超出屏幕可用区域
+    {
+        const float availW = float(wa.right - wa.left - 40);
+        const float availH = float(wa.bottom - wa.top - 40);
+        float zoom = 3.0f;
+        if (kUiW * g.dpi * zoom > availW) zoom = availW / (kUiW * g.dpi);
+        if (kUiH * g.dpi * zoom > availH) zoom = availH / (kUiH * g.dpi);
+        if (zoom < 1.0f) zoom = 1.0f;
+        g.dpi *= zoom;
+    }
     const int cx = (wa.left + wa.right) / 2, cy = (wa.top + wa.bottom) / 2;
     const int fw = std::min<int>(int(Px(kUiW)), wa.right - wa.left - 40), fh = std::min<int>(int(Px(kUiH)), wa.bottom - wa.top - 40);
     const int sw = int(Px(280)), sh = int(Px(190));
@@ -4081,6 +4169,7 @@ static int RunGui() {
     io.IniFilename = nullptr;
     io.LogFilename = nullptr;
     LoadFonts();
+    LoadLauncherBackground();
     StyleUi();
     ImGui_ImplWin32_Init(wnd);
     ImGui_ImplDX11_Init(g.dev, g.ctx);
