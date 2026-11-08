@@ -178,7 +178,7 @@ static volatile float g_spawnScale = 1.0f;
 
 void Menu_SetSpawnScale(float s) {
     if (s < 0.10f) s = 0.10f;
-    if (s > 5.00f) s = 5.00f;
+    if (s > 3.00f) s = 3.00f;
     g_spawnScale = s;
 }
 static volatile LONG g_menuShipCount = -1;
