@@ -185,7 +185,7 @@ int  Menu_SpawnedShipCount() { return static_cast<int>(g_spawnedShipCount); }
 
 void Menu_SetSpawnScale(float s) {
     if (s < 0.10f) s = 0.10f;
-    if (s > 500000000.00f) s = 500000000.00f;
+    if (s > 500000000000.00f) s = 500000000000.00f;
     g_spawnScale = s;
 }
 static volatile LONG g_menuShipCount = -1;
