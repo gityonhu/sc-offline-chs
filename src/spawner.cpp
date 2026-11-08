@@ -175,10 +175,17 @@ static MenuShip      g_menuShips[kMaxMenuShips];
 static char           g_menuShipClass[kMaxMenuShips][64];
 // 生成飞船时用的缩放（菜单里的“飞船大小”滑条），1.0 = 原尺寸
 static volatile float g_spawnScale = 1.0f;
+// 本菜单生成过的飞船，供“一键清除”使用（只在游戏线程读写）
+static uint64_t      g_spawnedShips[512];
+static volatile LONG g_spawnedShipCount = 0;
+static volatile LONG g_clearShipsRequested = 0;
+
+void Menu_RequestClearShips() { InterlockedExchange(&g_clearShipsRequested, 1); }
+int  Menu_SpawnedShipCount() { return static_cast<int>(g_spawnedShipCount); }
 
 void Menu_SetSpawnScale(float s) {
     if (s < 0.10f) s = 0.10f;
-    if (s > 5000000.00f) s = 5000000.00f;
+    if (s > 500000000.00f) s = 500000000.00f;
     g_spawnScale = s;
 }
 static volatile LONG g_menuShipCount = -1;
@@ -1489,6 +1496,14 @@ static void StartDaymarArrival(const char* shipClass, DWORD now) {
 
 void ProcessShipMenu(DWORD now) {
     if (!g_sp.ok) return;
+    if (InterlockedExchange(&g_clearShipsRequested, 0)) {
+        const int n = static_cast<int>(g_spawnedShipCount);
+        for (int i = 0; i < n; ++i)
+            if (g_spawnedShips[i]) RemoveEntityById(g_spawnedShips[i]);
+        InterlockedExchange(&g_spawnedShipCount, 0);
+        SetMenuStatus("已清除 %d 艘生成的飞船", n);
+        Log("[ship] cleared %d spawned ships", n);
+    }
     RefreshEnemySide();
     if (g_menuShipCount < 0 && g_menuWantShips) {
         uintptr_t actor, entity;
@@ -1542,6 +1557,13 @@ void ProcessShipMenu(DWORD now) {
             SetMenuStatus("生成 %s 失败：%s", label, err);
         } else {
             SetTarget(id, name);   // 船员/座位/电源页面按类名工作，保持英文
+            {
+                const LONG slot = InterlockedIncrement(&g_spawnedShipCount) - 1;
+                if (slot < static_cast<LONG>(sizeof(g_spawnedShips) / sizeof(g_spawnedShips[0])))
+                    g_spawnedShips[slot] = id;
+                else
+                    InterlockedDecrement(&g_spawnedShipCount);
+            }
             switch (o.seatMode) {
             case SeatMode_None:
                 SetMenuStatus("正在生成 %s，位于上方 %.0f 米（大型飞船可能需要一分钟）。", label, o.height);
