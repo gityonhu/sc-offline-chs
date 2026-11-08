@@ -143,6 +143,16 @@ static void ShowMenu(bool show) {
         const int x = r.left + ((r.right - r.left) - kMenuW) / 2;
         const int y = r.top + ((r.bottom - r.top) - kMenuH) / 2;
         SetWindowPos(g_wnd, HWND_TOPMOST, x, y, kMenuW, kMenuH, SWP_SHOWWINDOW);
+        {
+            RECT cr = {};
+            if (GetClientRect(g_wnd, &cr) && cr.right > 0 && cr.bottom > 0) {
+                g_resizeW = cr.right;      // 让循环立刻重建渲染目标
+                g_resizeH = cr.bottom;
+                Log("[menu] show: window %dx%d at (%d,%d), client %dx%d", kMenuW, kMenuH, x, y, cr.right, cr.bottom);
+            } else {
+                Log("[menu] show: window %dx%d at (%d,%d), client rect unavailable", kMenuW, kMenuH, x, y);
+            }
+        }
         SetForegroundWindow(g_wnd);
         SetCursorPos(x + kMenuW / 2, y + kMenuH / 2);
         KeepCursorInMenu();
@@ -714,14 +724,15 @@ static DWORD WINAPI MenuThread(LPVOID) {
         KeepCursorInMenu();
         // Visible but not focused: keep the last picture and stop asking the game thread for
         // frames, so the game runs at full speed until the menu is focused again.
-        if (GetForegroundWindow() != g_wnd) { Sleep(50); continue; }
-
         if (g_resizeW && g_resizeH) {
-            ReleaseRenderTarget();
-            g_swap->ResizeBuffers(0, g_resizeW, g_resizeH, DXGI_FORMAT_UNKNOWN, 0);
+            const int rw = g_resizeW, rh = g_resizeH;
             g_resizeW = g_resizeH = 0;
+            ReleaseRenderTarget();
+            g_swap->ResizeBuffers(0, rw, rh, DXGI_FORMAT_UNKNOWN, 0);
             CreateRenderTarget();
+            Log("[menu] render target -> %dx%d", rw, rh);
         }
+        if (GetForegroundWindow() != g_wnd) { Sleep(50); continue; }
 
         RequestFrame();
         // Wakes for the built frame or the window's next message, whichever comes first.
