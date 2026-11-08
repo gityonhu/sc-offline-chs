@@ -8,8 +8,10 @@
 #include <cstdio>
 #include <cstring>
 
-// 来自 spawner.cpp：下次生成飞船用的缩放
+// 来自 spawner.cpp：下次生成飞船用的缩放 / 一键清除
 void Menu_SetSpawnScale(float scale);
+void Menu_RequestClearShips();
+int  Menu_SpawnedShipCount();
 
 void DrawVehiclesTab(void*, void*) {
     static int  selected = 0;
@@ -55,7 +57,7 @@ void DrawVehiclesTab(void*, void*) {
         ImGui::SliderFloat("##height", &opt.height, 0.0f, 500.0f, "在上方 %.0f 米处生成");
         static float spawnScale = 1.0f;
         ImGui::SetNextItemWidth(-1);
-        if (ImGui::SliderFloat("##spawnScale", &spawnScale, 0.1f, 5000000.0f, "飞船大小 %.0f 倍", ImGuiSliderFlags_Logarithmic)) Menu_SetSpawnScale(spawnScale);
+        if (ImGui::SliderFloat("##spawnScale", &spawnScale, 0.1f, 500000000.0f, "飞船大小 %.0f 倍", ImGuiSliderFlags_Logarithmic)) Menu_SetSpawnScale(spawnScale);
         ImGui::SetItemTooltip("1.0 为原尺寸；放大后碰撞体不一定同步，可能出现穿模或站不稳。");
         ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetStyleColorVec4(ImGuiCol_TextDisabled));
         ImGui::TextWrapped("提示：只缩放外壳，内部空间、挂载武器和炮弹不会跟着放大，驾驶舱也会一起变大。");
@@ -89,6 +91,14 @@ void DrawVehiclesTab(void*, void*) {
             Menu_RequestSpawn(selected, send);
             if (opt.seatMode != SeatMode_PickLater) MenuClose();
         }
+
+        const int made = Menu_SpawnedShipCount();
+        char clearLabel[96];
+        snprintf(clearLabel, sizeof(clearLabel), "清除已生成飞船（%d）", made);
+        ImGui::BeginDisabled(made <= 0);
+        if (ImGui::Button(clearLabel, ImVec2(-1, 0))) Menu_RequestClearShips();
+        ImGui::EndDisabled();
+        ImGui::SetItemTooltip("移除本菜单生成过的飞船；空间站、NPC、你自己开的船不动。");
     }
 
     SectionHeading("当前飞船");
