@@ -2508,7 +2508,7 @@ static const ImU32 kUiGreen       = IM_COL32(46, 196, 118, 255);
 static const ImU32 kUiRed         = IM_COL32(70, 70, 76, 255);
 static const ImU32 kUiWarn        = IM_COL32(255, 132, 104, 255);
 
-static const float kUiW = 720, kUiH = 328, kUiSideW = 72, kUiTop = 46, kUiPad = 18, kUiGap = 14;
+static const float kUiW = 720, kUiH = 720, kUiSideW = 72, kUiTop = 46, kUiPad = 18, kUiGap = 14;
 static const double kIntroSpin = 0.9, kIntroGrow = 0.42, kIntroFade = 0.3;
 
 // One `[settings]` line of a plugin.ini (sco-core sdk/docs/plugin-ini.md).
