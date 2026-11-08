@@ -3773,9 +3773,9 @@ static bool DecodeImageW(const wchar_t* file, std::vector<uint8_t>& pixels, UINT
 static void LoadLauncherBackground() {
     if (!g_gui.dev) return;
     CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED);
-    wstring path = g_gui.here + L"\\data\\menu_background.jpg";
+    wstring path = g_gui.here + L"\\data\\launcher_background.jpg";
     if (GetFileAttributesW(path.c_str()) == INVALID_FILE_ATTRIBUTES)
-        path = g_gui.here + L"\\data\\menu_background.png";
+        path = g_gui.here + L"\\data\\launcher_background.png";
     if (GetFileAttributesW(path.c_str()) == INVALID_FILE_ATTRIBUTES) return;
 
     std::vector<uint8_t> pixels;
@@ -3825,7 +3825,7 @@ static void DrawUi() {
         }
         ImDrawList* bgdl = ImGui::GetWindowDrawList();
         bgdl->AddImage(static_cast<ImTextureID>(reinterpret_cast<uintptr_t>(g_bgSrv)), ImVec2(0, 0), ImVec2(W, H), uv0, uv1);
-        bgdl->AddRectFilled(ImVec2(0, 0), ImVec2(W, H), IM_COL32(12, 10, 18, 165));
+        bgdl->AddRectFilled(ImVec2(0, 0), ImVec2(W, H), IM_COL32(10, 8, 14, 110));
     }
 
     if (!g.introDone) g.animating = true;
@@ -4123,7 +4123,7 @@ static int RunGui() {
     {
         const float availW = float(wa.right - wa.left - 40);
         const float availH = float(wa.bottom - wa.top - 40);
-        float zoom = 3.0f;
+        float zoom = 2.0f;
         if (kUiW * g.dpi * zoom > availW) zoom = availW / (kUiW * g.dpi);
         if (kUiH * g.dpi * zoom > availH) zoom = availH / (kUiH * g.dpi);
         if (zoom < 1.0f) zoom = 1.0f;
