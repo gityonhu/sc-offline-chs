@@ -7,6 +7,7 @@
 #include "menu_imgui.h"
 #include "menu_ui.h"
 #include "chinese_font.h"
+#include "cvars.h"
 #include "common.h"
 #include "version.h"
 #include <atomic>
@@ -450,6 +451,13 @@ static void DrawMenuTab() {
         Hint("将背景图片命名为 menu_background.png（或 .jpg），保存到下方路径，然后重启游戏：");
         ImGui::TextWrapped("%s", g_bgPath[0] ? g_bgPath : "data\\menu_background.png");
     }
+
+    SectionHeading("视角");
+    static float fov = 0.0f;
+    if (fov <= 0.0f) fov = Menu_FovCached();
+    ImGui::SetNextItemWidth(-1);
+    if (ImGui::SliderFloat("##fov", &fov, 20.0f, 120.0f, "视野 FOV %.1f°")) Menu_RequestFov(fov);
+    ImGui::SetItemTooltip("越小画面越拉近、飞船显得越大，但视野越窄；默认约 54.5°。");
 
     SectionHeading("关于");
     Hint(SCO_TITLE " 仍在开发中，基于 ChrisWareOffline 0.9.0-rc1。");
