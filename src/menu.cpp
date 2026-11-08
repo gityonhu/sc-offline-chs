@@ -658,8 +658,8 @@ static DWORD WINAPI MenuThread(LPVOID) {
             TranslateMessage(&msg);
             DispatchMessageW(&msg);
         }
-        // M is the product's own key (reserved in sco.ui): plugins can't bind it.
-        const bool down = (GetAsyncKeyState('M') & 0x8000) != 0;
+        // Tab 是产品自己的菜单键（TAB）：插件不能绑定它。
+        const bool down = (GetAsyncKeyState(VK_TAB) & 0x8000) != 0;
         const bool typing = visible && GetForegroundWindow() == g_wnd && ImGui::GetIO().WantTextInput;
         g_typing = typing;
         if (down && !wasDown && !typing && OurProcessHasFocus()) { visible = !visible; ShowMenu(visible); }
