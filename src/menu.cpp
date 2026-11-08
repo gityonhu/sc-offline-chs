@@ -674,6 +674,31 @@ static DWORD WINAPI MenuThread(LPVOID) {
         wasDown = down;
         if (visible && !IsWindowVisible(g_wnd)) { visible = false; ClipCursor(nullptr); g_clipped = false; }
 
+        // 游戏窗口尺寸变了（启动时窗口化 -> 全屏）：菜单跟着重新布局，否则会停在旧位置/旧尺寸。
+        if (visible && g_game) {
+            static DWORD lastCheck = 0;
+            static int lastW = 0, lastH = 0;
+            const DWORD checkNow = GetTickCount();
+            if (checkNow - lastCheck > 500) {
+                lastCheck = checkNow;
+                RECT gr = {};
+                if (GetWindowRect(g_game, &gr)) {
+                    const int gw = gr.right - gr.left, gh = gr.bottom - gr.top;
+                    if (gw > 0 && gh > 0 && (gw != lastW || gh != lastH)) {
+                        lastW = gw; lastH = gh;
+                        ComputeMenuLayout();
+                        const int mx = gr.left + (gw - kMenuW) / 2;
+                        const int my = gr.top + (gh - kMenuH) / 2;
+                        SetWindowPos(g_wnd, HWND_TOPMOST, mx, my, kMenuW, kMenuH, SWP_SHOWWINDOW);
+                        g_resizeW = kMenuW; g_resizeH = kMenuH;
+                        g_clipped = false;          // 让光标裁剪按新位置重算
+                        KeepCursorInMenu();
+                        Log("[menu] game window changed to %dx%d, menu relaid out to %dx%d", gw, gh, kMenuW, kMenuH);
+                    }
+                }
+            }
+        }
+
         if (g_frameState == Frame_Built) {
             InterlockedExchange(&g_frameState, Frame_Idle);
             if (visible) {
