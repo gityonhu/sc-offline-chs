@@ -55,7 +55,7 @@ void DrawVehiclesTab(void*, void*) {
         ImGui::SliderFloat("##height", &opt.height, 0.0f, 500.0f, "在上方 %.0f 米处生成");
         static float spawnScale = 1.0f;
         ImGui::SetNextItemWidth(-1);
-        if (ImGui::SliderFloat("##spawnScale", &spawnScale, 0.1f, 50000.0f, "飞船大小 %.0f 倍")) Menu_SetSpawnScale(spawnScale);
+        if (ImGui::SliderFloat("##spawnScale", &spawnScale, 0.1f, 5000000.0f, "飞船大小 %.0f 倍", ImGuiSliderFlags_Logarithmic)) Menu_SetSpawnScale(spawnScale);
         ImGui::SetItemTooltip("1.0 为原尺寸；放大后碰撞体不一定同步，可能出现穿模或站不稳。");
         ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetStyleColorVec4(ImGuiCol_TextDisabled));
         ImGui::TextWrapped("提示：只缩放外壳，内部空间、挂载武器和炮弹不会跟着放大，驾驶舱也会一起变大。");
@@ -77,7 +77,9 @@ void DrawVehiclesTab(void*, void*) {
         ImGui::EndDisabled();
 
         char spawn[128];
-        if (spawnScale != 1.0f)
+        if (spawnScale >= 100.0f)
+            snprintf(spawn, sizeof(spawn), "生成 %s（×%.0f）", ships[selected].name, spawnScale);
+        else if (spawnScale != 1.0f)
             snprintf(spawn, sizeof(spawn), "生成 %s（×%.2f）", ships[selected].name, spawnScale);
         else
             snprintf(spawn, sizeof(spawn), "生成 %s", ships[selected].name);
