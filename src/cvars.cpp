@@ -182,11 +182,36 @@ static volatile float g_fovWanted = 54.5f;
 static volatile float g_fovCached = 54.5f;
 static volatile LONG  g_fovPending = 0;
 
+static void SaveFovToDisk(float fov) {
+    char path[MAX_PATH];
+    if (!DataFilePath(path, sizeof(path), "fov.txt")) return;
+    FILE* f = nullptr;
+    if (fopen_s(&f, path, "w") != 0 || !f) return;
+    fprintf(f, "%.1f\n", fov);
+    fclose(f);
+}
+
+static void LoadFovFromDisk() {
+    char path[MAX_PATH];
+    if (!DataFilePath(path, sizeof(path), "fov.txt")) return;
+    FILE* f = nullptr;
+    if (fopen_s(&f, path, "r") != 0 || !f) return;
+    float v = 0.0f;
+    const bool ok = fscanf_s(f, "%f", &v) == 1;
+    fclose(f);
+    if (ok && v >= 20.0f && v <= 120.0f) {
+        g_fovWanted = v;
+        InterlockedExchange(&g_fovPending, 1);
+        Log("[cvars] saved FOV %.1f", v);
+    }
+}
+
 void Menu_RequestFov(float fov) {
     if (fov < 20.0f) fov = 20.0f;
     if (fov > 120.0f) fov = 120.0f;
     g_fovWanted = fov;
     InterlockedExchange(&g_fovPending, 1);
+    SaveFovToDisk(fov);
 }
 
 float Menu_FovCached() { return g_fovCached; }
@@ -209,9 +234,13 @@ void ProcessCVars() {
         else              Log("[cvars] console unavailable: %s", cmd);
     }
 
-    if (InterlockedExchange(&g_fovPending, 0)) {
-        if (SetCVarNow("cl_fov", g_fovWanted)) Log("[cvars] cl_fov -> %.1f", g_fovWanted);
-        else                                    Log("[cvars] cl_fov: console unavailable");
+    static bool fovLoaded = false;
+    if (!fovLoaded) { fovLoaded = true; LoadFovFromDisk(); }
+    if (InterlockedCompareExchange(&g_fovPending, 1, 1) == 1) {
+        if (SetCVarNow("cl_fov", g_fovWanted)) {
+            InterlockedExchange(&g_fovPending, 0);
+            Log("[cvars] cl_fov -> %.1f", g_fovWanted);
+        }
     }
     {
         static DWORD lastFovRead = 0;
