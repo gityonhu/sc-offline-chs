@@ -185,7 +185,7 @@ int  Menu_SpawnedShipCount() { return static_cast<int>(g_spawnedShipCount); }
 
 void Menu_SetSpawnScale(float s) {
     if (s < 0.10f) s = 0.10f;
-    if (s > 500000000000.00f) s = 500000000000.00f;
+    if (s > 500000000.00f) s = 500000000.00f;
     g_spawnScale = s;
 }
 static volatile LONG g_menuShipCount = -1;
@@ -1170,6 +1170,38 @@ static bool SeatJobDone() {
     return PlayerAboard(g_seatJob.id, g_seatJob.name);
 }
 
+// 发送一次按键（扫描码）：给“双击 X 切换鼠标模式”用
+static void SendKeyTap(unsigned short scan) {
+    INPUT in[2] = {};
+    in[0].type = in[1].type = INPUT_KEYBOARD;
+    in[0].ki.wScan = in[1].ki.wScan = scan;
+    in[0].ki.dwFlags = KEYEVENTF_SCANCODE;
+    in[1].ki.dwFlags = KEYEVENTF_SCANCODE | KEYEVENTF_KEYUP;
+    SendInput(1, &in[0], sizeof(INPUT));
+    Sleep(60);
+    SendInput(1, &in[1], sizeof(INPUT));
+}
+
+// 双击 X = 游戏里的“切换鼠标瞄准模式（虚拟摇杆 / 相对）”
+void Menu_ToggleMouseMode() {
+    if (HANDLE t = CreateThread(nullptr, 0, [](LPVOID) -> DWORD {
+            SendKeyTap(0x2D);      // X
+            Sleep(90);
+            SendKeyTap(0x2D);      // 双击
+            return 0;
+        }, nullptr, 0, nullptr))
+        CloseHandle(t);
+}
+
+// 每局游戏只在第一次进入驾驶座时切一次，之后尊重玩家自己的选择
+static void EnsureRelativeMouseOnce() {
+    static bool done = false;
+    if (done) return;
+    done = true;
+    Menu_ToggleMouseMode();
+    Log("[ship] switched mouse aim mode once (relative / virtual joystick)");
+}
+
 static void PressFlightReadyKey() {
     if (HANDLE t = CreateThread(nullptr, 0, [](LPVOID) -> DWORD {
             INPUT in[2] = {};
@@ -1329,8 +1361,10 @@ static void FinishSeatJob(DWORD now) {
     const bool pilot = have && g_lastSeat.priority >= kPilotPriority;
     if (pilot && g_seatJob.flightReady) {
         StartPowerJob(g_seatJob.id, g_lastSeat.seatId, g_seatJob.name, now + 1500, 20000);
+        EnsureRelativeMouseOnce();
         SetMenuStatus("你已进入 %s 的驾驶座，正在启动电源……", g_seatJob.name);
     } else if (pilot) {
+        EnsureRelativeMouseOnce();
         SetMenuStatus("你已进入 %s 的驾驶座（%s），请按 R（飞行准备）启动电源。", g_seatJob.name, g_lastSeat.name);
     } else if (have && g_seatJob.mode == SeatMode_Pilot && !g_seatJob.wantSeat) {
         SetMenuStatus("你已进入 %s，但驾驶座不可用%s，已安排至“%s”。", g_seatJob.name,
