@@ -468,6 +468,12 @@ static void DrawMenuTab() {
     if (ImGui::Button("切换鼠标模式（相对 / 虚拟摇杆）", ImVec2(-1, 0))) Menu_ToggleMouseMode();
     ImGui::SetItemTooltip("等同于双击 X。进入驾驶座时会自动切一次，之后可随时用这个按钮改回。");
 
+    static float sens = 0.0f;
+    if (sens <= 0.0f) sens = Menu_SensitivityCached();
+    ImGui::SetNextItemWidth(-1);
+    if (ImGui::SliderFloat("##sens", &sens, 0.5f, 60.0f, "鼠标灵敏度 %.1f")) Menu_RequestSensitivity(sens);
+    ImGui::SetItemTooltip("只放大鼠标输入；大船的最大转向速率由飞控决定，调高只是更快打到上限。");
+
     SectionHeading("视角");
     static float fov = 0.0f;
     if (fov <= 0.0f) fov = Menu_FovCached();
