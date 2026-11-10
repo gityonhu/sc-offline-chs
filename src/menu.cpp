@@ -8,6 +8,8 @@
 #include "menu_ui.h"
 #include "chinese_font.h"
 #include "cvars.h"
+
+void Menu_ToggleMouseMode();
 #include "common.h"
 #include "version.h"
 #include <atomic>
@@ -461,6 +463,10 @@ static void DrawMenuTab() {
         Hint("将背景图片命名为 menu_background.png（或 .jpg），保存到下方路径，然后重启游戏：");
         ImGui::TextWrapped("%s", g_bgPath[0] ? g_bgPath : "data\\menu_background.png");
     }
+
+    SectionHeading("操作");
+    if (ImGui::Button("切换鼠标模式（相对 / 虚拟摇杆）", ImVec2(-1, 0))) Menu_ToggleMouseMode();
+    ImGui::SetItemTooltip("等同于双击 X。进入驾驶座时会自动切一次，之后可随时用这个按钮改回。");
 
     SectionHeading("视角");
     static float fov = 0.0f;
