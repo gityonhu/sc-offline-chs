@@ -216,6 +216,45 @@ void Menu_RequestFov(float fov) {
 
 float Menu_FovCached() { return g_fovCached; }
 
+// --- 鼠标灵敏度：同样走 data\sensitivity.txt ---
+static volatile float g_sensWanted = 20.0f;
+static volatile float g_sensCached = 20.0f;
+static volatile LONG  g_sensPending = 0;
+
+static void SaveSensToDisk(float v) {
+    char path[MAX_PATH];
+    if (!DataFilePath(path, sizeof(path), "sensitivity.txt")) return;
+    FILE* f = nullptr;
+    if (fopen_s(&f, path, "w") != 0 || !f) return;
+    fprintf(f, "%.1f\n", v);
+    fclose(f);
+}
+
+static void LoadSensFromDisk() {
+    char path[MAX_PATH];
+    if (!DataFilePath(path, sizeof(path), "sensitivity.txt")) return;
+    FILE* f = nullptr;
+    if (fopen_s(&f, path, "r") != 0 || !f) return;
+    float v = 0.0f;
+    const bool ok = fscanf_s(f, "%f", &v) == 1;
+    fclose(f);
+    if (ok && v >= 0.5f && v <= 60.0f) {
+        g_sensWanted = v;
+        InterlockedExchange(&g_sensPending, 1);
+        Log("[cvars] saved sensitivity %.1f", v);
+    }
+}
+
+void Menu_RequestSensitivity(float v) {
+    if (v < 0.5f) v = 0.5f;
+    if (v > 60.0f) v = 60.0f;
+    g_sensWanted = v;
+    InterlockedExchange(&g_sensPending, 1);
+    SaveSensToDisk(v);
+}
+
+float Menu_SensitivityCached() { return g_sensCached; }
+
 void ProcessCVars() {
     KeepSettingsOn();
     {
@@ -249,6 +288,24 @@ void ProcessCVars() {
             lastFovRead = nowMs;
             float v = 0.0f;
             if (GetCVarNow("cl_fov", v)) g_fovCached = v;
+        }
+    }
+
+    static bool sensLoaded = false;
+    if (!sensLoaded) { sensLoaded = true; LoadSensFromDisk(); }
+    if (InterlockedCompareExchange(&g_sensPending, 1, 1) == 1) {
+        if (SetCVarNow("cl_sensitivity", g_sensWanted)) {
+            InterlockedExchange(&g_sensPending, 0);
+            Log("[cvars] cl_sensitivity -> %.1f", g_sensWanted);
+        }
+    }
+    {
+        static DWORD lastSensRead = 0;
+        const DWORD nowMs = GetTickCount();
+        if (nowMs - lastSensRead > 1000) {
+            lastSensRead = nowMs;
+            float v = 0.0f;
+            if (GetCVarNow("cl_sensitivity", v)) g_sensCached = v;
         }
     }
 }
