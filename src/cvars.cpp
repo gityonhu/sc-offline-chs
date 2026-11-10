@@ -255,6 +255,55 @@ void Menu_RequestSensitivity(float v) {
 
 float Menu_SensitivityCached() { return g_sensCached; }
 
+// --- 飞船转向速度倍率：IFCS 的原始转速修正（只作用于飞船）---
+static volatile float g_rotWanted[3] = { 1.0f, 1.0f, 1.0f };
+static volatile float g_rotCached[3] = { 1.0f, 1.0f, 1.0f };
+static volatile LONG  g_rotPending = 0;
+
+static const char* const kRotCvar[3] = {
+    "v_ifcs2.new_model_rotation_modifier_global_pitch",
+    "v_ifcs2.new_model_rotation_modifier_global_yaw",
+    "v_ifcs2.new_model_rotation_modifier_global_roll",
+};
+
+static void SaveRotToDisk() {
+    char path[MAX_PATH];
+    if (!DataFilePath(path, sizeof(path), "rotation.txt")) return;
+    FILE* f = nullptr;
+    if (fopen_s(&f, path, "w") != 0 || !f) return;
+    fprintf(f, "%.2f\n%.2f\n%.2f\n", g_rotWanted[0], g_rotWanted[1], g_rotWanted[2]);
+    fclose(f);
+}
+
+static void LoadRotFromDisk() {
+    char path[MAX_PATH];
+    if (!DataFilePath(path, sizeof(path), "rotation.txt")) return;
+    FILE* f = nullptr;
+    if (fopen_s(&f, path, "r") != 0 || !f) return;
+    float a = 1.0f, b = 1.0f, d = 1.0f;
+    const int n = fscanf_s(f, "%f %f %f", &a, &b, &d);
+    fclose(f);
+    if (n == 3 && a > 0.0f && b > 0.0f && d > 0.0f) {
+        g_rotWanted[0] = a; g_rotWanted[1] = b; g_rotWanted[2] = d;
+        InterlockedExchange(&g_rotPending, 1);
+        Log("[cvars] saved rotation %.2f/%.2f/%.2f", a, b, d);
+    }
+}
+
+void Menu_RequestRotation(int axis, float v) {
+    if (axis < 0 || axis > 2) return;
+    if (v < 0.10f) v = 0.10f;
+    if (v > 3.00f) v = 3.00f;
+    g_rotWanted[axis] = v;
+    InterlockedExchange(&g_rotPending, 1);
+    SaveRotToDisk();
+}
+
+float Menu_RotationCached(int axis) {
+    if (axis < 0 || axis > 2) return 1.0f;
+    return g_rotCached[axis];
+}
+
 void ProcessCVars() {
     KeepSettingsOn();
     {
@@ -306,6 +355,30 @@ void ProcessCVars() {
             lastSensRead = nowMs;
             float v = 0.0f;
             if (GetCVarNow("cl_sensitivity", v)) g_sensCached = v;
+        }
+    }
+
+    static bool rotLoaded = false;
+    if (!rotLoaded) { rotLoaded = true; LoadRotFromDisk(); }
+    if (InterlockedCompareExchange(&g_rotPending, 1, 1) == 1) {
+        bool all = true;
+        for (int i = 0; i < 3; ++i)
+            if (!SetCVarNow(kRotCvar[i], g_rotWanted[i])) all = false;
+        if (all) {
+            InterlockedExchange(&g_rotPending, 0);
+            Log("[cvars] rotation modifiers -> %.2f/%.2f/%.2f",
+                g_rotWanted[0], g_rotWanted[1], g_rotWanted[2]);
+        }
+    }
+    {
+        static DWORD lastRotRead = 0;
+        const DWORD nowMs = GetTickCount();
+        if (nowMs - lastRotRead > 1000) {
+            lastRotRead = nowMs;
+            for (int i = 0; i < 3; ++i) {
+                float v = 0.0f;
+                if (GetCVarNow(kRotCvar[i], v)) g_rotCached[i] = v;
+            }
         }
     }
 }
