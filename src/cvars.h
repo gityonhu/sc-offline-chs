@@ -9,6 +9,8 @@ bool GetCVarNow(const char* name, float& value);
 // 菜单“视角”里的 FOV 滑条（写 cl_fov）
 void  Menu_RequestFov(float fov);
 float Menu_FovCached();
+void  Menu_RequestSensitivity(float value);
+float Menu_SensitivityCached();
 
 // Squadron 42 tab settings: four game cvars behind one checkbox each.
 int         Menu_S42SettingCount();
