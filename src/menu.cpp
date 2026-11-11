@@ -120,13 +120,62 @@ static void KeepCursorInMenu() {
     g_clipped = true;
 }
 
+// 游戏窗口矩形：全屏切换的瞬间 GetWindowRect 可能返回 0×0，
+// 那就退回到“光标所在显示器”的矩形，避免把菜单算到屏幕外。
+static void GameScreenRect(RECT* out) {
+    out->left = 0;
+    out->top = 0;
+    out->right = GetSystemMetrics(SM_CXSCREEN);
+    out->bottom = GetSystemMetrics(SM_CYSCREEN);
+
+    RECT r = {};
+    if (g_game && IsWindow(g_game) && GetWindowRect(g_game, &r) &&
+        r.right - r.left >= 640 && r.bottom - r.top >= 480) {
+        *out = r;
+        return;
+    }
+    POINT p = {};
+    GetCursorPos(&p);
+    MONITORINFO mi = { sizeof(mi) };
+    if (GetMonitorInfo(MonitorFromPoint(p, MONITOR_DEFAULTTONEAREST), &mi))
+        *out = mi.rcMonitor;
+}
+
+static void ForceForeground(HWND h) {
+    const HWND fg = GetForegroundWindow();
+    const DWORD fgTid = fg ? GetWindowThreadProcessId(fg, nullptr) : 0;
+    const DWORD myTid = GetCurrentThreadId();
+    if (fgTid && fgTid != myTid) AttachThreadInput(myTid, fgTid, TRUE);
+    BringWindowToTop(h);
+    SetForegroundWindow(h);
+    SetActiveWindow(h);
+    SetFocus(h);
+    if (fgTid && fgTid != myTid) AttachThreadInput(myTid, fgTid, FALSE);
+}
+
+struct MenuFocusRetry { HWND wnd; int x, y, w, h; };
+static DWORD WINAPI MenuFocusRetryProc(LPVOID p) {
+    MenuFocusRetry* c = static_cast<MenuFocusRetry*>(p);
+    // 刚切全屏/刚启动时前台锁还没释放，1.2 秒内反复抢，直到成功
+    for (int i = 0; i < 12; ++i) {
+        if (GetForegroundWindow() == c->wnd) break;
+        ForceForeground(c->wnd);
+        Sleep(100);
+    }
+    while (ShowCursor(TRUE) < 0) {}
+    SetCursorPos(c->x + c->w / 2, c->y + c->h / 2);
+    KeepCursorInMenu();
+    delete c;
+    return 0;
+}
+
 static void ComputeMenuLayout() {
     RECT r = {};
-    float sw = 1920.0f, sh = 1080.0f;
-    if (g_game && GetWindowRect(g_game, &r)) {
-        sw = static_cast<float>(r.right - r.left);
-        sh = static_cast<float>(r.bottom - r.top);
-    }
+    GameScreenRect(&r);
+    float sw = static_cast<float>(r.right - r.left);
+    float sh = static_cast<float>(r.bottom - r.top);
+    if (sw < 640.0f) sw = 1920.0f;
+    if (sh < 480.0f) sh = 1080.0f;
     float s = 3.0f;
     if (kBaseMenuW * s > sw * 0.92f) s = sw * 0.92f / kBaseMenuW;
     if (kBaseMenuH * s > sh * 0.92f) s = sh * 0.92f / kBaseMenuH;
@@ -141,9 +190,18 @@ static void ShowMenu(bool show) {
     if (show) {
         ComputeMenuLayout();
         RECT r = {};
-        GetWindowRect(g_game, &r);
-        const int x = r.left + ((r.right - r.left) - kMenuW) / 2;
-        const int y = r.top + ((r.bottom - r.top) - kMenuH) / 2;
+        GameScreenRect(&r);
+        int x = r.left + ((r.right - r.left) - kMenuW) / 2;
+        int y = r.top + ((r.bottom - r.top) - kMenuH) / 2;
+        // 永远不要把菜单放到屏幕外
+        MONITORINFO mi = { sizeof(mi) };
+        if (GetMonitorInfo(MonitorFromRect(&r, MONITOR_DEFAULTTONEAREST), &mi)) {
+            const RECT& w = mi.rcMonitor;
+            if (x < w.left) x = w.left;
+            if (y < w.top) y = w.top;
+            if (x + kMenuW > w.right) x = w.right - kMenuW;
+            if (y + kMenuH > w.bottom) y = w.bottom - kMenuH;
+        }
         SetWindowPos(g_wnd, HWND_TOPMOST, x, y, kMenuW, kMenuH, SWP_SHOWWINDOW);
         {
             RECT cr = {};
@@ -155,9 +213,15 @@ static void ShowMenu(bool show) {
                 Log("[menu] show: window %dx%d at (%d,%d), client rect unavailable", kMenuW, kMenuH, x, y);
             }
         }
-        SetForegroundWindow(g_wnd);
+        ForceForeground(g_wnd);
         SetCursorPos(x + kMenuW / 2, y + kMenuH / 2);
         KeepCursorInMenu();
+        if (MenuFocusRetry* c = new MenuFocusRetry{g_wnd, x, y, kMenuW, kMenuH}) {
+            if (HANDLE t = CreateThread(nullptr, 0, MenuFocusRetryProc, c, 0, nullptr))
+                CloseHandle(t);
+            else
+                delete c;
+        }
     } else {
         ClipCursor(nullptr);
         g_clipped = false;
