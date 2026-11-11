@@ -468,6 +468,12 @@ static void DrawMenuTab() {
     if (ImGui::Button("切换鼠标模式（相对 / 虚拟摇杆）", ImVec2(-1, 0))) Menu_ToggleMouseMode();
     ImGui::SetItemTooltip("等同于双击 X。进入驾驶座时会自动切一次，之后可随时用这个按钮改回。");
 
+    static bool ammoAll = false;
+    static bool ammoInit = false;
+    if (!ammoInit) { ammoInit = true; ammoAll = Menu_GlobalAmmoCached() != 0; }
+    if (ImGui::Checkbox("全宇宙无限弹药（所有飞船 + NPC）", &ammoAll)) Menu_RequestGlobalAmmo(ammoAll);
+    ImGui::SetItemTooltip("改引擎的 g_infiniteAmmo 与 NPC 无限弹匣，所有飞船都不消耗弹药，不需要你上船。");
+
     SectionHeading("视角");
     static float fov = 0.0f;
     if (fov <= 0.0f) fov = Menu_FovCached();
