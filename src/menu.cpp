@@ -4,6 +4,8 @@
 // the look, the tab bar, the product's own Menu tab, the status strip and the shared widgets
 // (menu_ui.h).
 #include "menu.h"
+
+#pragma comment(lib, "advapi32.lib")
 #include "menu_imgui.h"
 #include "menu_ui.h"
 #include "chinese_font.h"
@@ -92,6 +94,12 @@ static LRESULT CALLBACK MenuWndProc(HWND h, UINT msg, WPARAM w, LPARAM l) {
         return 0;
     case WM_MOUSEACTIVATE:
         return MA_ACTIVATE;
+    case WM_SETCURSOR:
+        if (LOWORD(l) == HTCLIENT) {
+            SetCursor(g_arrowCursor);
+            return TRUE;
+        }
+        break;
     case WM_SYSCOMMAND:
         if ((w & 0xFFF0) == SC_KEYMENU) return 0;
         break;
@@ -712,12 +720,35 @@ static void WaitWhileBuilding() {
     }
 }
 
+// 菜单窗口的光标：用系统当前光标主题（HKCU\Control Panel\Cursors 的 Arrow），
+// 这样紫色光标之类的自定义主题在菜单里也能保持一致。
+static HCURSOR LoadUserArrowCursor() {
+    wchar_t path[MAX_PATH] = {};
+    DWORD size = sizeof(path);
+    DWORD type = 0;
+    HKEY key = nullptr;
+    if (RegOpenKeyExW(HKEY_CURRENT_USER, L"Control Panel\\Cursors", 0, KEY_QUERY_VALUE, &key) == ERROR_SUCCESS) {
+        const LONG r = RegQueryValueExW(key, L"Arrow", nullptr, &type, reinterpret_cast<LPBYTE>(path), &size);
+        RegCloseKey(key);
+        if (r != ERROR_SUCCESS) path[0] = 0;
+    }
+    if (path[0]) {
+        if (HCURSOR c = static_cast<HCURSOR>(LoadImageW(nullptr, path, IMAGE_CURSOR, 0, 0,
+                                                        LR_LOADFROMFILE | LR_DEFAULTSIZE)))
+            return c;
+    }
+    return LoadCursorW(nullptr, IDC_ARROW);
+}
+
+static HCURSOR g_arrowCursor = nullptr;
+
 static DWORD WINAPI MenuThread(LPVOID) {
     ComputeMenuLayout();
     WNDCLASSEXW wc = { sizeof(wc) };
     wc.lpfnWndProc = MenuWndProc;
     wc.hInstance = GetModuleHandleW(nullptr);
-    wc.hCursor = LoadCursorW(nullptr, IDC_ARROW);
+    g_arrowCursor = LoadUserArrowCursor();
+    wc.hCursor = g_arrowCursor;
     wc.lpszClassName = L"starcitzenofflinemods_menu";
     RegisterClassExW(&wc);
     g_wnd = CreateWindowExW(WS_EX_TOPMOST | WS_EX_TOOLWINDOW, wc.lpszClassName, L"sc-offline", WS_POPUP,
