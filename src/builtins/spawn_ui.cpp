@@ -8,6 +8,30 @@
 #include <cstdio>
 #include <cstring>
 
+// 来自 common.cpp
+bool DataFilePath(char* path, DWORD n, const char* file);
+
+// “飞船无限弹药”的持久化开关
+static bool ShipAmmoWanted() {
+    char path[MAX_PATH];
+    if (!DataFilePath(path, sizeof(path), "ship_ammo.txt")) return false;
+    FILE* f = nullptr;
+    if (fopen_s(&f, path, "r") != 0 || !f) return false;
+    int v = 0;
+    const bool ok = fscanf_s(f, "%d", &v) == 1;
+    fclose(f);
+    return ok && v != 0;
+}
+
+static void SaveShipAmmoWanted(bool on) {
+    char path[MAX_PATH];
+    if (!DataFilePath(path, sizeof(path), "ship_ammo.txt")) return;
+    FILE* f = nullptr;
+    if (fopen_s(&f, path, "w") != 0 || !f) return;
+    fprintf(f, "%d\n", on ? 1 : 0);
+    fclose(f);
+}
+
 // 来自 spawner.cpp：下次生成飞船用的缩放 / 一键清除
 void Menu_SetSpawnScale(float scale);
 void Menu_RequestClearShips();
@@ -101,9 +125,19 @@ void DrawVehiclesTab(void*, void*) {
         ImGui::SetItemTooltip("移除本菜单生成过的飞船；空间站、NPC、你自己开的船不动。");
     }
 
-    SectionHeading("当前飞船");
     static bool shipAmmo = false;
-    if (ImGui::Checkbox("飞船无限弹药", &shipAmmo)) InvokeCreativeToggle("creative.ship_ammo", shipAmmo, &shipAmmo);
+    static bool shipAmmoInit = false;
+    if (!shipAmmoInit) {
+        shipAmmoInit = true;
+        shipAmmo = ShipAmmoWanted();
+        if (shipAmmo) InvokeCreativeToggle("creative.ship_ammo", true, &shipAmmo);
+    }
+
+    SectionHeading("当前飞船");
+    if (ImGui::Checkbox("飞船无限弹药（永久）", &shipAmmo)) {
+        InvokeCreativeToggle("creative.ship_ammo", shipAmmo, &shipAmmo);
+        SaveShipAmmoWanted(shipAmmo);
+    }
     ImGui::SetItemTooltip("补充当前飞船的弹药。需要在启动器的“插件”页面启用 creative 插件。");
     if (ImGui::Button("开启 / 关闭电源", ImVec2(-1, 0))) Menu_RequestFlightReady();
     Hint("切换“船员”页面所选飞船的飞行准备状态，相当于在驾驶座按 R。");
