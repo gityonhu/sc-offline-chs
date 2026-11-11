@@ -289,11 +289,25 @@ void ProcessCVars() {
     if (!ammoLoaded) { ammoLoaded = true; LoadAmmoFromDisk(); }
     if (InterlockedCompareExchange(&g_ammoPending, 1, 1) == 1) {
         const bool on = g_ammoWanted != 0;
-        const bool a = SetCVarNow("g_infiniteAmmo", on ? 1.0f : 0.0f);
-        const bool b = SetCVarNow("g_AIComponents.enableNPCInfiniteMags", on ? 1.0f : 0.0f);
-        if (a || b) {
+        static const char* const kCandidates[] = {
+            "g_infiniteAmmo", "g_infinite_ammo", "w_infiniteAmmo",
+            "v_infiniteAmmo", "g_weapons.infiniteAmmo", "infiniteAmmo",
+        };
+        const char* hit = nullptr;
+        for (const char* name : kCandidates) {
+            if (SetCVarNow(name, on ? 1.0f : 0.0f)) { hit = name; break; }
+        }
+        const bool npc = SetCVarNow("g_AIComponents.enableNPCInfiniteMags", on ? 1.0f : 0.0f);
+        if (!hit) {
+            // 控制台兜底：有些 cvar 只能通过控制台名字解析
+            char cmd[96];
+            snprintf(cmd, sizeof(cmd), "g_infiniteAmmo %d", on ? 1 : 0);
+            const bool ran = Execute(cmd);
+            Log("[cvars] console fallback '%s' -> %s", cmd, ran ? "ok" : "failed");
+        }
+        if (hit || npc) {
             InterlockedExchange(&g_ammoPending, 0);
-            Log("[cvars] global infinite ammo -> %d (player=%d npc=%d)", on ? 1 : 0, a ? 1 : 0, b ? 1 : 0);
+            Log("[cvars] global infinite ammo -> %d (player=%s npc=%d)", on ? 1 : 0, hit ? hit : "none", npc ? 1 : 0);
         }
     }
     {
