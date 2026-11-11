@@ -468,23 +468,6 @@ static void DrawMenuTab() {
     if (ImGui::Button("切换鼠标模式（相对 / 虚拟摇杆）", ImVec2(-1, 0))) Menu_ToggleMouseMode();
     ImGui::SetItemTooltip("等同于双击 X。进入驾驶座时会自动切一次，之后可随时用这个按钮改回。");
 
-    static float sens = 0.0f;
-    if (sens <= 0.0f) sens = Menu_SensitivityCached();
-    ImGui::SetNextItemWidth(-1);
-    if (ImGui::SliderFloat("##sens", &sens, 0.5f, 60.0f, "鼠标灵敏度 %.1f")) Menu_RequestSensitivity(sens);
-    ImGui::SetItemTooltip("只放大鼠标输入；大船的最大转向速率由飞控决定，调高只是更快打到上限。");
-
-    static const char* const kRotLabel[3] = { "飞船俯仰转速 %.2f 倍", "飞船偏航转速 %.2f 倍", "飞船滚转转速 %.2f 倍" };
-    for (int axis = 0; axis < 3; ++axis) {
-        static float rot[3] = { 0.0f, 0.0f, 0.0f };
-        if (rot[axis] <= 0.0f) rot[axis] = Menu_RotationCached(axis);
-        ImGui::SetNextItemWidth(-1);
-        char id[16];
-        snprintf(id, sizeof(id), "##rot%d", axis);
-        if (ImGui::SliderFloat(id, &rot[axis], 0.1f, 3.0f, kRotLabel[axis])) Menu_RequestRotation(axis, rot[axis]);
-    }
-    ImGui::SetItemTooltip("直接改 IFCS 的原始转速，只影响飞船，不影响人物；调太高会显得不真实。");
-
     SectionHeading("视角");
     static float fov = 0.0f;
     if (fov <= 0.0f) fov = Menu_FovCached();
