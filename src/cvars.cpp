@@ -216,6 +216,39 @@ void Menu_RequestFov(float fov) {
 
 float Menu_FovCached() { return g_fovCached; }
 
+// --- 全宇宙无限弹药：g_infiniteAmmo + NPC 无限弹匣 ---
+static volatile LONG g_ammoWanted = 1;
+static volatile LONG g_ammoCached = 0;
+static volatile LONG g_ammoPending = 0;
+
+void Menu_RequestGlobalAmmo(bool on) {
+    InterlockedExchange(&g_ammoWanted, on ? 1 : 0);
+    InterlockedExchange(&g_ammoPending, 1);
+    char path[MAX_PATH];
+    if (!DataFilePath(path, sizeof(path), "ammo_global.txt")) return;
+    FILE* f = nullptr;
+    if (fopen_s(&f, path, "w") != 0 || !f) return;
+    fprintf(f, "%d\n", on ? 1 : 0);
+    fclose(f);
+}
+
+int Menu_GlobalAmmoCached() { return static_cast<int>(g_ammoCached); }
+
+static void LoadAmmoFromDisk() {
+    char path[MAX_PATH];
+    if (!DataFilePath(path, sizeof(path), "ammo_global.txt")) return;
+    FILE* f = nullptr;
+    if (fopen_s(&f, path, "r") != 0 || !f) return;
+    int v = 1;
+    const bool ok = fscanf_s(f, "%d", &v) == 1;
+    fclose(f);
+    if (ok) {
+        InterlockedExchange(&g_ammoWanted, v ? 1 : 0);
+        InterlockedExchange(&g_ammoPending, 1);
+        Log("[cvars] saved global ammo %d", v);
+    }
+}
+
 void ProcessCVars() {
     KeepSettingsOn();
     {
@@ -249,6 +282,27 @@ void ProcessCVars() {
             lastFovRead = nowMs;
             float v = 0.0f;
             if (GetCVarNow("cl_fov", v)) g_fovCached = v;
+        }
+    }
+
+    static bool ammoLoaded = false;
+    if (!ammoLoaded) { ammoLoaded = true; LoadAmmoFromDisk(); }
+    if (InterlockedCompareExchange(&g_ammoPending, 1, 1) == 1) {
+        const bool on = g_ammoWanted != 0;
+        const bool a = SetCVarNow("g_infiniteAmmo", on ? 1.0f : 0.0f);
+        const bool b = SetCVarNow("g_AIComponents.enableNPCInfiniteMags", on ? 1.0f : 0.0f);
+        if (a || b) {
+            InterlockedExchange(&g_ammoPending, 0);
+            Log("[cvars] global infinite ammo -> %d (player=%d npc=%d)", on ? 1 : 0, a ? 1 : 0, b ? 1 : 0);
+        }
+    }
+    {
+        static DWORD lastAmmoRead = 0;
+        const DWORD nowMs = GetTickCount();
+        if (nowMs - lastAmmoRead > 1000) {
+            lastAmmoRead = nowMs;
+            float v = 0.0f;
+            if (GetCVarNow("g_infiniteAmmo", v)) InterlockedExchange(&g_ammoCached, v != 0.0f ? 1 : 0);
         }
     }
 }
