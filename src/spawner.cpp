@@ -1202,6 +1202,22 @@ static void EnsureRelativeMouseOnce() {
     Log("[ship] switched mouse aim mode once (relative / virtual joystick)");
 }
 
+// 刷出来的船进驾驶座后：全船通电 + 功率拉满（F9/F10，见 actionmaps.xml 的 spaceship_power）
+static void PowerUpOnce() {
+    static bool done = false;
+    if (done) return;
+    done = true;
+    if (HANDLE t = CreateThread(nullptr, 0, [](LPVOID) -> DWORD {
+            Sleep(1500);
+            SendKeyTap(0x43);   // F9  v_power_set_on
+            Sleep(400);
+            SendKeyTap(0x44);   // F10 v_power_throttle_max
+            Log("[ship] power up sent (F9/F10)");
+            return 0;
+        }, nullptr, 0, nullptr))
+        CloseHandle(t);
+}
+
 static void PressFlightReadyKey() {
     if (HANDLE t = CreateThread(nullptr, 0, [](LPVOID) -> DWORD {
             INPUT in[2] = {};
@@ -1362,9 +1378,11 @@ static void FinishSeatJob(DWORD now) {
     if (pilot && g_seatJob.flightReady) {
         StartPowerJob(g_seatJob.id, g_lastSeat.seatId, g_seatJob.name, now + 1500, 20000);
         EnsureRelativeMouseOnce();
+        PowerUpOnce();
         SetMenuStatus("你已进入 %s 的驾驶座，正在启动电源……", g_seatJob.name);
     } else if (pilot) {
         EnsureRelativeMouseOnce();
+        PowerUpOnce();
         SetMenuStatus("你已进入 %s 的驾驶座（%s），请按 R（飞行准备）启动电源。", g_seatJob.name, g_lastSeat.name);
     } else if (have && g_seatJob.mode == SeatMode_Pilot && !g_seatJob.wantSeat) {
         SetMenuStatus("你已进入 %s，但驾驶座不可用%s，已安排至“%s”。", g_seatJob.name,
