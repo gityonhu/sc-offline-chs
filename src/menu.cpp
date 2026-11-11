@@ -226,6 +226,7 @@ static void ShowMenu(bool show) {
             }
         }
         ForceForeground(g_wnd);
+        SetCapture(g_wnd);          // 菜单打开期间，鼠标消息全部归我们
         SetCursorPos(x + kMenuW / 2, y + kMenuH / 2);
         KeepCursorInMenu();
         if (MenuFocusRetry* c = new MenuFocusRetry{g_wnd, x, y, kMenuW, kMenuH}) {
@@ -235,6 +236,7 @@ static void ShowMenu(bool show) {
                 delete c;
         }
     } else {
+        ReleaseCapture();
         ClipCursor(nullptr);
         g_clipped = false;
         ShowWindow(g_wnd, SW_HIDE);
@@ -831,6 +833,11 @@ static DWORD WINAPI MenuThread(LPVOID) {
         }
         if (!visible) { g_typing = false; Sleep(50); continue; }
         KeepCursorInMenu();
+        if (GetCapture() != g_wnd) {
+            static DWORD lastCap = 0;
+            const DWORD capNow = GetTickCount();
+            if (capNow - lastCap > 200) { lastCap = capNow; SetCapture(g_wnd); }
+        }
         // Visible but not focused: keep the last picture and stop asking the game thread for
         // frames, so the game runs at full speed until the menu is focused again.
         if (g_resizeW && g_resizeH) {
