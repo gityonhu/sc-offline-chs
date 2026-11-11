@@ -81,6 +81,8 @@ static bool CreateDevice() {
 
 static bool GameThreadBuilding();
 
+static HCURSOR g_arrowCursor = nullptr;   // 菜单窗口的光标（系统主题）
+
 static LRESULT CALLBACK MenuWndProc(HWND h, UINT msg, WPARAM w, LPARAM l) {
     // A message sent to the window while the game thread builds a frame doesn't reach ImGui: the
     // game thread has it until the frame is built.
@@ -739,8 +741,6 @@ static HCURSOR LoadUserArrowCursor() {
     }
     return LoadCursorW(nullptr, IDC_ARROW);
 }
-
-static HCURSOR g_arrowCursor = nullptr;
 
 static DWORD WINAPI MenuThread(LPVOID) {
     ComputeMenuLayout();
