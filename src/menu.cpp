@@ -90,6 +90,8 @@ static LRESULT CALLBACK MenuWndProc(HWND h, UINT msg, WPARAM w, LPARAM l) {
     case WM_CLOSE:
         ShowWindow(h, SW_HIDE);
         return 0;
+    case WM_MOUSEACTIVATE:
+        return MA_ACTIVATE;
     case WM_SYSCOMMAND:
         if ((w & 0xFFF0) == SC_KEYMENU) return 0;
         break;
@@ -657,7 +659,7 @@ static HANDLE        g_frameBuilt = nullptr;   // auto-reset: wakes the menu thr
 static bool          g_frameKeepOpen = true;   // DrawMenu's answer for the last frame
 static std::atomic<bool> g_typing{ false };   // the menu has focus and a text box is active
 static volatile LONG g_nudged = 0;            // a WM_NULL is on its way to the game
-constexpr DWORD kMenuWaitMs = 50;
+constexpr DWORD kMenuWaitMs = 8;
 
 static bool GameThreadBuilding() { return g_frameState == Frame_Building; }
 
@@ -728,7 +730,7 @@ static DWORD WINAPI MenuThread(LPVOID) {
     ImGui::SetAllocatorFunctions(sc_offline_imgui::Alloc, sc_offline_imgui::Free);
     ImGui::CreateContext();
     ImGui::GetIO().IniFilename = nullptr;
-    ImGui::GetIO().MouseDrawCursor = true;
+    ImGui::GetIO().MouseDrawCursor = false;
     // A plugin's draw that faults or leaves a Begin open is recovered from (DrawPluginTab), quietly.
     ImGui::GetIO().ConfigErrorRecoveryEnableAssert = false;
     ImGui::GetIO().ConfigErrorRecoveryEnableTooltip = false;
@@ -808,7 +810,15 @@ static DWORD WINAPI MenuThread(LPVOID) {
             CreateRenderTarget();
             Log("[menu] render target -> %dx%d", rw, rh);
         }
-        if (GetForegroundWindow() != g_wnd) { Sleep(50); continue; }
+        if (GetForegroundWindow() != g_wnd) {
+            static DWORD lastForce = 0;
+            const DWORD forceNow = GetTickCount();
+            if (forceNow - lastForce > 250) {
+                lastForce = forceNow;
+                ForceForeground(g_wnd);
+            }
+            if (GetForegroundWindow() != g_wnd) { Sleep(10); continue; }
+        }
 
         RequestFrame();
         // Wakes for the built frame or the window's next message, whichever comes first.
